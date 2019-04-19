@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 200px;
 }
 
 .Search-input-container {
@@ -25,4 +26,8 @@
     font-size: 16px;
     border: none;
     box-sizing: border-box;
+}
+
+.Search-item-match {
+    font-weight: bold;
 }

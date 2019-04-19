@@ -4,14 +4,50 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import './style.css';
+import controller from './controller.js';
 
 class Search extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            isActive: true,
+            suggestions: [],
             value: ''
         };
+    }
+
+    componentDidMount() {
+        // create Input ref and set to active
+        const suggestions = [
+            {
+                artists: ['Calvin Harris'],
+                featured: ['Sam Smith'],
+                title: 'Promises'
+            },
+            {
+                artists: ['Lipless', 'Mahalo', 'Carly Paige'],
+                featured: [],
+                title: 'Falling'
+            },
+            {
+                artists: ['Ilan Bluestone', 'El Waves'],
+                featured: [],
+                title: 'Mama Africa - Extended Mix'
+            },
+            {
+                artists: ['Sunny Lax'],
+                featured: [],
+                title: 'Greenlight'
+            },
+            {
+                artists: ['No Mana'],
+                featured: [],
+                title: 'Bad Things'
+            }
+        ];
+
+        this.setState({ suggestions });
     }
 
     handleChange = e => {
@@ -56,6 +92,29 @@ class Search extends Component {
         // }
     };
 
+    renderSuggestions = () => {
+        const { suggestions } = this.state;
+        return (
+            <div className="Search-suggestions-container">
+                {suggestions.map((item, idx) => this.renderItem(item, idx))}
+            </div>
+        );
+    };
+
+    renderItem = (item, idx) => {
+        const { index, value } = this.state;
+        return (
+            <div className="Search-item">
+                <div className="Search-item-title">
+                    {controller.getStyledText(item.title, value)}
+                </div>
+                <div className="Search-item-artists">
+                    {controller.getStyledText(item.artists, value)}
+                </div>
+            </div>
+        );
+    };
+
     render() {
         const { value } = this.state;
         return (
@@ -74,6 +133,7 @@ class Search extends Component {
                         size="xl"
                         value={value}
                     />
+                    {this.renderSuggestions()}
                 </div>
             </div>
         );

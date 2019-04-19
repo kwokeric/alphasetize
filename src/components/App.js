@@ -13,10 +13,10 @@ class App extends Component {
         super(props);
 
         this.state = {
-            activeTab: 'about'
+            activeTab: 'search'
         };
 
-        this.getToken();
+        // this.getToken();
     }
 
     getToken = () => {
@@ -53,7 +53,7 @@ class App extends Component {
             <div className="App">
                 <Header />
                 {activeTab === 'about' && <About />}
-                {activeTab === 'about' && <Search />}
+                {activeTab === 'search' && <Search />}
             </div>
         );
     }
