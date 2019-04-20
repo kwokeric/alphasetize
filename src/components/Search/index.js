@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import axios from 'axios';
+// import axios from 'axios';
 
 import './style.css';
 import controller from './controller.js';
+import cx from '../../utils/cx.js';
+
+const KEYCODES = {
+    ESC: 27,
+    ENTER: 13,
+    UP_ARROW: 38,
+    DOWN_ARROW: 40
+};
 
 class Search extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            index: 0,
             isActive: false,
             suggestions: [],
             value: ''
@@ -62,6 +71,18 @@ class Search extends Component {
         });
     };
 
+    handleMouseOver = index => {
+        this.setState({
+            index
+        });
+    };
+
+    handleMouseLeave = () => {
+        this.setState({
+            index: -1
+        });
+    };
+
     handleChange = e => {
         this.setState({
             value: e.target.value
@@ -71,43 +92,31 @@ class Search extends Component {
     };
 
     handleKeyDown = e => {
+        const { index, suggestions } = this.state;
         const keyCode = e.which;
 
-        // if (keyCode === constants.UP_ARROW_KEYCODE) {
-        //     const prevIndex = index === -1 ? -1 : index - 1;
-        //     this.setState({ index: prevIndex });
-        //     e.preventDefault();
-        // } else if (keyCode === constants.DOWN_ARROW_KEYCODE) {
-        //     const nextIndex = index === overMaxIndex ? overMaxIndex : index + 1;
-        //     this.setState({ index: nextIndex });
-        //     e.preventDefault();
-        // } else if (keyCode === constants.ESC_KEYCODE) {
-        //     // this.handleToggleDropdown();
-        //     e.preventDefault();
-        // } else if (keyCode === constants.ENTER_KEYCODE) {
-        //     const selectedItem =
-        //         items.length > 0 && index === -1 ? items[0] : items[index];
-        //     if (selectedItem) {
-        //         e.target.blur();
-        //         this.setState({ isActive: false });
-        //         this.handleSelectItem({ item: selectedItem });
-        //     } else {
-        //         log.warn(
-        //             'User did not select an option. Returning text as value.'
-        //         );
-        //         this.handleSelectItem({
-        //             item: value,
-        //             isActive: true,
-        //             type: 'userQuery'
-        //         });
-        //     }
-        // }
+        if (keyCode === KEYCODES.UP_ARROW) {
+            const prevIndex = Math.max(index - 1, 0);
+            this.setState({ index: prevIndex });
+            e.preventDefault();
+        } else if (keyCode === KEYCODES.DOWN_ARROW) {
+            const nextIndex = Math.min(index + 1, suggestions.length - 1);
+            this.setState({ index: nextIndex });
+            e.preventDefault();
+        } else if (keyCode === KEYCODES.ESC) {
+            e.preventDefault();
+        } else if (keyCode === KEYCODES.ENTER) {
+            e.preventDefault();
+        }
     };
 
     renderSuggestions = () => {
         const { suggestions } = this.state;
         return (
-            <div className="Search-suggestions-container">
+            <div
+                className="Search-suggestions-container"
+                onMouseLeave={this.handleMouseLeave}
+            >
                 {suggestions.map((item, idx) => this.renderItem(item, idx))}
             </div>
         );
@@ -117,11 +126,17 @@ class Search extends Component {
         const { index } = this.state;
 
         return (
-            <div className="Search-item-container" key={item + idx}>
+            <div
+                className={cx('Search-item-container', {
+                    'Search-item-container-active': index === idx
+                })}
+                onMouseOver={() => this.handleMouseOver(idx)}
+                key={item + idx}
+            >
                 <div className="Search-item">
                     {controller.getArtists(item.artists, item.featured)}
                     {' - '}
-                    <span className="Search-item-title"> {item.title}</span>
+                    {item.title}
                 </div>
             </div>
         );
