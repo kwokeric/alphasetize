@@ -114,13 +114,14 @@ class Search extends Component {
     };
 
     renderItem = (item, idx) => {
-        const { index, value } = this.state;
+        const { index } = this.state;
 
         return (
-            <div className="Search-item-container">
+            <div className="Search-item-container" key={item + idx}>
                 <div className="Search-item">
-                    <div className="Search-item-artists">{item.artists}</div>
-                    <div className="Search-item-title">{item.title}</div>
+                    {controller.getArtists(item.artists, item.featured)}
+                    {' - '}
+                    <span className="Search-item-title"> {item.title}</span>
                 </div>
             </div>
         );
@@ -132,8 +133,9 @@ class Search extends Component {
         return (
             <div className="Search">
                 <div
-                    className={`Search-container ${isActive &&
-                        'Search-container-active'}`}
+                    className={`Search-container ${
+                        isActive ? 'Search-container-active' : ''
+                    }`}
                 >
                     <div className="Search-input-container">
                         <input

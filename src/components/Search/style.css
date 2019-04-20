@@ -17,9 +17,13 @@
     background: white;
 }
 
+.Search-container:hover {
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.2);
+}
+
 .Search-container-active {
     border: none;
-    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.22);
 }
 
 .Search-input-container {
@@ -70,6 +74,6 @@
     background: #f4f4f4;
 }
 
-.Search-item-match {
-    font-weight: bold;
+.Search-item-title {
+    font-style: italic;
 }

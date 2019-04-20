@@ -1,7 +1,17 @@
 import React from 'react';
 
 const controller = {
-    getStyledText(text = '', value = '') {
+    getArtists(artists = [], featured = []) {
+        let result = artists.join(', ');
+
+        if (featured.length) {
+            result += ' feat. ';
+            result += featured.join(', ');
+        }
+
+        return result;
+    },
+    getText(text = '', value = '') {
         let textArr = [];
         let result = [];
         let delimeter = '';
