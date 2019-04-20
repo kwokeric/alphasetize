@@ -11,7 +11,7 @@ class Search extends Component {
         super(props);
 
         this.state = {
-            isActive: true,
+            isActive: false,
             suggestions: [],
             value: ''
         };
@@ -49,6 +49,18 @@ class Search extends Component {
 
         this.setState({ suggestions });
     }
+
+    handleFocus = () => {
+        this.setState({
+            isActive: true
+        });
+    };
+
+    handleBlur = () => {
+        this.setState({
+            isActive: false
+        });
+    };
 
     handleChange = e => {
         this.setState({
@@ -103,37 +115,38 @@ class Search extends Component {
 
     renderItem = (item, idx) => {
         const { index, value } = this.state;
+
         return (
-            <div className="Search-item">
-                <div className="Search-item-title">
-                    {controller.getStyledText(item.title, value)}
-                </div>
-                <div className="Search-item-artists">
-                    {controller.getStyledText(item.artists, value)}
+            <div className="Search-item-container">
+                <div className="Search-item">
+                    <div className="Search-item-artists">{item.artists}</div>
+                    <div className="Search-item-title">{item.title}</div>
                 </div>
             </div>
         );
     };
 
     render() {
-        const { value } = this.state;
+        const { isActive, value } = this.state;
+
         return (
             <div className="Search">
-                <div className="Search-input-container">
-                    <input
-                        className="Search-input"
-                        onBlur={e => {
-                            //this.handleBlur(e)}
-                        }}
-                        onChange={e => this.handleChange(e)}
-                        onFocus={e => {
-                            //this.handleFocus(e)}
-                        }}
-                        onKeyDown={e => this.handleKeyDown(e)}
-                        size="xl"
-                        value={value}
-                    />
-                    {this.renderSuggestions()}
+                <div
+                    className={`Search-container ${isActive &&
+                        'Search-container-active'}`}
+                >
+                    <div className="Search-input-container">
+                        <input
+                            className="Search-input"
+                            onBlur={this.handleBlur}
+                            onChange={e => this.handleChange(e)}
+                            onFocus={this.handleFocus}
+                            onKeyDown={e => this.handleKeyDown(e)}
+                            size="xl"
+                            value={value}
+                        />
+                    </div>
+                    {isActive && this.renderSuggestions()}
                 </div>
             </div>
         );
