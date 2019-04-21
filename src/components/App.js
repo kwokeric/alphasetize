@@ -16,7 +16,26 @@ class App extends Component {
             activeTab: 'search'
         };
 
+        console.log('constructor');
         // this.getToken();
+    }
+
+    componentDidMount() {
+        const { token } = this.props;
+        const client_id = 'b722de12baaf4052a82f8cd762edda76';
+        const client_secret = '70e8080cde704e87af4a0b1f70d4a345';
+
+        console.log('componentDidMount');
+        if (!token) {
+            console.log('no token');
+            window.location.href =
+                'https://accounts.spotify.com/authorize?' +
+                'client_id=' +
+                client_id +
+                '&scope=token&redirect_uri=http://localhost:3000/callback';
+        } else {
+            this.props.setToken(hashParams.access_token);
+        }
     }
 
     getToken = () => {
@@ -49,6 +68,8 @@ class App extends Component {
     render() {
         const { activeTab } = this.state;
 
+        console.log('render');
+
         return (
             <div className="App">
                 <Header />
@@ -59,4 +80,8 @@ class App extends Component {
     }
 }
 
-export default connect()(App);
+const mapStateToProps = state => ({
+    token: state.token
+});
+
+export default connect(mapStateToProps)(App);

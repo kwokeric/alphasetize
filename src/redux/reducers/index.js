@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import simpleReducer from './simpleReducer';
+import SpotifyReducer from './SpotifyReducer';
 
 export default combineReducers({
-    simpleReducer
+    SpotifyReducer
 });
