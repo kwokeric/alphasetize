@@ -1,11 +1,15 @@
 .About {
-    padding-top: 60px;
     width: 100%;
-    height: 30vh;
+}
+
+.About-content {
+    width: 90%;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding: 0 24px;
 }
 
 .About-header {
@@ -15,4 +19,73 @@
 
 .About-subheader {
     font-size: 20px;
+}
+
+.About-auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+}
+
+.About-auth-container {
+}
+
+.About-auth-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    border-radius: 30px;
+    border: 2.5px solid black;
+    font-size: 20px;
+    cursor: pointer;
+
+    &.About-auth-button-hover {
+        animation: fadeSlideIn 2s;
+        display: inline-flex;
+    }
+}
+
+.About-auth-button-hover {
+    background: #1db954;
+    border: 2.5px solid #1db954;
+    color: white;
+    font-size: 16px;
+}
+
+.About-section {
+    display: flex;
+    align-items: center;
+    padding: 32px;
+}
+
+.About-image-container {
+    width: 300px;
+    min-width: 300px;
+    height: 300px;
+    padding-right: 24px;
+}
+
+.About-image {
+    width: 100%;
+    height: 100%;
+}
+
+@-webkit-keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
