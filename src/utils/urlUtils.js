@@ -1,4 +1,4 @@
-const controller = {
+const urlUtils = {
     getUrlParams(artists = [], featured = []) {
         let urlParams = {};
         let e,
@@ -13,4 +13,4 @@ const controller = {
     }
 };
 
-export default controller;
+export default urlUtils;

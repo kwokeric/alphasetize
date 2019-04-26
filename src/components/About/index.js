@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// Actions
+import SpotifyActions from '../../redux/actions/SpotifyActions';
+
 import './style.css';
 import CamelotWheel from '../../assets/camelotWheel.jpg';
 import cx from '../../utils/cx.js';
+import urlUtils from '../../utils/urlUtils.js';
 
 class About extends Component {
     constructor(props) {
@@ -26,6 +30,23 @@ class About extends Component {
         });
     };
 
+    handleClick = e => {
+        e.preventDefault();
+        const { token, dispatch } = this.props;
+        const client_id = 'b722de12baaf4052a82f8cd762edda76';
+        const urlParams = urlUtils.getUrlParams();
+
+        if (!urlParams.access_token && !token) {
+            window.location.href =
+                'https://accounts.spotify.com/authorize?' +
+                'client_id=' +
+                client_id +
+                '&response_type=token&redirect_uri=http://localhost:3000/callback';
+        } else {
+            dispatch(SpotifyActions.setToken(urlParams.access_token));
+        }
+    };
+
     renderSpotifyAuth = () => {
         const { authHover } = this.state;
 
@@ -35,6 +56,7 @@ class About extends Component {
                     className="About-auth-container"
                     onMouseOver={this.handleMouseOver}
                     onMouseLeave={this.handleMouseLeave}
+                    onClick={this.handleClick}
                 >
                     <div
                         className={cx('About-auth-button', {
@@ -49,7 +71,6 @@ class About extends Component {
     };
 
     render() {
-        const { token } = this.props;
         return (
             <div className="About">
                 <div className="About-content">
@@ -58,7 +79,7 @@ class About extends Component {
                         Alphasetize helps you order songs in your sets based on
                         key compatibility.
                     </h2>
-                    {!token && this.renderSpotifyAuth()}
+                    {this.renderSpotifyAuth()}
                     <div className="About-section">
                         <div className="About-image-container">
                             <img
