@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
-
-// Actions
-import SpotifyActions from '../../redux/actions/SpotifyActions';
 
 import './style.css';
 import CamelotWheel from '../../assets/camelotWheel.jpg';
@@ -32,7 +30,7 @@ class About extends Component {
 
     handleClick = e => {
         e.preventDefault();
-        const { token, dispatch } = this.props;
+        const { token, history } = this.props;
         const client_id = 'b722de12baaf4052a82f8cd762edda76';
         const urlParams = urlUtils.getUrlParams();
 
@@ -41,13 +39,15 @@ class About extends Component {
                 'https://accounts.spotify.com/authorize?' +
                 'client_id=' +
                 client_id +
-                '&response_type=token&redirect_uri=http://localhost:3000/callback';
+                '&response_type=token&redirect_uri=http://localhost:3000/search';
         } else {
-            dispatch(SpotifyActions.setToken(urlParams.access_token));
+            console.log('> Already authenticated!');
+            history.push('/search');
         }
     };
 
     renderSpotifyAuth = () => {
+        const { token } = this.props;
         const { authHover } = this.state;
 
         return (
@@ -63,7 +63,11 @@ class About extends Component {
                             'About-auth-button-hover': authHover
                         })}
                     >
-                        {authHover ? 'SPOTIFY LOGIN' : 'Get started'}
+                        {!authHover
+                            ? 'Get started'
+                            : token
+                                ? 'SEARCH'
+                                : 'SPOTIFY LOGIN'}
                     </div>
                 </div>
             </div>
@@ -111,10 +115,10 @@ class About extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
         token: state.spotify.token
     };
 };
 
-export default connect(mapStateToProps)(About);
+export default withRouter(connect(mapStateToProps)(About));

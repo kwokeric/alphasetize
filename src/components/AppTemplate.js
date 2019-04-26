@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 
+import SpotifyActions from '../redux/actions/SpotifyActions';
 // Components
 import Header from './Header';
 
 // Misc / Utils
 import './AppTemplate.css';
 import './reset.css';
+import urlUtils from '../utils/urlUtils.js';
 
 class AppTemplate extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            activeTab: 'about'
-        };
-    }
-
     componentDidMount() {
-        // nothing here
+        const { token, dispatch } = this.props;
+
+        if (token) {
+            return;
+        }
+
+        const urlParams = urlUtils.getUrlParams();
+
+        if (urlParams.access_token) {
+            console.log('> Setting Spotify access token');
+            dispatch(SpotifyActions.setToken(urlParams.access_token));
+        }
     }
 
     render() {
