@@ -29,7 +29,12 @@
     cursor: pointer;
 }
 
+.Header-tab:hover {
+    color: #26557f;
+}
+
 .Header-tab-active {
-    color: green;
+    padding: 16px;
+    color: #2eb0c4;
     cursor: default;
 }

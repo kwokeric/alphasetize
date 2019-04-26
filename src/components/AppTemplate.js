@@ -8,7 +8,7 @@ import Header from './Header';
 
 // Misc / Utils
 import './AppTemplate.css';
-import './reset.css';
+import '../css/reset.css';
 import urlUtils from '../utils/urlUtils.js';
 
 class AppTemplate extends Component {

@@ -52,16 +52,14 @@ class About extends Component {
 
         return (
             <div className="About-auth-section">
-                <div
-                    className="About-auth-container"
-                    onMouseOver={this.handleMouseOver}
-                    onMouseLeave={this.handleMouseLeave}
-                    onClick={this.handleClick}
-                >
+                <div className="About-auth-container">
                     <div
                         className={cx('About-auth-button', {
                             'About-auth-button-hover': authHover
                         })}
+                        onMouseOver={this.handleMouseOver}
+                        onMouseLeave={this.handleMouseLeave}
+                        onClick={this.handleClick}
                     >
                         {!authHover
                             ? 'Get started'

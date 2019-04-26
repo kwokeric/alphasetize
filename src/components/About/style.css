@@ -14,7 +14,7 @@
 
 .About-header {
     font-size: 48px;
-    padding: 36px 0;
+    padding: 64px 0 48px;
 }
 
 .About-subheader {
@@ -25,10 +25,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120px;
 }
 
 .About-auth-container {
+    padding: 48px 0;
 }
 
 .About-auth-button {

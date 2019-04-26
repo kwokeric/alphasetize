@@ -15,17 +15,20 @@ class Header extends Component {
                 <div className="Header-logo">Alphasetize</div>
                 <div className="Header-tabs">
                     <div
-                        className={cx('Header-tab', {
-                            'Header-tab-active':
-                                pathname === '/' || pathname === '/about'
-                        })}
+                        className={
+                            pathname === '/about' || pathname === '/'
+                                ? 'Header-tab-active'
+                                : 'Header-tab'
+                        }
                     >
                         <Link to={'/'}>ABOUT</Link>
                     </div>
                     <div
-                        className={cx('Header-tab', {
-                            'Header-tab-active': pathname === '/search'
-                        })}
+                        className={
+                            pathname === '/search'
+                                ? 'Header-tab-active'
+                                : 'Header-tab'
+                        }
                     >
                         <Link to={'/search'}>SEARCH</Link>
                     </div>
