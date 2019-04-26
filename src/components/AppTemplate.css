@@ -1,8 +1,7 @@
-.App {
+.AppTemplate {
     background: #fcfcfc;
     width: 100vw;
     height: 100vh;
     padding-top: 60px;
-    font-family: 'Rubik', sans-serif;
-    letter-spacing: 0.2px;
+    font-family: 'Rubik', 'Varela Round', sans-serif;
 }

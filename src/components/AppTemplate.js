@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 // Components
-import About from './About';
 import Header from './Header';
-import Search from './Search';
 
 // Misc / Utils
-import './App.css';
+import './AppTemplate.css';
 import './reset.css';
 
-class App extends Component {
+class AppTemplate extends Component {
     constructor(props) {
         super(props);
 
@@ -24,22 +23,21 @@ class App extends Component {
     }
 
     render() {
-        const { activeTab } = this.state;
-
+        const { pathname, children } = this.props;
         return (
-            <div className="App">
-                <Header />
-                {activeTab === 'about' && <About />}
-                {activeTab === 'search' && <Search />}
+            <div className="AppTemplate">
+                <Header pathname={pathname} />
+                {children}
             </div>
         );
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
+        pathname: ownProps.location.pathname,
         token: state.spotify.token
     };
 };
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(AppTemplate));

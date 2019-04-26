@@ -9,5 +9,27 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    box-shadow: 0 12px 24px 0 rgba(0,0,0,.05);
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Header-logo {
+    width: 150px;
+}
+
+.Header-tabs {
+    display: flex;
+}
+
+.Header-tab {
+    padding: 16px;
+    color: black;
+    cursor: pointer;
+}
+
+.Header-tab-active {
+    color: green;
+    cursor: default;
 }

@@ -170,4 +170,10 @@ class Search extends Component {
     }
 }
 
-export default connect()(Search);
+const mapStateToProps = state => {
+    return {
+        token: state.spotify.token
+    };
+};
+
+export default connect(mapStateToProps)(Search);
