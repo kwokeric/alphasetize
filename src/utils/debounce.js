@@ -4,7 +4,9 @@ const debounce = (fn, t) => {
     return () => {
         clearTimeout(timeout);
 
-        timeout = setTimeout(fn(), t);
+        timeout = setTimeout(() => {
+            fn();
+        }, t);
     };
 };
 

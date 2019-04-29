@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import axios from 'axios';
+import SpotifyActions from '../../redux/actions/SpotifyActions';
 
 import './style.css';
 import controller from './controller.js';
 import cx from '../../utils/cx.js';
+import debounce from '../../utils/debounce.js';
 
 const KEYCODES = {
     ESC: 27,
@@ -84,12 +85,33 @@ class Search extends Component {
     };
 
     handleChange = e => {
+        const query = e.target.value;
+
         this.setState({
-            value: e.target.value
+            value: query
         });
 
-        // axios request here
+        this.getResults(query);
     };
+
+    getResults = debounce(query => {
+        const { dispatch } = this.props;
+        const { value } = this.state;
+
+        return dispatch(SpotifyActions.getSearchResults(value)).then(
+            suggestions => {
+                if (suggestions.length) {
+                    this.setState({
+                        suggestions
+                    });
+                } else {
+                    this.setState({
+                        suggestions: []
+                    });
+                }
+            }
+        );
+    }, 100);
 
     handleKeyDown = e => {
         const { index, suggestions } = this.state;

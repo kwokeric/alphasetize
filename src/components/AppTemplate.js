@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
+// Actions
 import SpotifyActions from '../redux/actions/SpotifyActions';
+
 // Components
 import Header from './Header';
 
