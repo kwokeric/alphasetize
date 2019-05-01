@@ -34,6 +34,10 @@
     border-radius: 22px;
 }
 
+.Search-input-container input {
+    font-family: inherit;
+}
+
 .Search-input {
     width: 100%;
     height: 100%;
@@ -66,14 +70,10 @@
     box-sizing: border-box;
     display: inline-block;
     width: 100%;
-    line-height: 30px;
-    padding: 0 16px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    line-height: 24px;
+    padding: 5px 16px 0;
     white-space: nowrap;
     overflow: hidden;
-    display: inline-block;
     text-overflow: ellipsis;
 }
 

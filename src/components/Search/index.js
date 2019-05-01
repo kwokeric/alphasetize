@@ -38,9 +38,9 @@ class Search extends Component {
     };
 
     handleBlur = () => {
-        this.setState({
-            isActive: false
-        });
+        // this.setState({
+        //     isActive: false
+        // });
     };
 
     handleMouseOver = index => {
