@@ -2,14 +2,13 @@ import React from 'react';
 
 const controller = {
     getArtists(artists = [], featured = []) {
-        let result = artists.join(', ');
+        let result = [];
 
-        if (featured.length) {
-            result += ' feat. ';
-            result += featured.join(', ');
-        }
+        artists.forEach(artist => {
+            result.push(artist.name);
+        });
 
-        return result;
+        return result.join(', ');
     },
     getText(text = '', value = '') {
         let textArr = [];

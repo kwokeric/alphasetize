@@ -64,12 +64,17 @@
 
 .Search-item {
     box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
     line-height: 30px;
-    weight: 100%;
     padding: 0 16px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
 }
 
 .Search-item-container-active {

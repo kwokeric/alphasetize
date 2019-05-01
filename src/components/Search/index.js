@@ -29,35 +29,6 @@ class Search extends Component {
 
     componentDidMount() {
         // create Input ref and set to active
-        const suggestions = [
-            {
-                artists: ['Calvin Harris'],
-                featured: ['Sam Smith'],
-                title: 'Promises'
-            },
-            {
-                artists: ['Lipless', 'Mahalo', 'Carly Paige'],
-                featured: [],
-                title: 'Falling'
-            },
-            {
-                artists: ['Ilan Bluestone', 'El Waves'],
-                featured: [],
-                title: 'Mama Africa - Extended Mix'
-            },
-            {
-                artists: ['Sunny Lax'],
-                featured: [],
-                title: 'Greenlight'
-            },
-            {
-                artists: ['No Mana'],
-                featured: [],
-                title: 'Bad Things'
-            }
-        ];
-
-        this.setState({ suggestions });
     }
 
     handleFocus = () => {
@@ -134,6 +105,11 @@ class Search extends Component {
 
     renderSuggestions = () => {
         const { suggestions } = this.state;
+
+        if (!suggestions.length) {
+            return null;
+        }
+
         return (
             <div
                 className="Search-suggestions-container"
@@ -158,7 +134,7 @@ class Search extends Component {
                 <div className="Search-item">
                     {controller.getArtists(item.artists, item.featured)}
                     {' - '}
-                    {item.title}
+                    {item.name}
                 </div>
             </div>
         );
