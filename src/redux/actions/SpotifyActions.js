@@ -32,17 +32,13 @@ const SpotifyActions = {
             });
         };
     },
-    getTrack(query) {
+    getTrack(id = '') {
         return (dispatch, getState) => {
             const { accessToken } = getState().spotify;
 
             let requestOptions = {
                 method: 'get',
-                url: 'https://api.spotify.com/v1/search?q=' + query,
-                params: {
-                    limit: 10,
-                    type: 'artist,track'
-                },
+                url: 'https://api.spotify.com/v1/audio-features/' + id,
                 headers: {
                     Authorization: 'Bearer ' + accessToken,
                     'Content-Type': 'application/json'
@@ -53,7 +49,7 @@ const SpotifyActions = {
                 if (res.statusText === 'Unauthorized') {
                     window.location.href = './';
                 }
-                return res.data.tracks.items;
+                return res.data;
             });
         };
     }

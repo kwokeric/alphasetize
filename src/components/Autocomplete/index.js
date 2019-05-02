@@ -110,10 +110,14 @@ class Autocomplete extends Component {
     };
 
     handleSelect = e => {
+        const { dispatch } = this.props;
         const { index, suggestions } = this.state;
+        const selection = suggestions[index];
 
-        // make call
-        console.log(suggestions[index]);
+        return dispatch(SpotifyActions.getTrack(selection.id)).then(data => {
+            console.log(selection);
+            console.log(data);
+        });
     };
 
     renderSuggestions = () => {
@@ -145,7 +149,7 @@ class Autocomplete extends Component {
                 onClick={this.handleSelect}
                 key={item + idx}
             >
-                <div className="Autocomplete-item" onClick={this.handleSelect}>
+                <div className="Autocomplete-item">
                     {controller.getArtists(item.artists, item.featured)}
                     {' - '}
                     {item.name}
