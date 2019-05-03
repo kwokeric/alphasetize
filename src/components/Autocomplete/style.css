@@ -1,6 +1,7 @@
 @import '../../css/colors.css';
 
 .Autocomplete-container {
+    position: absolute;
     width: 500px;
     box-sizing: border-box;
     outline: none;

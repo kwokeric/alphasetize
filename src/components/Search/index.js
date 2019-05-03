@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import './style.css';
 import Autocomplete from '../Autocomplete';
+import List from '../List';
 
 class Search extends Component {
     constructor(props) {
@@ -21,7 +22,10 @@ class Search extends Component {
 
         return (
             <div className="Search">
-                <Autocomplete />
+                <div className="Search-autocomplete">
+                    <Autocomplete />
+                </div>
+                <List list={list} />
             </div>
         );
     }

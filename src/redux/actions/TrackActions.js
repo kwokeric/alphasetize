@@ -1,4 +1,5 @@
 import axios from 'axios';
+import assign from 'lodash/assign';
 import Track from '../../models/Track';
 
 const TrackActions = {
@@ -49,7 +50,7 @@ const TrackActions = {
         };
     },
     addTrack({ basic, features }) {
-        const track = new Track({ ...basic, features });
+        const track = new Track(assign({}, basic, features));
 
         return {
             type: 'ADD_TRACK',
