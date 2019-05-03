@@ -35,7 +35,7 @@ const getPercentage = num => {
     return 100 * Number(num).toFixed(1);
 };
 
-const Track = ({
+const Track = function({
     // basic
     id = '',
     artists = '',
@@ -51,7 +51,7 @@ const Track = ({
     tempo = 0,
     time_signature = 0,
     valence = 0
-} = {}) => {
+} = {}) {
     this.id = String(id);
     this.artists = getArtists(artists);
     this.name = String(name);
