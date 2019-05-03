@@ -31,13 +31,13 @@ class List extends Component {
         valence
     }) => {
         return (
-            <div className="List-item">
+            <li className="List-item" key={id}>
                 <div className="List-item-sub List-item-artist">{artists}</div>
                 <div className="List-item-sub List-item-title">{name}</div>
                 <div className="List-item-sub List-item-key">{key}</div>
                 <div className="List-item-sub List-item-tempo">{tempo}</div>
                 <div className="List-item-sub List-item-energy">{energy}</div>
-            </div>
+            </li>
         );
     };
 
@@ -68,11 +68,7 @@ class List extends Component {
                         </div>
                     </li>
                     {map(list, (track, idx) => {
-                        return (
-                            <li key={track.id}>
-                                {this.renderItem({ ...track, idx })}
-                            </li>
-                        );
+                        return this.renderItem({ ...track, idx });
                     })}
                 </ul>
             </div>

@@ -1,12 +1,16 @@
+.List-container {
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+}
+
 .List {
     width: 600px;
-    padding: 16px;
 }
 
 .List-item {
     width: 100%;
     background: white;
-    padding: 9px;
+    padding: 8px;
 }
 
 .List-item-header {
@@ -30,6 +34,10 @@
     align-items: center;
     justify-content: flex-start;
     padding: 0 8px;
+}
+
+.List-item:nth-of-type(2n + 1) {
+    background: #fcfcfc;
 }
 
 .List-item-sub {
