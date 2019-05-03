@@ -32,6 +32,10 @@ class Autocomplete extends Component {
         // create Input ref and set to active
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('mousedown', this.handleMouseDown);
+    }
+
     handleFocus = () => {
         window.addEventListener('mousedown', this.handleMouseDown);
 
