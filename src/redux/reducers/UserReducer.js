@@ -5,6 +5,11 @@ const SpotifyReducer = (state = {}, action) => {
                 ...state,
                 accessToken: action.accessToken
             };
+        case 'ADD_TRACK':
+            return {
+                ...state,
+                trackInfo: action.trackInfo
+            };
 
         default:
             return state;

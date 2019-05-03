@@ -115,7 +115,7 @@ class About extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        token: state.spotify.token
+        token: state.user.token
     };
 };
 

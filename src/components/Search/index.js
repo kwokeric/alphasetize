@@ -17,6 +17,7 @@ class Search extends Component {
 
     render() {
         // add results here
+        const { list } = this.props;
 
         return (
             <div className="Search">
@@ -28,7 +29,8 @@ class Search extends Component {
 
 const mapStateToProps = state => {
     return {
-        token: state.spotify.token
+        list: state.tracks.list,
+        token: state.user.token
     };
 };
 

@@ -1,15 +1,10 @@
 import axios from 'axios';
+import Track from '../../models/Track';
 
-const SpotifyActions = {
-    setToken: accessToken => {
-        return {
-            type: 'SET_TOKEN',
-            accessToken
-        };
-    },
+const TrackActions = {
     getSearchResults(query) {
         return (dispatch, getState) => {
-            const { accessToken } = getState().spotify;
+            const { accessToken } = getState().user;
 
             let requestOptions = {
                 method: 'get',
@@ -34,7 +29,7 @@ const SpotifyActions = {
     },
     getTrack(id = '') {
         return (dispatch, getState) => {
-            const { accessToken } = getState().spotify;
+            const { accessToken } = getState().user;
 
             let requestOptions = {
                 method: 'get',
@@ -52,7 +47,15 @@ const SpotifyActions = {
                 return res.data;
             });
         };
+    },
+    addTrack({ basic, features }) {
+        const track = new Track({ ...basic, features });
+
+        return {
+            type: 'ADD_TRACK',
+            track
+        };
     }
 };
 
-export default SpotifyActions;
+export default TrackActions;

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 // Actions
-import SpotifyActions from '../redux/actions/SpotifyActions';
+import UserActions from '../redux/actions/UserActions';
 
 // Components
 import Header from './Header';
@@ -25,7 +25,7 @@ class AppTemplate extends Component {
 
         if (urlParams.access_token) {
             console.log('> Setting Spotify access token');
-            dispatch(SpotifyActions.setToken(urlParams.access_token));
+            dispatch(UserActions.setToken(urlParams.access_token));
         }
     }
 
@@ -43,7 +43,7 @@ class AppTemplate extends Component {
 const mapStateToProps = (state, ownProps) => {
     return {
         pathname: ownProps.location.pathname,
-        token: state.spotify.token
+        token: state.user.token
     };
 };
 

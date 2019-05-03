@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SpotifyActions from '../../redux/actions/SpotifyActions';
+import TrackActions from '../../redux/actions/TrackActions';
 
 import './style.css';
 import controller from './controller.js';
@@ -74,7 +74,7 @@ class Autocomplete extends Component {
         const { dispatch } = this.props;
         const { value } = this.state;
 
-        return dispatch(SpotifyActions.getSearchResults(value)).then(
+        return dispatch(TrackActions.getSearchResults(value)).then(
             suggestions => {
                 if (suggestions.length) {
                     this.setState({
@@ -114,9 +114,10 @@ class Autocomplete extends Component {
         const { index, suggestions } = this.state;
         const selection = suggestions[index];
 
-        return dispatch(SpotifyActions.getTrack(selection.id)).then(data => {
-            console.log(selection);
-            console.log(data);
+        return dispatch(TrackActions.getTrack(selection.id)).then(data => {
+            return dispatch(
+                TrackActions.addTrack({ basic: selection, features: data })
+            );
         });
     };
 
@@ -186,7 +187,7 @@ class Autocomplete extends Component {
 
 const mapStateToProps = state => {
     return {
-        token: state.spotify.token
+        token: state.user.token
     };
 };
 
