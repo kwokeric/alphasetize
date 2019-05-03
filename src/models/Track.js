@@ -32,7 +32,7 @@ const getKey = key => {
 };
 
 const getPercentage = num => {
-    return 100 * Number(num).toFixed(1);
+    return Math.round(100 * Number(num));
 };
 
 const Track = function({
