@@ -63,7 +63,7 @@ const Track = function({
     this.energy = getPercentage(energy);
     this.key = getKey(key);
     this.mode = mode ? 'minor' : 'major';
-    this.tempo = Number(tempo);
+    this.tempo = Math.round(Number(tempo));
     this.timeSignature = Number(time_signature);
     this.valence = getPercentage(valence);
 };
