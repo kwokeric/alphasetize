@@ -68,6 +68,7 @@ class List extends Component {
                 <div className="List-item-sub List-item-key">{key}</div>
                 <div className="List-item-sub List-item-tempo">{tempo}</div>
                 <div className="List-item-sub List-item-energy">{energy}</div>
+                <div className="List-item-sub List-item-close">X</div>
             </li>
         );
     };
@@ -79,7 +80,7 @@ class List extends Component {
         return (
             <div className="List-container">
                 <ul className="List">
-                    <li>
+                    <li onMouseOver={this.handleMouseLeave}>
                         <div className="List-item-header">
                             <div className="List-item-sub List-item-order">
                                 #
@@ -99,10 +100,10 @@ class List extends Component {
                             <div className="List-item-sub List-item-energy">
                                 ENERGY
                             </div>
+                            <div className="List-item-sub List-item-close" />
                         </div>
                     </li>
                     {map(list, (track, idx) => {
-                        console.log(idx);
                         return this.renderItem({ ...track, idx });
                     })}
                 </ul>
