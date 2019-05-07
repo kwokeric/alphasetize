@@ -1,43 +1,50 @@
+@import '../../css/colors.css';
+
 .List-container {
-    border: 1px solid #e2e2e2;
-    border-radius: 4px;
+    flex: 1;
+    width: 100vw;
+    box-sizing: border-box;
+    background: white;
 }
 
 .List {
-    width: 600px;
+    padding: 0 24px;
+    cursor: default;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
 }
 
+.List-item-header,
 .List-item {
     width: 100%;
-    background: white;
-    padding: 8px;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 16px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f8f8f8;
 }
 
 .List-item-header {
-    width: 100%;
-    height: 28px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 8px;
-    background: #eee;
     font-size: 12px;
     letter-spacing: 1px;
+    cursor: default;
+    color: #555;
 }
 
 .List-item {
-    width: 100%;
-    height: 28px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 8px;
+    background: white;
 }
 
-.List-item:nth-of-type(2n + 1) {
-    background: #fcfcfc;
+.List-item-active {
+    background: #ebf5f7;
 }
 
 .List-item-sub {
@@ -47,22 +54,26 @@
     justify-content: flex-start;
 }
 
+.List-item-order {
+    width: 6%;
+    max-width: 32px;
+}
 .List-item-artist {
     width: 30%;
 }
 
 .List-item-title {
-    width: 40%;
+    flex: 1;
 }
 
 .List-item-key {
-    width: 10%;
+    width: 6%;
 }
 
 .List-item-tempo {
-    width: 10%;
+    width: 6%;
 }
 
 .List-item-energy {
-    width: 10%;
+    width: 6%;
 }

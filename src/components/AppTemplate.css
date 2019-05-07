@@ -1,7 +1,7 @@
 .AppTemplate {
-    background: #fcfcfc;
+    background: #fafafa;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 60px);
     padding-top: 60px;
     font-family: 'Hind', sans-serif;
 }
