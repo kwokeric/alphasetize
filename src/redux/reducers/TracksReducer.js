@@ -3,8 +3,8 @@ import assign from 'lodash/assign';
 const TracksReducer = (state = {}, action) => {
     switch (action.type) {
         case 'ADD_TRACK':
-            let newList = assign({}, state.list);
-            newList[action.track.id] = action.track;
+            let newList = assign([], state.list);
+            newList.push(action.track);
 
             return {
                 ...state,
