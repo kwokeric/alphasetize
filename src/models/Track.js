@@ -1,17 +1,4 @@
-const KEYCODE_TO_KEY = {
-    0: 'C',
-    1: 'D-flat',
-    2: 'D',
-    3: 'E-flat',
-    4: 'E',
-    5: 'F',
-    6: 'G-flat',
-    7: 'G',
-    8: 'A-flat',
-    9: 'A',
-    10: 'B-flat',
-    11: 'B'
-};
+import constants from '../constants';
 
 const getArtists = (artists = []) => {
     let result = [];
@@ -23,12 +10,16 @@ const getArtists = (artists = []) => {
     return result.join(', ');
 };
 
-const getKey = key => {
+const getKey = (key, mode) => {
     if (key < 0) {
         return null;
     }
 
-    return KEYCODE_TO_KEY[key];
+    return constants.KEYCODE_TO_KEY[key] + (mode ? 'm' : '');
+};
+
+const getCamKey = key => {
+    return constants.KEYCODE_TO_CAMELOT_KEY[key];
 };
 
 const getPercentage = num => {
@@ -61,8 +52,8 @@ const Track = function({
     this.acousticness = getPercentage(acousticness);
     this.danceability = getPercentage(danceability);
     this.energy = getPercentage(energy);
-    this.key = getKey(key);
-    this.mode = mode ? 'minor' : 'major';
+    this.key = getKey(key, mode);
+    this.camKey = getCamKey(this.key);
     this.tempo = Math.round(Number(tempo));
     this.timeSignature = Number(time_signature);
     this.valence = getPercentage(valence);

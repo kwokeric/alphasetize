@@ -35,9 +35,17 @@ class List extends Component {
         });
     };
 
+    handleSelect = () => {
+        const { list } = this.props;
+        const { index } = this.state;
+
+        console.log(list[index]);
+    };
+
     renderItem = ({
         acousticness,
         artists,
+        camKey,
         danceability,
         duration,
         energy,
@@ -58,7 +66,7 @@ class List extends Component {
                 className={cx('List-item', {
                     'List-item-active': index === idx
                 })}
-                key={id}
+                key={id + idx}
                 onMouseOver={() => this.handleMouseOver(idx)}
                 onClick={this.handleSelect}
             >
@@ -69,6 +77,7 @@ class List extends Component {
                 <div className="List-item-sub List-item-title">
                     <span>{name}</span>
                 </div>
+                <div className="List-item-sub List-item-cam-key">{camKey}</div>
                 <div className="List-item-sub List-item-key">{key}</div>
                 <div className="List-item-sub List-item-tempo">{tempo}</div>
                 <div className="List-item-sub List-item-energy">{energy}</div>
@@ -94,6 +103,9 @@ class List extends Component {
                             </div>
                             <div className="List-item-sub List-item-title">
                                 TITLE
+                            </div>
+                            <div className="List-item-sub List-item-cam-key">
+                                CODE
                             </div>
                             <div className="List-item-sub List-item-key">
                                 KEY
