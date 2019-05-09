@@ -63,8 +63,12 @@ class List extends Component {
                 onClick={this.handleSelect}
             >
                 <div className="List-item-sub List-item-order">{idx + 1}</div>
-                <div className="List-item-sub List-item-artist">{artists}</div>
-                <div className="List-item-sub List-item-title">{name}</div>
+                <div className="List-item-sub List-item-artist">
+                    <span>{artists}</span>
+                </div>
+                <div className="List-item-sub List-item-title">
+                    <span>{name}</span>
+                </div>
                 <div className="List-item-sub List-item-key">{key}</div>
                 <div className="List-item-sub List-item-tempo">{tempo}</div>
                 <div className="List-item-sub List-item-energy">{energy}</div>

@@ -60,10 +60,19 @@
 }
 .List-item-artist {
     width: 30%;
+    padding-right: 8px;
+}
+
+.List-item-artist > *,
+.List-item-title > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .List-item-title {
     flex: 1;
+    padding-right: 8px;
 }
 
 .List-item-key {
