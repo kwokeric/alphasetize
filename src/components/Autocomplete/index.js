@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
 import TrackActions from '../../redux/actions/TrackActions';
@@ -7,7 +8,6 @@ import './style.css';
 import controller from './controller.js';
 import cx from '../../utils/cx.js';
 import debounce from '../../utils/debounce.js';
-const ReactDOM = require('react-dom');
 
 const KEYCODES = {
     ESC: 27,

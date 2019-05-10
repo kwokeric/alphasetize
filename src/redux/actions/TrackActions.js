@@ -56,6 +56,12 @@ const TrackActions = {
             type: 'ADD_TRACK',
             track
         };
+    },
+    removeTrack(index) {
+        return {
+            type: 'REMOVE_TRACK',
+            index
+        };
     }
 };
 

@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import map from 'lodash/map';
 
+import TrackActions from '../../redux/actions/TrackActions';
 import './style.css';
 import controller from './controller';
 import cx from '../../utils/cx.js';
+import CloseIcon from '../../assets/close.svg';
 
 class List extends Component {
     constructor(props) {
@@ -56,6 +58,13 @@ class List extends Component {
             keyMatches,
             modeMatches
         });
+    };
+
+    handleRemove = () => {
+        const { dispatch } = this.props;
+        const { hoverIndex } = this.state;
+
+        return dispatch(TrackActions.removeTrack(hoverIndex));
     };
 
     renderItem = ({
@@ -118,7 +127,12 @@ class List extends Component {
                 <div className="List-item-sub List-item-key">{key}</div>
                 <div className="List-item-sub List-item-tempo">{tempo}</div>
                 <div className="List-item-sub List-item-energy">{energy}</div>
-                <div className="List-item-sub List-item-close">X</div>
+                <div
+                    className="List-item-sub List-item-close"
+                    onClick={this.handleRemove}
+                >
+                    <img src={CloseIcon} alt="x" width="12px" height="12px" />
+                </div>
             </li>
         );
     };

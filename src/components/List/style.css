@@ -90,27 +90,24 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 .List-item-title {
     flex: 1;
     padding-right: 8px;
 }
-
 .List-item-key {
     width: 6%;
 }
-
 .List-item-cam-key {
     width: 6%;
 }
-
 .List-item-tempo {
     width: 6%;
 }
-
 .List-item-energy {
     width: 6%;
+    margin-right: -8px;
 }
 .List-item-close {
-    width: 10px;
+    width: 12px;
+    margin: 0 8px;
 }
