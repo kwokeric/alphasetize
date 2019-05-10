@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import map from 'lodash/map';
 
 import './style.css';
+import controller from './controller';
 import cx from '../../utils/cx.js';
 
 class List extends Component {
@@ -11,7 +12,11 @@ class List extends Component {
         super(props);
 
         this.state = {
-            index: -1
+            hoverIndex: -1,
+            activeIndex: -1,
+            perfectMatches: [],
+            keyMatches: [],
+            modeMatches: []
         };
     }
 
@@ -23,23 +28,34 @@ class List extends Component {
         }
     };
 
-    handleMouseOver = index => {
+    handleMouseOver = hoverIndex => {
         this.setState({
-            index
+            hoverIndex
         });
     };
 
     handleMouseLeave = () => {
         this.setState({
-            index: -1
+            hoverIndex: -1
         });
     };
 
     handleSelect = () => {
         const { list } = this.props;
-        const { index } = this.state;
+        const { hoverIndex } = this.state;
 
-        console.log(list[index]);
+        const {
+            perfectMatches,
+            keyMatches,
+            modeMatches
+        } = controller.getMatches(hoverIndex, list);
+
+        this.setState({
+            activeIndex: hoverIndex,
+            perfectMatches,
+            keyMatches,
+            modeMatches
+        });
     };
 
     renderItem = ({
@@ -59,12 +75,33 @@ class List extends Component {
         valence,
         idx
     }) => {
-        const { index } = this.state;
+        const {
+            activeIndex,
+            hoverIndex,
+            perfectMatches,
+            keyMatches,
+            modeMatches
+        } = this.state;
+
+        const isActive = activeIndex === idx;
+        const isHovered = hoverIndex === idx;
+        const isPerfectMatch = perfectMatches.includes(idx);
+        const isKeyMatch = keyMatches.includes(idx);
+        const isModeMatch = modeMatches.includes(idx);
 
         return (
             <li
                 className={cx('List-item', {
-                    'List-item-active': index === idx
+                    'List-item-hover': isHovered,
+                    'List-item-active': isActive,
+                    'List-item-active-hover': isActive && isHovered,
+                    'List-item-perfect-match': isPerfectMatch,
+                    'List-item-perfect-match-hover':
+                        isPerfectMatch && isHovered,
+                    'List-item-key-match': isKeyMatch,
+                    'List-item-key-match-hover': isKeyMatch && isHovered,
+                    'List-item-mode-match': isModeMatch,
+                    'List-item-mode-match-hover': isModeMatch && isHovered
                 })}
                 key={id + idx}
                 onMouseOver={() => this.handleMouseOver(idx)}

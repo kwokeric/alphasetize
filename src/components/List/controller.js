@@ -12,9 +12,6 @@ const controller = {
         const stepSide =
             currCamNum +
             (currCamKey[currCamKey.length - 1] === 'A' ? 'B' : 'A');
-        console.log('stepUp', stepUp);
-        console.log('stepDown', stepDown);
-        console.log('stepSide', stepSide);
 
         let perfectMatches = []; // same key
         let keyMatches = []; // key change

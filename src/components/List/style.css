@@ -15,8 +15,7 @@
     -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                    supported by Chrome and Opera */
+    user-select: none; /* Chrome and Opera */
 }
 
 .List-item-header,
@@ -38,13 +37,35 @@
     cursor: default;
     color: #555;
 }
-
 .List-item {
     background: white;
 }
-
-.List-item-active {
+.List-item-hover {
     background: #ebf5f7;
+}
+.List-item-active {
+    background: #c6e9ee;
+}
+.List-item-active-hover {
+    background: #d4eff3;
+}
+.List-item-perfect-match {
+    background: #c6e9ee;
+}
+.List-item-perfect-match-hover {
+    background: #d4eff3;
+}
+.List-item-key-match {
+    background: #caefdb;
+}
+.List-item-key-match-hover {
+    background: #bde2ce; /* this one is darker */
+}
+.List-item-mode-match {
+    background: #f9eec7;
+}
+.List-item-mode-match-hover {
+    background: #fbf4db;
 }
 
 .List-item-sub {
