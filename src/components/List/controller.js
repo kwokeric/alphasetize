@@ -1,7 +1,7 @@
 const controller = {
     getMatches(index, list) {
         const currItem = list[index];
-        const currCamKey = currItem.camKey;
+        const currCamKey = currItem.camKey || '';
         const currCamNum = Number(currCamKey.slice(0, currCamKey.length - 1));
         const stepUp =
             (currCamNum + 1 === 13 ? 1 : currCamNum + 1) +

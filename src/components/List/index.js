@@ -44,20 +44,29 @@ class List extends Component {
 
     handleSelect = () => {
         const { list } = this.props;
-        const { hoverIndex } = this.state;
+        const { activeIndex, hoverIndex } = this.state;
 
-        const {
-            perfectMatches,
-            keyMatches,
-            modeMatches
-        } = controller.getMatches(hoverIndex, list);
+        if (activeIndex === hoverIndex) {
+            this.setState({
+                activeIndex: -1,
+                perfectMatches: [],
+                keyMatches: [],
+                modeMatches: []
+            });
+        } else {
+            const {
+                perfectMatches,
+                keyMatches,
+                modeMatches
+            } = controller.getMatches(hoverIndex, list);
 
-        this.setState({
-            activeIndex: hoverIndex,
-            perfectMatches,
-            keyMatches,
-            modeMatches
-        });
+            this.setState({
+                activeIndex: hoverIndex,
+                perfectMatches,
+                keyMatches,
+                modeMatches
+            });
+        }
     };
 
     handleRemove = e => {
