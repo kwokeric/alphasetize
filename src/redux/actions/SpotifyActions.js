@@ -1,6 +1,4 @@
 import axios from 'axios';
-import assign from 'lodash/assign';
-import Track from '../../models/Track';
 
 const SpotifyActions = {
     getSearchResults(query) {

@@ -20,7 +20,8 @@ class List extends Component {
         this.state = {
             hoverIndex: -1,
             activeIndex: -1,
-            dragIndex: -1,
+            dragStartIndex: -1,
+            dragEndIndex: -1,
             perfectMatches: [],
             keyMatches: [],
             modeMatches: []
@@ -64,6 +65,7 @@ class List extends Component {
     setMatches = shouldUseActive => {
         const { list } = this.props;
         const { activeIndex, hoverIndex } = this.state;
+
         const index = shouldUseActive ? activeIndex : hoverIndex;
         if (index < 0) {
             // prevent error
@@ -98,24 +100,35 @@ class List extends Component {
     };
 
     handleMouseMove = () => {
-        const { hoverIndex } = this.state;
         window.removeEventListener('mousemove', this.handleMouseMove);
+
+        const { hoverIndex } = this.state;
         this.setState({
             isDragging: true,
-            dragIndex: hoverIndex
+            dragStartIndex: hoverIndex
         });
     };
 
     handleMouseUp = () => {
-        const { dispatch } = this.props;
-        const { isDragging, dragIndex, hoverIndex } = this.state;
         window.removeEventListener('mousemove', this.handleMouseMove);
 
-        if (isDragging && dragIndex > -1) {
-            this.setState({ isDragging: false });
+        const { dispatch } = this.props;
+        const {
+            isDragging,
+            activeIndex,
+            dragStartIndex,
+            hoverIndex
+        } = this.state;
+
+        // if dragging track that was first selected, update that index
+        const newActiveIndex =
+            activeIndex === dragStartIndex ? hoverIndex : activeIndex;
+
+        if (isDragging && dragStartIndex > -1) {
+            this.setState({ isDragging: false, activeIndex: newActiveIndex });
             dispatch(
                 TrackActions.moveTrack({
-                    startIndex: dragIndex,
+                    startIndex: dragStartIndex,
                     endIndex: hoverIndex
                 })
             );
