@@ -34,7 +34,7 @@ const KeyConstants = {
         G: '9B',
         Bm: '10A',
         D: '10B',
-        Fbm: '11A',
+        Gbm: '11A',
         A: '11B',
         Dbm: '12A',
         E: '12B'
