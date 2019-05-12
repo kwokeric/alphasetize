@@ -25,6 +25,7 @@ class Search extends Component {
                 <div className="Search-autocomplete">
                     <Autocomplete />
                 </div>
+                <div className="Search-import">IMPORT</div>
                 <List list={list} />
             </div>
         );

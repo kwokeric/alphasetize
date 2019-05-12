@@ -16,3 +16,12 @@
     justify-content: center;
     padding: 80px 0;
 }
+
+.Search-import {
+    height: 20px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    background: green;
+    margin-bottom: 20px;
+}
