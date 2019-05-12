@@ -60,7 +60,8 @@ class List extends Component {
         });
     };
 
-    handleRemove = () => {
+    handleRemove = e => {
+        e.stopPropagation();
         const { dispatch } = this.props;
         const { hoverIndex } = this.state;
 
@@ -138,7 +139,6 @@ class List extends Component {
     };
 
     render() {
-        // add results here
         const { list } = this.props;
 
         return (

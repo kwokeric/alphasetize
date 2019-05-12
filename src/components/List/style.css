@@ -29,6 +29,7 @@
     padding: 0 16px;
     box-sizing: border-box;
     border-bottom: 1px solid #f8f8f8;
+    cursor: auto;
 }
 
 .List-item-header {
@@ -67,14 +68,12 @@
 .List-item-mode-match-hover {
     background: #fbf4db;
 }
-
 .List-item-sub {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
-
 .List-item-order {
     width: 6%;
     max-width: 32px;
