@@ -29,7 +29,7 @@ class List extends Component {
     componentDidUpdate(prevProps) {
         const { list } = this.props;
 
-        if (prevProps.list.length !== list.length) {
+        if (controller.hasListChanged(list, prevProps.list)) {
             this.setMatches(true);
         }
     }
@@ -101,7 +101,6 @@ class List extends Component {
         window.removeEventListener('mousemove', this.handleMouseMove);
         this.setState({
             isDragging: true,
-            activeIndex: hoverIndex,
             dragIndex: hoverIndex
         });
     };
@@ -123,7 +122,6 @@ class List extends Component {
     };
 
     handleRemove = e => {
-        console.log('remove');
         e.stopPropagation();
         const { dispatch } = this.props;
         const { hoverIndex } = this.state;
