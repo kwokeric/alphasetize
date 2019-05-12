@@ -62,6 +62,13 @@ const TrackActions = {
             type: 'REMOVE_TRACK',
             index
         };
+    },
+    moveTrack({ startIndex, endIndex }) {
+        return {
+            type: 'MOVE_TRACK',
+            startIndex,
+            endIndex
+        };
     }
 };
 

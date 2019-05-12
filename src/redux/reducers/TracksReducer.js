@@ -1,10 +1,10 @@
 import assign from 'lodash/assign';
 
 const TracksReducer = (state = {}, action) => {
-    let newList;
+    let newList = assign([], state.list);
+
     switch (action.type) {
         case 'ADD_TRACK':
-            newList = assign([], state.list);
             newList.push(action.track);
 
             return {
@@ -12,8 +12,16 @@ const TracksReducer = (state = {}, action) => {
                 list: newList
             };
         case 'REMOVE_TRACK':
-            newList = assign([], state.list);
             newList.splice(action.index, 1);
+
+            return {
+                ...state,
+                list: newList
+            };
+        case 'MOVE_TRACK':
+            const track = newList[action.startIndex];
+            newList.splice(action.startIndex, 1);
+            newList.splice(action.endIndex, 0, track);
 
             return {
                 ...state,

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import map from 'lodash/map';
 
@@ -10,25 +9,30 @@ import cx from '../../utils/cx.js';
 import CloseIcon from '../../assets/close.svg';
 
 class List extends Component {
+    static defaultProps = {
+        list: []
+    };
+
     constructor(props) {
         super(props);
 
         this.state = {
             hoverIndex: -1,
             activeIndex: -1,
+            dragIndex: -1,
             perfectMatches: [],
             keyMatches: [],
             modeMatches: []
         };
     }
 
-    handleMouseDown = e => {
-        if (!ReactDOM.findDOMNode(this).contains(e.target)) {
-            this.setState({
-                isActive: false
-            });
+    componentDidUpdate(prevProps) {
+        const { list } = this.props;
+
+        if (prevProps.list.length !== list.length) {
+            this.setMatches(true);
         }
-    };
+    }
 
     handleMouseOver = hoverIndex => {
         this.setState({
@@ -36,40 +40,90 @@ class List extends Component {
         });
     };
 
-    handleMouseLeave = () => {
+    handleMouseLeaveList = () => {
+        this.setState({ isDragging: false });
+    };
+
+    handleMouseOverHeader = () => {
         this.setState({
             hoverIndex: -1
         });
     };
 
     handleSelect = () => {
-        const { list } = this.props;
         const { activeIndex, hoverIndex } = this.state;
 
         if (activeIndex === hoverIndex) {
-            this.setState({
-                activeIndex: -1,
-                perfectMatches: [],
-                keyMatches: [],
-                modeMatches: []
-            });
+            this.resetMatches();
         } else {
-            const {
-                perfectMatches,
-                keyMatches,
-                modeMatches
-            } = controller.getMatches(hoverIndex, list);
+            this.setMatches();
+        }
+    };
 
-            this.setState({
-                activeIndex: hoverIndex,
-                perfectMatches,
-                keyMatches,
-                modeMatches
-            });
+    setMatches = shouldUseActive => {
+        const { list } = this.props;
+        const { activeIndex, hoverIndex } = this.state;
+        const index = shouldUseActive ? activeIndex : hoverIndex;
+        if (index < 0) {
+            // prevent error
+            return;
+        }
+
+        const {
+            perfectMatches,
+            keyMatches,
+            modeMatches
+        } = controller.getMatches(index, list);
+
+        this.setState({
+            activeIndex: index,
+            perfectMatches,
+            keyMatches,
+            modeMatches
+        });
+    };
+
+    resetMatches = () => {
+        this.setState({
+            activeIndex: -1,
+            perfectMatches: [],
+            keyMatches: [],
+            modeMatches: []
+        });
+    };
+
+    handleMouseDown = () => {
+        window.addEventListener('mousemove', this.handleMouseMove);
+    };
+
+    handleMouseMove = () => {
+        const { hoverIndex } = this.state;
+        window.removeEventListener('mousemove', this.handleMouseMove);
+        this.setState({
+            isDragging: true,
+            activeIndex: hoverIndex,
+            dragIndex: hoverIndex
+        });
+    };
+
+    handleMouseUp = () => {
+        const { dispatch } = this.props;
+        const { isDragging, dragIndex, hoverIndex } = this.state;
+        window.removeEventListener('mousemove', this.handleMouseMove);
+
+        if (isDragging && dragIndex > -1) {
+            this.setState({ isDragging: false });
+            dispatch(
+                TrackActions.moveTrack({
+                    startIndex: dragIndex,
+                    endIndex: hoverIndex
+                })
+            );
         }
     };
 
     handleRemove = e => {
+        console.log('remove');
         e.stopPropagation();
         const { dispatch } = this.props;
         const { hoverIndex } = this.state;
@@ -95,6 +149,7 @@ class List extends Component {
         idx
     }) => {
         const {
+            isDragging,
             activeIndex,
             hoverIndex,
             perfectMatches,
@@ -103,7 +158,8 @@ class List extends Component {
         } = this.state;
 
         const isActive = activeIndex === idx;
-        const isHovered = hoverIndex === idx;
+        const isHovered = !isDragging && hoverIndex === idx;
+        const isDragOver = isDragging && hoverIndex === idx;
         const isPerfectMatch = perfectMatches.includes(idx);
         const isKeyMatch = keyMatches.includes(idx);
         const isModeMatch = modeMatches.includes(idx);
@@ -111,7 +167,8 @@ class List extends Component {
         return (
             <li
                 className={cx('List-item', {
-                    'List-item-hover': isHovered,
+                    'List-item-hover': isHovered && !isDragging,
+                    'List-item-drag-over': isDragOver && !isActive,
                     'List-item-active': isActive,
                     'List-item-active-hover': isActive && isHovered,
                     'List-item-perfect-match': isPerfectMatch,
@@ -124,6 +181,8 @@ class List extends Component {
                 })}
                 key={id + idx}
                 onMouseOver={() => this.handleMouseOver(idx)}
+                onMouseDown={this.handleMouseDown}
+                onMouseUp={this.handleMouseUp}
                 onClick={this.handleSelect}
             >
                 <div className="List-item-sub List-item-order">{idx + 1}</div>
@@ -152,8 +211,8 @@ class List extends Component {
 
         return (
             <div className="List-container">
-                <ul className="List">
-                    <li onMouseOver={this.handleMouseLeave}>
+                <ul className="List" onMouseLeave={this.handleMouseLeaveList}>
+                    <li onMouseOver={this.handleMouseOverHeader}>
                         <div className="List-item-header">
                             <div className="List-item-sub List-item-order">
                                 #

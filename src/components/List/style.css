@@ -44,6 +44,9 @@
 .List-item-hover {
     background: #ebf5f7;
 }
+.List-item-drag-over {
+    border-bottom: 1px solid #2eb0c4;
+}
 .List-item-active {
     background: #c6e9ee;
 }
