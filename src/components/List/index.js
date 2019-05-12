@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import map from 'lodash/map';
 
+import SpotifyActions from '../../redux/actions/SpotifyActions';
 import TrackActions from '../../redux/actions/TrackActions';
 import './style.css';
 import controller from './controller';
@@ -126,7 +127,7 @@ class List extends Component {
         const { dispatch } = this.props;
         const { hoverIndex } = this.state;
 
-        return dispatch(TrackActions.removeTrack(hoverIndex));
+        return dispatch(SpotifyActions.removeTrack(hoverIndex));
     };
 
     renderItem = ({
