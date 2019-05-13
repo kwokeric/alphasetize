@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import cx from 'classnames';
 
 import './style.css';
+import cx from '../../utils/cx.js';
 
 class Modal extends Component {
     static defaultProps = {
@@ -26,10 +26,6 @@ class Modal extends Component {
 
         return (
             <div className="Modal">
-                <div
-                    className="Modal-overlay"
-                    onClick={this.handleBackdropClick}
-                />
                 {React.cloneElement(children, {
                     className: cx('Modal-children', childClassName)
                 })}

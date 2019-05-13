@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 
 import SpotifyActions from '../../redux/actions/SpotifyActions';
 import PlaylistActions from '../../redux/actions/PlaylistActions';
-import './style.css';
 import Autocomplete from '../Autocomplete';
+import PlaylistModal from '../PlaylistModal';
 import List from '../List';
+import './style.css';
 
 class Search extends Component {
     constructor(props) {
@@ -23,18 +24,23 @@ class Search extends Component {
     handleClick = () => {
         const { dispatch } = this.props;
 
-        return dispatch(SpotifyActions.getPlaylists()).then(playlists => {
-            return dispatch(PlaylistActions.setPlaylists(playlists.items));
-        });
+        return dispatch(SpotifyActions.getPlaylists())
+            .then(playlists => {
+                return dispatch(PlaylistActions.setPlaylists(playlists.items));
+            })
+            .then(() => this.setState({ showPlaylistModal: true }))
+            .catch(err => console.log(err));
     };
 
     render() {
         // add results here
         const { list, playlists } = this.props;
-        console.log(playlists);
+        const { showPlaylistModal } = this.state;
+        console.log(showPlaylistModal);
 
         return (
             <div className="Search">
+                {showPlaylistModal && <PlaylistModal playlists={playlists} />}
                 <div className="Search-autocomplete">
                     <Autocomplete />
                 </div>
