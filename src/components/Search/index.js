@@ -32,15 +32,23 @@ class Search extends Component {
             .catch(err => console.log(err));
     };
 
+    handleHideModal = () => {
+        this.setState({ showPlaylistModal: false });
+    };
+
     render() {
         // add results here
         const { list, playlists } = this.props;
         const { showPlaylistModal } = this.state;
-        console.log(showPlaylistModal);
 
         return (
             <div className="Search">
-                {showPlaylistModal && <PlaylistModal playlists={playlists} />}
+                {showPlaylistModal && (
+                    <PlaylistModal
+                        playlists={playlists}
+                        onHideModal={this.handleHideModal}
+                    />
+                )}
                 <div className="Search-autocomplete">
                     <Autocomplete />
                 </div>

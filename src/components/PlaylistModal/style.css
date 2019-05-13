@@ -1,3 +1,53 @@
 .PlaylistModal {
-    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    max-height: 400px;
+    overflow: hidden;
+    padding: 16px;
+    cursor: default;
+}
+
+.PlaylistModal-header {
+    font-size: 12px;
+    padding: 8px 0;
+    margin: 0 40px 8px;
+    border-bottom: 1px solid #2eb0c4;
+    text-align: center;
+}
+
+.PlaylistModal-container {
+    width: 100%;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+.PlaylistModal-playlist {
+    padding: 4px 0;
+}
+
+.PlaylistModal-playlist:hover {
+    background: #ebf5f7;
+}
+
+.PlaylistModal-bottom {
+    padding-top: 8px;
+}
+
+.PlaylistModal-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 32px;
+    border: 1px solid #2eb0c4;
+    border-radius: 16px;
+    font-size: 14px;
+    margin: auto;
+    padding-top: 2px;
+}
+
+.PlaylistModal-btn:hover {
+    color: white;
+    background: #2eb0c4;
 }

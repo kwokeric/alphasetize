@@ -7,7 +7,7 @@ import cx from '../../utils/cx.js';
 class Modal extends Component {
     static defaultProps = {
         children: {},
-        onHidePopup: () => {}
+        onHideModal: () => {}
     };
 
     handleBackdropClick = e => {
@@ -16,7 +16,7 @@ class Modal extends Component {
         }
 
         if (e.target === e.currentTarget) {
-            this.props.onHidePopup();
+            this.props.onHideModal();
         }
     };
 
@@ -25,7 +25,7 @@ class Modal extends Component {
         const childClassName = children.props ? children.props.className : '';
 
         return (
-            <div className="Modal">
+            <div className="Modal" onClick={this.handleBackdropClick}>
                 {React.cloneElement(children, {
                     className: cx('Modal-children', childClassName)
                 })}
