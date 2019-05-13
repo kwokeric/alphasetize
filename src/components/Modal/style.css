@@ -1,0 +1,17 @@
+.Modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.Modal-nav-offset {
+}
+
+.Modal-children {
+    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
