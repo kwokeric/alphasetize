@@ -24,7 +24,6 @@ class Search extends Component {
         const { dispatch } = this.props;
 
         return dispatch(SpotifyActions.getPlaylists()).then(playlists => {
-            console.log(playlists);
             return dispatch(PlaylistActions.setPlaylists(playlists.items));
         });
     };

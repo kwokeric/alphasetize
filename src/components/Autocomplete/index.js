@@ -191,9 +191,7 @@ class Autocomplete extends Component {
 }
 
 const mapStateToProps = state => {
-    return {
-        token: state.user.token
-    };
+    return {};
 };
 
 export default connect(mapStateToProps)(Autocomplete);
