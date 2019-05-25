@@ -127,8 +127,3 @@ a {
     text-decoration: none;
     cursor: inherit;
 }
-
-/* Not reset but I want this */
-div {
-    box-sizing: border-box;
-}
