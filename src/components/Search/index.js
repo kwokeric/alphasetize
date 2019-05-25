@@ -49,11 +49,13 @@ class Search extends Component {
                         onHideModal={this.handleHideModal}
                     />
                 )}
-                <div className="Search-autocomplete">
-                    <Autocomplete />
-                </div>
-                <div className="Search-import" onClick={this.handleClick}>
-                    IMPORT
+                <div className="Search-top">
+                    <div className="Search-autocomplete">
+                        <Autocomplete />
+                    </div>
+                    <div className="Search-import" onClick={this.handleClick}>
+                        IMPORT PLAYLIST
+                    </div>
                 </div>
                 <List list={list} />
             </div>
