@@ -27,8 +27,7 @@ class Modal extends Component {
         return (
             <div className="Modal" onClick={this.handleBackdropClick}>
                 {React.cloneElement(children, {
-                    className: cx('Modal-children', childClassName),
-                    onHideModal: this.props.onHideModal
+                    className: cx('Modal-children', childClassName)
                 })}
             </div>
         );
