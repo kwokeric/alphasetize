@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import map from 'lodash/map';
 
-import SpotifyActions from '../../redux/actions/SpotifyActions';
-import TrackActions from '../../redux/actions/TrackActions';
 import './style.css';
 import controller from './controller';
-import cx from '../../utils/cx.js';
 import CloseIcon from '../../assets/close.svg';
+import cx from '../../utils/cx.js';
+import TrackActions from '../../redux/actions/TrackActions';
 
 class List extends Component {
     static defaultProps = {
@@ -140,7 +139,7 @@ class List extends Component {
         const { dispatch } = this.props;
         const { hoverIndex } = this.state;
 
-        return dispatch(SpotifyActions.removeTrack(hoverIndex));
+        return dispatch(TrackActions.removeTrack(hoverIndex));
     };
 
     renderItem = ({
