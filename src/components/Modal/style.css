@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20%;
+    padding-bottom: 20%;
 }
 
 .Modal-children {

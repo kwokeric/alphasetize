@@ -36,6 +36,10 @@
     color: #888;
 }
 
+.PlaylistModal-playlist-active {
+    background: #d4eff3;
+}
+
 .PlaylistModal-playlist-length {
     padding-right: 16px;
 }
@@ -59,7 +63,7 @@
     font-size: 14px;
     color: #ee964b;
     width: 100%;
-    transition: all ease-out 200ms;
+    transition: all ease-out 175ms;
 }
 
 .PlaylistModal-error-hidden {
@@ -67,10 +71,17 @@
     transform: translate(0px, 10px);
 }
 
-.PlaylistModal-btn {
+.PlaylistModal-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.PlaylistModal-btn,
+.PlaylistModal-btn-cancel {
     width: 120px;
     height: 32px;
-    border: 1px solid #2eb0c4;
+    border: 1px solid #aaa;
     border-radius: 20px;
     font-size: 14px;
     margin: auto;
@@ -79,7 +90,17 @@
     line-height: 34px;
 }
 
-.PlaylistModal-btn:hover {
+.PlaylistModal-btn {
+    color: #aaa;
+}
+
+.PlaylistModal-btn-active {
+    color: black;
+}
+
+.PlaylistModal-btn-active:hover,
+.PlaylistModal-btn-cancel:hover {
     color: white;
     background: #2eb0c4;
+    border: 1px solid #2eb0c4;
 }
