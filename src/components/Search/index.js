@@ -37,7 +37,6 @@ class Search extends Component {
     };
 
     render() {
-        // add results here
         const { list, playlists } = this.props;
         const { showPlaylistModal } = this.state;
 
