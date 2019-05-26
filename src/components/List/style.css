@@ -95,6 +95,7 @@
 .List-item-title {
     flex: 1;
     padding-right: 8px;
+    overflow: hidden;
 }
 .List-item-key {
     width: 6%;
