@@ -1,4 +1,6 @@
 import assign from 'lodash/assign';
+import map from 'lodash/map';
+
 import Track from '../../models/Track';
 
 const TrackActions = {
@@ -8,6 +10,14 @@ const TrackActions = {
         return {
             type: 'ADD_TRACK',
             track
+        };
+    },
+    addTracks(tracksData) {
+        const tracks = map(tracksData, track => new Track(track));
+
+        return {
+            type: 'ADD_TRACKS',
+            tracks
         };
     },
     removeTrack(index) {

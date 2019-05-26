@@ -27,6 +27,13 @@ const TracksReducer = (state = {}, action) => {
                 ...state,
                 list: newList
             };
+        case 'ADD_TRACKS':
+            newList = action.tracks;
+
+            return {
+                ...state,
+                list: newList
+            };
 
         default:
             return state;

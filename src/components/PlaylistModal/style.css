@@ -1,17 +1,18 @@
 .PlaylistModal {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 340px;
     max-height: 400px;
     overflow: hidden;
-    padding: 16px;
+    padding: 20px;
     cursor: default;
+    border-radius: 4px;
 }
 
 .PlaylistModal-header {
     font-size: 12px;
     padding: 8px 0;
-    margin: 0 40px 8px;
+    margin: 0 40px 12px;
     border-bottom: 1px solid #2eb0c4;
     text-align: center;
 }
@@ -23,7 +24,20 @@
 }
 
 .PlaylistModal-playlist {
-    padding: 4px 0;
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.PlaylistModal-playlist-disable {
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+    color: #888;
+}
+
+.PlaylistModal-playlist-length {
+    padding-right: 16px;
 }
 
 .PlaylistModal-playlist:hover {
@@ -31,20 +45,38 @@
 }
 
 .PlaylistModal-bottom {
-    padding-top: 8px;
+    padding-top: 12px;
+}
+
+.PlaylistModal-error-container {
+    height: 16px;
+}
+
+.PlaylistModal-error {
+    opacity: 1;
+    transform: translate(0px, 0px);
+    text-align: center;
+    font-size: 14px;
+    color: #ee964b;
+    width: 100%;
+    transition: all ease-out 200ms;
+}
+
+.PlaylistModal-error-hidden {
+    opacity: 0;
+    transform: translate(0px, 10px);
 }
 
 .PlaylistModal-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 120px;
     height: 32px;
     border: 1px solid #2eb0c4;
-    border-radius: 16px;
+    border-radius: 20px;
     font-size: 14px;
     margin: auto;
-    padding-top: 2px;
+    margin-top: 8px;
+    text-align: center;
+    line-height: 34px;
 }
 
 .PlaylistModal-btn:hover {

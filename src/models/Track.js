@@ -1,6 +1,10 @@
 import constants from '../constants';
 
 const getArtists = (artists = []) => {
+    if (typeof artists === 'string') {
+        return artists;
+    }
+
     let result = [];
 
     artists.forEach(artist => {
