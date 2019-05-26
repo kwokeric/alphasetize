@@ -11,6 +11,7 @@ import Header from './Header';
 // Misc / Utils
 import './AppTemplate.css';
 import '../css/reset.css';
+import '../css/utils.css';
 import urlUtils from '../utils/urlUtils.js';
 
 class AppTemplate extends Component {
