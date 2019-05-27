@@ -21,7 +21,7 @@ class Search extends Component {
         // create Input ref and set to active
     }
 
-    handleClick = () => {
+    handleImport = () => {
         const { dispatch } = this.props;
 
         return dispatch(SpotifyActions.getPlaylists())
@@ -30,6 +30,12 @@ class Search extends Component {
             })
             .then(() => this.setState({ showPlaylistModal: true }))
             .catch(err => console.log(err));
+    };
+
+    handleExport = () => {
+        const { dispatch } = this.props;
+
+        // return dispatch(PlaylistActions.exportPlaylist());
     };
 
     handleHideModal = () => {
@@ -52,8 +58,19 @@ class Search extends Component {
                     <div className="Search-autocomplete">
                         <Autocomplete />
                     </div>
-                    <div className="Search-import" onClick={this.handleClick}>
-                        IMPORT PLAYLIST
+                    <div className="Search-import-export">
+                        <div
+                            className="Search-import noselect"
+                            onClick={this.handleImport}
+                        >
+                            IMPORT PLAYLIST
+                        </div>
+                        <div
+                            className="Search-export noselect"
+                            onClick={this.handleExport}
+                        >
+                            EXPORT PLAYLIST
+                        </div>
                     </div>
                 </div>
                 <List list={list} />
