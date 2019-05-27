@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
 import SearchActions from '../../redux/actions/SearchActions';
-import SpotifyActions from '../../redux/actions/SpotifyActions';
 import TrackActions from '../../redux/actions/TrackActions';
 
 import './style.css';
@@ -80,7 +79,7 @@ class Autocomplete extends Component {
         const { dispatch } = this.props;
         const { value } = this.state;
 
-        return dispatch(SearchActions.getByArtistAndTrack(value)).then(
+        return dispatch(SearchActions.getTrackBasicByQuery(value)).then(
             suggestions => {
                 if (suggestions.length) {
                     this.setState({
@@ -120,11 +119,7 @@ class Autocomplete extends Component {
         const { index, suggestions } = this.state;
         const selection = suggestions[index];
 
-        return dispatch(SpotifyActions.getTrack(selection.id)).then(data => {
-            return dispatch(
-                TrackActions.addTrack({ basic: selection, features: data })
-            );
-        });
+        return dispatch(SearchActions.getTrackFeaturesById(selection));
     };
 
     renderSuggestions = () => {

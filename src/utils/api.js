@@ -2,13 +2,22 @@ import requester from './requester';
 
 const api = {
     spotify: {
-        search(q) {
+        searchBasic(q) {
             return requester({
                 path: 'https://api.spotify.com/v1/search',
                 queryParams: {
                     q,
                     limit: 10,
                     type: 'artist,track'
+                }
+            });
+        },
+        searchFeatures(ids) {
+            console.log(ids);
+            return requester({
+                path: 'https://api.spotify.com/v1/audio-features',
+                queryParams: {
+                    ids
                 }
             });
         }
