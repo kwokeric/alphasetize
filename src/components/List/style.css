@@ -51,19 +51,19 @@
     background: #d4eff3;
 }
 .List-item-perfect-match {
-    background: #c6e9ee;
+    background: linear-gradient(to left, #fafafa, #c5e9ee);
 }
 .List-item-perfect-match-hover {
     background: #d4eff3;
 }
 .List-item-key-match {
-    background: #caefdb;
+    background: linear-gradient(to left, #fafafa, #caefdb);
 }
 .List-item-key-match-hover {
-    background: #bde2ce; /* this one is darker */
+    background: #dff4e8;
 }
 .List-item-mode-match {
-    background: #f9eec7;
+    background: linear-gradient(to left, #fafafa, #f9eec7);
 }
 .List-item-mode-match-hover {
     background: #fbf4db;
