@@ -3,6 +3,7 @@ import map from 'lodash/map';
 
 import Playlist from '../../models/Playlist';
 import SpotifyActions from './SpotifyActions';
+import SearchActions from './SearchActions';
 import TrackActions from './TrackActions';
 import Track from '../../models/Track';
 
@@ -29,7 +30,7 @@ const PlaylistActions = {
                     });
 
                     return dispatch(
-                        SpotifyActions.getTracks(_trackIds.join(','))
+                        SearchActions.getTrackFeaturesByIds(_trackIds.join(','))
                     );
                 })
                 .then(res => {

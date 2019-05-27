@@ -13,7 +13,6 @@ const api = {
             });
         },
         searchFeatures(ids) {
-            console.log(ids);
             return requester({
                 path: 'https://api.spotify.com/v1/audio-features',
                 queryParams: {

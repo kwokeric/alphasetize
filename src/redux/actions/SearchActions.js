@@ -13,18 +13,23 @@ const SearchActions = {
             });
         };
     },
-    getTrackFeaturesById(basicData = {}) {
+    getTrackWithBasicAndFeatures(basicData = {}) {
         return (dispatch, getState) => {
-            return dispatch(api.spotify.searchFeatures(basicData.id)).then(
-                featuresData => {
-                    return dispatch(
-                        TrackActions.addTrack({
-                            basic: basicData,
-                            features: featuresData
-                        })
-                    );
-                }
-            );
+            return dispatch(
+                SearchActions.getTrackFeaturesByIds(basicData.id)
+            ).then(featuresData => {
+                return dispatch(
+                    TrackActions.addTrack({
+                        basic: basicData,
+                        features: featuresData
+                    })
+                );
+            });
+        };
+    },
+    getTrackFeaturesByIds(ids) {
+        return (dispatch, getState) => {
+            return dispatch(api.spotify.searchFeatures(ids));
         };
     }
 };
