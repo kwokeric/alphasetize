@@ -1,10 +1,11 @@
 @import '../../css/colors.css';
 
 .List-container {
-    flex: 1;
     width: 100vw;
     box-sizing: border-box;
-    background: white;
+    overflow: scroll;
+    position: relative;
+    flex: 1;
 }
 
 .List {
@@ -28,18 +29,15 @@
     justify-content: flex-start;
     padding: 0 16px;
     box-sizing: border-box;
-    border-bottom: 1px solid #f8f8f8;
+    border-bottom: 1px solid #ececec;
     cursor: auto;
 }
-
 .List-item-header {
+    color: #555;
     font-size: 12px;
     letter-spacing: 1px;
     cursor: default;
-    color: #555;
-}
-.List-item {
-    background: white;
+    padding: 0 40px;
 }
 .List-item-hover {
     background: #ebf5f7;

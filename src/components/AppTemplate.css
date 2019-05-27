@@ -4,4 +4,6 @@
     height: calc(100vh - 60px);
     padding-top: 60px;
     font-family: 'Hind', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
