@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
+import SearchActions from '../../redux/actions/SearchActions';
 import SpotifyActions from '../../redux/actions/SpotifyActions';
 import TrackActions from '../../redux/actions/TrackActions';
 
@@ -79,7 +80,7 @@ class Autocomplete extends Component {
         const { dispatch } = this.props;
         const { value } = this.state;
 
-        return dispatch(SpotifyActions.getSearchResults(value)).then(
+        return dispatch(SearchActions.getByArtistAndTrack(value)).then(
             suggestions => {
                 if (suggestions.length) {
                     this.setState({
