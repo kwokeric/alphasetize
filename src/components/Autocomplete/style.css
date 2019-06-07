@@ -1,8 +1,8 @@
 @import '../../css/colors.css';
 
 .Autocomplete-container {
-    position: absolute;
-    width: 500px;
+    position: relative;
+    width: 100%;
     box-sizing: border-box;
     outline: none;
     border-radius: 22px;
@@ -50,8 +50,7 @@
     content: '';
     border-bottom: 1px solid #e2e2e2;
     display: block;
-    width: 468px;
-    margin-left: 16px;
+    margin: 0 16px;
 }
 
 .Autocomplete-item-container:first-of-type .Autocomplete-item {

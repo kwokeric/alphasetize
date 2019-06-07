@@ -9,7 +9,7 @@
 }
 
 .Search-top {
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -18,11 +18,24 @@
     box-sizing: border-box;
 }
 
+@media (max-width: 767px) {
+    .Search-top {
+        padding: 20px;
+    }
+}
+
 .Search-autocomplete {
+    flex: 1;
     height: 46px;
-    width: 500px;
-    display: flex;
-    justify-content: center;
+    max-width: 500px;
+    margin-right: 24px;
+}
+
+@media (max-width: 767px) {
+    .Search-autocomplete {
+        width: 100%;
+        position: relative;
+    }
 }
 
 .Search-import-export {

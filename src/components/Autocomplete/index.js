@@ -165,9 +165,9 @@ class Autocomplete extends Component {
 
         return (
             <div
-                className={`Autocomplete-container ${
-                    isActive ? 'Autocomplete-container-active' : ''
-                }`}
+                className={cx('Autocomplete-container', {
+                    'Autocomplete-container-active': isActive
+                })}
             >
                 <div className="Autocomplete-input-container">
                     <input
