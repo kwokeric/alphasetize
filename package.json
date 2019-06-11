@@ -1,6 +1,6 @@
 {
     "name": "alphaset",
-    "homepage": "http://kwokeric.github.io/alphasetize",
+    "homepage": "https://kwokeric.github.io/alphasetize",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -26,12 +26,7 @@
     "eslintConfig": {
         "extends": "react-app"
     },
-    "browserslist": [
-        ">0.2%",
-        "not dead",
-        "not ie <= 11",
-        "not op_mini all"
-    ],
+    "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
     "devDependencies": {
         "gh-pages": "^2.0.1"
     }
