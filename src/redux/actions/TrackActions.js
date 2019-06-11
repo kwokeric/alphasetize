@@ -1,11 +1,7 @@
-import assign from 'lodash/assign';
-
-import Track from '../../models/Track';
+// tracks must be created before calling addTrack
 
 const TrackActions = {
-    addTrack({ basic, features }) {
-        const track = new Track(assign({}, basic, features));
-
+    addTrack(track) {
         return {
             type: 'ADD_TRACK',
             track

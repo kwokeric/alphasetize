@@ -1,5 +1,7 @@
+import assign from 'lodash/assign';
 import api from '../../utils/api';
 import TrackActions from './TrackActions';
+import Track from '../../models/Track';
 
 const SearchActions = {
     getTrackBasicByQuery(query) {
@@ -18,12 +20,10 @@ const SearchActions = {
             return dispatch(
                 SearchActions.getTrackFeaturesByIds(basicData.id)
             ).then(featuresData => {
-                return dispatch(
-                    TrackActions.addTrack({
-                        basic: basicData,
-                        features: featuresData
-                    })
-                );
+                const features = featuresData.audio_features[0];
+                const track = new Track(assign({}, basicData, features));
+
+                return dispatch(TrackActions.addTrack(track));
             });
         };
     },

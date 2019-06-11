@@ -118,6 +118,7 @@ class Autocomplete extends Component {
         const { dispatch } = this.props;
         const { index, suggestions } = this.state;
         const selection = suggestions[index];
+        console.log('select');
 
         return dispatch(SearchActions.getTrackWithBasicAndFeatures(selection));
     };
