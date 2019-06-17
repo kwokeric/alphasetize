@@ -1,8 +1,8 @@
 import assign from 'lodash/assign';
 import map from 'lodash/map';
 
+import api from '../../utils/api';
 import Playlist from '../../models/Playlist';
-import SpotifyActions from './SpotifyActions';
 import SearchActions from './SearchActions';
 import TrackActions from './TrackActions';
 import Track from '../../models/Track';
@@ -18,10 +18,30 @@ const PlaylistActions = {
             playlists: _playlists
         };
     },
+    getPlaylists() {
+        return (dispatch, getState) => {
+            return dispatch(api.spotify.getPlaylists()).then(res => {
+                if (res.statusText === 'Unauthorized') {
+                    window.location.href = './';
+                }
+                return res;
+            });
+        };
+    },
     getPlaylist(playlistId) {
+        return (dispatch, getState) => {
+            return dispatch(api.spotify.getPlaylist(playlistId)).then(res => {
+                if (res.statusText === 'Unauthorized') {
+                    window.location.href = './';
+                }
+                return res;
+            });
+        };
+    },
+    getAndSetPlaylist(playlistId) {
         return function(dispatch, getState) {
             let tracksBasic;
-            return dispatch(SpotifyActions.getPlaylist(playlistId))
+            return dispatch(PlaylistActions.getPlaylist(playlistId))
                 .then(res => {
                     tracksBasic = res.tracks.items;
 

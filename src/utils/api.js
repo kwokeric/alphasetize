@@ -19,6 +19,16 @@ const api = {
                     ids
                 }
             });
+        },
+        getPlaylists() {
+            return requester({
+                path: 'https://api.spotify.com/v1/me/playlists?limit=50'
+            });
+        },
+        getPlaylist(id) {
+            return requester({
+                path: 'https://api.spotify.com/v1/playlists/' + id
+            });
         }
     }
 };

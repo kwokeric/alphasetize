@@ -42,9 +42,10 @@ class PlaylistModal extends Component {
             setTimeout(() => this.setState({ showError: false }), 4000);
             return;
         }
+        console.log(currPlaylist.id);
 
-        dispatch(PlaylistActions.getPlaylist(currPlaylist.id)).catch(err =>
-            console.log(err)
+        dispatch(PlaylistActions.getAndSetPlaylist(currPlaylist.id)).catch(
+            err => console.log(err)
         );
 
         onHideModal();

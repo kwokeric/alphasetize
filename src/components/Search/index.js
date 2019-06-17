@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SpotifyActions from '../../redux/actions/SpotifyActions';
 import PlaylistActions from '../../redux/actions/PlaylistActions';
 import Autocomplete from '../Autocomplete';
 import PlaylistModal from '../PlaylistModal';
@@ -24,7 +23,7 @@ class Search extends Component {
     handleImport = () => {
         const { dispatch } = this.props;
 
-        return dispatch(SpotifyActions.getPlaylists())
+        return dispatch(PlaylistActions.getPlaylists())
             .then(playlists => {
                 return dispatch(PlaylistActions.setPlaylists(playlists.items));
             })
