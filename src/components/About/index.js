@@ -91,20 +91,26 @@ class About extends Component {
                             />
                         </div>
                         <div>
-                            Harmonic mixing consists of two elements: knowing
-                            the key of every song that you play and knowing
-                            which keys are compatible. Mark Davis created the
-                            Camelot wheel, a visual, color-coded system to help
-                            djs figure out which keys are compatible.
+                            Have you ever noticed the uncomfortable dissonance
+                            when mixing two songs witch clashing pitches? Use
+                            Alphasetize to know which songs are compatible and
+                            open up a world of creativity!
                             <br />
                             <br />
-                            Each key is assigned a code number from one to
-                            twelve, like the hours around a clock. If you play a
-                            song in 5A and mix it into a song with a 10A key
-                            code, for example, you’ll notice the difference
-                            immediately. The clashing pitch between the two
-                            songs creates an uncomfortable dissonance To get
-                            started, find the keys of your songs.
+                            Using this wheel (akin to a clock) as a reference,
+                            you can move to an adjacent key within each ring
+                            (the next "hour"), or to a section in the adjacent
+                            ring (in the same "hour").
+                            <br />
+                            <br />
+                            To read more about how it works, check out{' '}
+                            <a
+                                className="About-link"
+                                href="https://mixedinkey.com/harmonic-mixing-guide/"
+                            >
+                                this
+                            </a>{' '}
+                            great article
                         </div>
                     </div>
                 </div>

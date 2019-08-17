@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
 import SearchActions from '../../redux/actions/SearchActions';
-import TrackActions from '../../redux/actions/TrackActions';
 
 import './style.css';
 import controller from './controller.js';

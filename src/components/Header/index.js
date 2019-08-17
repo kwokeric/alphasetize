@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import './style.css';
-import cx from '../../utils/cx.js';
 
 class Header extends Component {
     handleClick = route => {};

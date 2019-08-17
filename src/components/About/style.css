@@ -59,6 +59,9 @@
     display: flex;
     align-items: center;
     padding: 32px;
+    max-width: 900px;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .About-image-container {
@@ -68,9 +71,19 @@
     padding-right: 24px;
 }
 
+.About-link {
+    color: #2799aa;
+    cursor: pointer;
+}
+
+.About-link:hover {
+    text-decoration: underline;
+}
+
 .About-image {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
 }
 
 @-webkit-keyframes fadeSlideIn {
