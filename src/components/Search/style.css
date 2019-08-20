@@ -73,3 +73,41 @@
     color: #555;
     box-shadow: none;
 }
+
+/* // Mobile */
+
+.Search-top-m {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.Search-autocomplete-m {
+    flex: 1;
+}
+
+.Search-playlist-m {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    max-height: 46px;
+    border: 1px solid #e2e2e2;
+    border-radius: 46px;
+    box-sizing: border-box;
+    margin-left: 8px;
+    background: white;
+    transition: width 1s linear;
+}
+
+.Search-playlist-m:active {
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.2);
+}
+
+/* // */

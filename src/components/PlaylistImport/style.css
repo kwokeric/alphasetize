@@ -1,62 +1,70 @@
-.PlaylistModal {
+.PlaylistImport {
     display: flex;
     flex-direction: column;
-    width: 340px;
-    max-height: 400px;
+    background: white;
+    width: 100%;
+    max-height: 90vh;
     overflow: hidden;
     padding: 20px;
     cursor: default;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
-.PlaylistModal-header {
-    font-size: 12px;
-    padding: 8px 0;
-    margin: 0 40px 12px;
+@media (min-width: 767px) {
+    .PlaylistImport {
+        max-height: 400px;
+        max-width: 340px;
+    }
+}
+
+.PlaylistImport-header {
+    font-size: 14px;
+    padding: 12px 0;
+    margin: 0 40px 18px;
     border-bottom: 1px solid #2eb0c4;
     text-align: center;
 }
 
-.PlaylistModal-container {
+.PlaylistImport-container {
     width: 100%;
     flex: 1;
     overflow-y: scroll;
 }
 
-.PlaylistModal-playlist {
-    padding: 6px;
+.PlaylistImport-playlist {
+    padding: 8px;
     display: flex;
     justify-content: space-between;
 }
 
-.PlaylistModal-playlist-disable {
-    padding: 6px;
+.PlaylistImport-playlist-disable {
     display: flex;
     justify-content: space-between;
     color: #888;
 }
 
-.PlaylistModal-playlist-active {
+.PlaylistImport-playlist-active {
     background: #d4eff3;
 }
 
-.PlaylistModal-playlist-length {
+.PlaylistImport-playlist-length {
     padding-right: 16px;
 }
 
-.PlaylistModal-playlist:hover {
+.PlaylistImport-playlist:hover {
     background: #ebf5f7;
 }
 
-.PlaylistModal-bottom {
+.PlaylistImport-bottom {
     padding-top: 12px;
 }
 
-.PlaylistModal-error-container {
+.PlaylistImport-error-container {
     height: 16px;
 }
 
-.PlaylistModal-error {
+.PlaylistImport-error {
     opacity: 1;
     transform: translate(0px, 0px);
     text-align: center;
@@ -66,19 +74,19 @@
     transition: all ease-out 175ms;
 }
 
-.PlaylistModal-error-hidden {
+.PlaylistImport-error-hidden {
     opacity: 0;
     transform: translate(0px, 10px);
 }
 
-.PlaylistModal-btn-container {
+.PlaylistImport-btn-container {
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
-.PlaylistModal-btn,
-.PlaylistModal-btn-cancel {
+.PlaylistImport-btn,
+.PlaylistImport-btn-cancel {
     width: 120px;
     height: 32px;
     border: 1px solid #aaa;
@@ -90,16 +98,18 @@
     line-height: 34px;
 }
 
-.PlaylistModal-btn {
+.PlaylistImport-btn {
     color: #aaa;
 }
 
-.PlaylistModal-btn-active {
+.PlaylistImport-btn-active {
     color: black;
 }
 
-.PlaylistModal-btn-active:hover,
-.PlaylistModal-btn-cancel:hover {
+.PlaylistImport-btn-active:hover,
+.PlaylistImport-btn-cancel:hover,
+.PlaylistImport-btn-active:active,
+.PlaylistImport-btn-cancel:active {
     color: white;
     background: #2eb0c4;
     border: 1px solid #2eb0c4;
