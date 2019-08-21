@@ -52,10 +52,12 @@ class Autocomplete extends Component {
     };
 
     handleMouseDown = e => {
+        const { onBlur } = this.props;
         if (!ReactDOM.findDOMNode(this).contains(e.target)) {
             this.setState({
                 isActive: false
             });
+            onBlur();
         }
     };
 
@@ -167,7 +169,6 @@ class Autocomplete extends Component {
     };
 
     render() {
-        const { onBlur } = this.props;
         const { isActive, value } = this.state;
 
         return (
@@ -179,7 +180,6 @@ class Autocomplete extends Component {
                 <div className="Autocomplete-input-container">
                     <input
                         className="Autocomplete-input"
-                        onBlur={onBlur}
                         onChange={e => this.handleChange(e)}
                         onFocus={this.handleFocus}
                         onKeyDown={e => this.handleKeyDown(e)}

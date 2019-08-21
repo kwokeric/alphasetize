@@ -81,18 +81,22 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100vw;
-    align-items: center;
-    padding: 20px;
+    align-items: flex-start;
+    padding: 8px;
     box-sizing: border-box;
 }
 
-.Search-autocomplete-m {
-    transition: width 0.1s linear;
-    width: calc(100vw - 94px);
+.Search-top-active-m {
+    padding: 0;
 }
 
-.Search-autocomplete-full-m {
-    width: calc(100vw - 40px);
+.Search-autocomplete-m {
+    transition: 0.1s linear;
+    width: 100%;
+}
+
+.Search-autocomplete-active-m {
+    width: calc(100vw - 16px);
 }
 
 .Search-playlist-m {
@@ -109,7 +113,6 @@
     margin-left: 8px;
     background: white;
     opacity: 1;
-    transition: opacity 0.1s linear;
 }
 
 .Search-playlist-m:active {
@@ -118,7 +121,7 @@
 
 .Search-playlist-hidden-m {
     position: absolute;
-    right: 20px;
+    right: 8px;
     opacity: 0;
 }
 

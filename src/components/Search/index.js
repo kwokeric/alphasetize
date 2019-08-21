@@ -66,10 +66,14 @@ class Search extends Component {
         const { isInputActive } = this.state;
 
         return (
-            <div className="Search-top-m">
+            <div
+                className={cx('Search-top-m', {
+                    'Search-top-active-m': isInputActive
+                })}
+            >
                 <div
                     className={cx('Search-autocomplete-m', {
-                        'Search-autocomplete-full-m': isInputActive
+                        'Search-autocomplete-active-m': isInputActive
                     })}
                 >
                     <Autocomplete

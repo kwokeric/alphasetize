@@ -13,6 +13,7 @@ import Header from './Header';
 import './AppTemplate.css';
 import '../css/reset.css';
 import '../css/utils.css';
+import cx from '../utils/cx.js';
 import appUtils from '../utils/appUtils.js';
 import urlUtils from '../utils/urlUtils.js';
 
@@ -41,10 +42,14 @@ class AppTemplate extends Component {
     }
 
     render() {
-        const { pathname, children } = this.props;
+        const { pathname, children, isMobile } = this.props;
         return (
-            <div className="AppTemplate">
-                <Header pathname={pathname} />
+            <div
+                className={cx('AppTemplate', {
+                    'AppTemplate-m': isMobile
+                })}
+            >
+                {!isMobile && <Header pathname={pathname} />}
                 {children}
             </div>
         );
@@ -53,6 +58,7 @@ class AppTemplate extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
+        isMobile: state.app.isMobile,
         pathname: ownProps.location.pathname,
         token: state.user.token
     };

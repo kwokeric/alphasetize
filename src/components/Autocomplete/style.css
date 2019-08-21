@@ -5,8 +5,8 @@
     width: 100%;
     box-sizing: border-box;
     outline: none;
-    border-radius: 22px;
     border: 1px solid #e2e2e2;
+    border-radius: 22px;
     background: white;
 }
 
@@ -15,8 +15,22 @@
 }
 
 .Autocomplete-container-active {
-    border: 1px solid white;
+    position: absolute;
+    border-top: 1px solid white;
+    border-right: 8px solid white;
+    border-left: 8px solid white;
+    border-radius: 0;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.22);
+    padding-top: 8px;
+}
+
+@media (min-width: 767px) {
+    .Autocomplete-container-active {
+        border: 1px solid white;
+        border-radius: 22px;
+        border: 1px solid #e2e2e2;
+        padding-top: 0;
+    }
 }
 
 .Autocomplete-input-container {
@@ -54,7 +68,7 @@
 }
 
 .Autocomplete-item-container:first-of-type .Autocomplete-item {
-    padding-top: 4px;
+    padding-top: 10px;
 }
 
 .Autocomplete-item {
@@ -62,7 +76,7 @@
     display: inline-block;
     width: 100%;
     line-height: 24px;
-    padding: 5px 16px 0;
+    padding: 6px 16px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
