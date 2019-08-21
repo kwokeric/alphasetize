@@ -87,7 +87,14 @@
 }
 
 .Search-autocomplete-m {
-    flex: 1;
+    transition: width 0.1s linear;
+    /* flex: 1; */
+
+    width: calc(100vw - 94px);
+}
+
+.Search-autocomplete-full-m {
+    width: calc(100vw - 40px);
 }
 
 .Search-playlist-m {
@@ -103,11 +110,18 @@
     box-sizing: border-box;
     margin-left: 8px;
     background: white;
-    transition: width 1s linear;
+    opacity: 1;
+    transition: opacity 0.1s linear;
 }
 
 .Search-playlist-m:active {
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.2);
+}
+
+.Search-playlist-hidden-m {
+    position: absolute;
+    right: 20px;
+    opacity: 0;
 }
 
 /* // */

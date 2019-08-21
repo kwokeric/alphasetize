@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import PlaylistActions from '../../redux/actions/PlaylistActions';
-import Autocomplete from '../Autocomplete';
-import PlaylistImport from '../PlaylistImport';
-import Modal from '../Modal';
-import List from '../List';
-import cx from '../../utils/cx.js';
 import './style.css';
+import Autocomplete from '../Autocomplete';
+import cx from '../../utils/cx.js';
+import List from '../List';
+import Modal from '../Modal';
+import PlaylistActions from '../../redux/actions/PlaylistActions';
+import PlaylistImport from '../PlaylistImport';
 
 class Search extends Component {
     constructor(props) {
@@ -15,7 +15,8 @@ class Search extends Component {
 
         this.state = {
             showPlaylistImport: false,
-            fullCta: null
+            fullCta: null,
+            isInputActive: false
         };
     }
 
@@ -53,15 +54,34 @@ class Search extends Component {
         this.setState({ fullCta: '', showPlaylistImport: false });
     };
 
+    handleInputFocus = () => {
+        this.setState({ isInputActive: true });
+    };
+
+    handleInputBlur = () => {
+        this.setState({ isInputActive: false });
+    };
+
     renderMobileView = () => {
+        const { isInputActive } = this.state;
+
         return (
             <div className="Search-top-m">
-                <div className="Search-autocomplete-m">
-                    <Autocomplete />
+                <div
+                    className={cx('Search-autocomplete-m', {
+                        'Search-autocomplete-full-m': isInputActive
+                    })}
+                >
+                    <Autocomplete
+                        onBlur={this.handleInputBlur}
+                        onFocus={this.handleInputFocus}
+                    />
                 </div>
 
                 <div
-                    className="Search-playlist-m"
+                    className={cx('Search-playlist-m', {
+                        'Search-playlist-hidden-m': isInputActive
+                    })}
                     onClick={this.handleImportMobile}
                 >
                     <div className="Search-playlist-open">+</div>
