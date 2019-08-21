@@ -7,6 +7,7 @@ import SearchActions from '../../redux/actions/SearchActions';
 import './style.css';
 import controller from './controller.js';
 import cx from '../../utils/cx.js';
+import IconX from '../../assets/icon-x.svg';
 import debounce from '../../utils/debounce.js';
 
 const KEYCODES = {
@@ -52,13 +53,17 @@ class Autocomplete extends Component {
     };
 
     handleMouseDown = e => {
-        const { onBlur } = this.props;
         if (!ReactDOM.findDOMNode(this).contains(e.target)) {
-            this.setState({
-                isActive: false
-            });
-            onBlur();
+            this.handleClose();
         }
+    };
+
+    handleClose = () => {
+        const { onBlur } = this.props;
+        this.setState({
+            isActive: false
+        });
+        onBlur();
     };
 
     handleMouseOver = index => {
@@ -131,18 +136,18 @@ class Autocomplete extends Component {
     };
 
     renderSuggestions = () => {
-        const { suggestions } = this.state;
-
-        if (!suggestions.length) {
-            return null;
-        }
+        const { suggestions, value } = this.state;
 
         return (
             <div
-                className="Autocomplete-suggestions-container"
+                className={cx('Autocomplete-suggestions-container', {
+                    'Autocomplete-suggestions-container-empty':
+                        !suggestions.length || !value
+                })}
                 onMouseLeave={this.handleMouseLeave}
             >
-                {suggestions.map((item, idx) => this.renderItem(item, idx))}
+                {value &&
+                    suggestions.map((item, idx) => this.renderItem(item, idx))}
             </div>
         );
     };
@@ -188,13 +193,26 @@ class Autocomplete extends Component {
                     />
                 </div>
                 {isActive && this.renderSuggestions()}
+                {isActive && (
+                    <div className="Autocomplete-x" onClick={this.handleClose}>
+                        <img
+                            alt="IconX"
+                            src={IconX}
+                            className="Input-iconX"
+                            height="18"
+                            width="18"
+                        />
+                    </div>
+                )}
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    return {};
+    return {
+        isMobile: state.app.isMobile // not used
+    };
 };
 
 export default connect(mapStateToProps)(Autocomplete);

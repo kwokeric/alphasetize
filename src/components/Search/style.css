@@ -120,9 +120,7 @@
 }
 
 .Search-playlist-hidden-m {
-    position: absolute;
-    right: 8px;
-    opacity: 0;
+    display: none;
 }
 
 /* // */
