@@ -91,9 +91,8 @@ class Search extends Component {
     };
 
     render() {
-        const { list, playlists } = this.props;
+        const { list, playlists, isMobile } = this.props;
         const { showPlaylistImport } = this.state;
-        const isMobile = true;
 
         return (
             <div className="Search">
@@ -136,6 +135,7 @@ class Search extends Component {
 
 const mapStateToProps = state => {
     return {
+        isMobile: state.app.isMobile,
         playlists: state.playlists.playlists,
         list: state.tracks.list
     };

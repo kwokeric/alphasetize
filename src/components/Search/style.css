@@ -74,7 +74,7 @@
     box-shadow: none;
 }
 
-/* // Mobile */
+/* Mobile */
 
 .Search-top-m {
     display: flex;
@@ -88,8 +88,6 @@
 
 .Search-autocomplete-m {
     transition: width 0.1s linear;
-    /* flex: 1; */
-
     width: calc(100vw - 94px);
 }
 

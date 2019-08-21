@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 // Actions
+import AppActions from '../redux/actions/AppActions';
 import UserActions from '../redux/actions/UserActions';
 
 // Components
@@ -12,9 +13,18 @@ import Header from './Header';
 import './AppTemplate.css';
 import '../css/reset.css';
 import '../css/utils.css';
+import appUtils from '../utils/appUtils.js';
 import urlUtils from '../utils/urlUtils.js';
 
 class AppTemplate extends Component {
+    constructor(props) {
+        super(props);
+
+        props.dispatch(
+            AppActions.setAppStoreBool('isMobile', appUtils.isMobile())
+        );
+    }
+
     componentDidMount() {
         const { token, dispatch } = this.props;
 

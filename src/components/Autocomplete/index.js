@@ -17,6 +17,11 @@ const KEYCODES = {
 };
 
 class Autocomplete extends Component {
+    static defaultProps = {
+        onBlur: () => {},
+        onFocus: () => {}
+    };
+
     constructor(props) {
         super(props);
 
@@ -37,6 +42,8 @@ class Autocomplete extends Component {
     }
 
     handleFocus = () => {
+        this.props.onFocus();
+
         window.addEventListener('mousedown', this.handleMouseDown);
 
         this.setState({
@@ -117,7 +124,6 @@ class Autocomplete extends Component {
         const { dispatch } = this.props;
         const { index, suggestions } = this.state;
         const selection = suggestions[index];
-        console.log('select');
 
         return dispatch(SearchActions.getTrackWithBasicAndFeatures(selection));
     };
@@ -161,6 +167,7 @@ class Autocomplete extends Component {
     };
 
     render() {
+        const { onBlur } = this.props;
         const { isActive, value } = this.state;
 
         return (
@@ -172,7 +179,7 @@ class Autocomplete extends Component {
                 <div className="Autocomplete-input-container">
                     <input
                         className="Autocomplete-input"
-                        onBlur={this.handleBlur}
+                        onBlur={onBlur}
                         onChange={e => this.handleChange(e)}
                         onFocus={this.handleFocus}
                         onKeyDown={e => this.handleKeyDown(e)}
