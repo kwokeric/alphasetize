@@ -254,7 +254,7 @@ class List extends Component {
                         onMouseLeave={this.handleMouseLeaveList}
                     >
                         {map(list, (track, idx) => {
-                            this.renderItem({ ...track, idx });
+                            return this.renderItem({ ...track, idx });
                         })}
                     </ul>
                 </div>

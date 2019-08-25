@@ -8,12 +8,6 @@
     padding-top: 62px;
 }
 
-@media (min-width: 767px) {
-    .ListMobile {
-        padding: 0;
-    }
-}
-
 .ListMobile {
     padding: 0;
     cursor: default;
@@ -23,12 +17,6 @@
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Chrome and Opera */
-}
-
-@media (min-width: 767px) {
-    .ListMobile {
-        padding: 0 24px;
-    }
 }
 
 .ListMobile-item-header,
@@ -43,11 +31,6 @@
     box-sizing: border-box;
     border-bottom: 1px solid #ececec;
     cursor: auto;
-}
-@media (min-width: 767px) {
-    .ListMobile-item {
-        height: 36px;
-    }
 }
 .ListMobile-item-header {
     color: #555;
