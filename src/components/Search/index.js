@@ -5,6 +5,7 @@ import './style.css';
 import Autocomplete from '../Autocomplete';
 import cx from '../../utils/cx.js';
 import List from '../List';
+import ListMobile from '../ListMobile';
 import Modal from '../Modal';
 import PlaylistActions from '../../redux/actions/PlaylistActions';
 import PlaylistImport from '../PlaylistImport';
@@ -131,7 +132,7 @@ class Search extends Component {
                         </div>
                     </div>
                 )}
-                <List list={list} />
+                {isMobile ? <ListMobile list={list} /> : <List list={list} />}
             </div>
         );
     }

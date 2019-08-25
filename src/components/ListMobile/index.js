@@ -217,44 +217,125 @@ class List extends Component {
         );
     };
 
+    renderItemMobile = ({
+        acousticness,
+        artists,
+        camKey,
+        danceability,
+        duration,
+        energy,
+        id,
+        key,
+        mode,
+        name,
+        previewUrl,
+        tempo,
+        timeSignature,
+        valence,
+        idx
+    }) => {
+        const {
+            isDragging,
+            activeIndex,
+            hoverIndex,
+            perfectMatches,
+            keyMatches,
+            modeMatches
+        } = this.state;
+
+        const isActive = activeIndex === idx;
+        const isHovered = !isDragging && hoverIndex === idx;
+        const isDragOver = isDragging && hoverIndex === idx;
+        const isPerfectMatch = perfectMatches.includes(idx);
+        const isKeyMatch = keyMatches.includes(idx);
+        const isModeMatch = modeMatches.includes(idx);
+
+        return (
+            <li
+                className={cx('List-item', {
+                    'List-item-hover': isHovered && !isDragging,
+                    'List-item-drag-over': isDragOver && !isActive,
+                    'List-item-active': isActive,
+                    'List-item-active-hover': isActive && isHovered,
+                    'List-item-perfect-match': isPerfectMatch,
+                    'List-item-perfect-match-hover':
+                        isPerfectMatch && isHovered,
+                    'List-item-key-match': isKeyMatch,
+                    'List-item-key-match-hover': isKeyMatch && isHovered,
+                    'List-item-mode-match': isModeMatch,
+                    'List-item-mode-match-hover': isModeMatch && isHovered
+                })}
+                key={id + idx}
+                onMouseOver={() => this.handleMouseOver(idx)}
+                onMouseDown={this.handleMouseDown}
+                onMouseUp={this.handleMouseUp}
+                onClick={this.handleSelect}
+            >
+                <div className="List-item-sub List-item-order">{idx + 1}</div>
+                <div className="List-item-info-m">
+                    <div className="List-item-sub List-item-title-m">
+                        <span>{name}</span>
+                    </div>
+                    <div className="List-item-sub List-item-artist-m">
+                        <span>{artists}</span>
+                    </div>
+                </div>
+                <div className="List-item-sub List-item-cam-key">{camKey}</div>
+                <div
+                    className="List-item-sub List-item-close"
+                    onClick={this.handleRemove}
+                >
+                    <img src={CloseIcon} alt="x" width="12px" height="12px" />
+                </div>
+            </li>
+        );
+    };
+
     render() {
-        const { list } = this.props;
+        const { list, isMobile } = this.props;
 
         return (
             <Fragment>
-                <div
-                    className="List-item-header"
-                    onMouseOver={this.handleMouseOverHeader}
-                >
-                    <Fragment>
-                        <div className="List-item-sub List-item-order">#</div>
-                        <div className="List-item-sub List-item-artist">
-                            ARTIST
-                        </div>
-                        <div className="List-item-sub List-item-title">
-                            TITLE
-                        </div>
-                        <div className="List-item-sub List-item-cam-key">
-                            CODE
-                        </div>
-                        <div className="List-item-sub List-item-key">KEY</div>
-                        <div className="List-item-sub List-item-tempo">
-                            TEMPO
-                        </div>
-                        <div className="List-item-sub List-item-energy">
-                            ENERGY
-                        </div>
-                        <div className="List-item-sub List-item-close" />
-                    </Fragment>
-                </div>
-
+                {isMobile ? null : (
+                    <div
+                        className="List-item-header"
+                        onMouseOver={this.handleMouseOverHeader}
+                    >
+                        <Fragment>
+                            <div className="List-item-sub List-item-order">
+                                #
+                            </div>
+                            <div className="List-item-sub List-item-artist">
+                                ARTIST
+                            </div>
+                            <div className="List-item-sub List-item-title">
+                                TITLE
+                            </div>
+                            <div className="List-item-sub List-item-cam-key">
+                                CODE
+                            </div>
+                            <div className="List-item-sub List-item-key">
+                                KEY
+                            </div>
+                            <div className="List-item-sub List-item-tempo">
+                                TEMPO
+                            </div>
+                            <div className="List-item-sub List-item-energy">
+                                ENERGY
+                            </div>
+                            <div className="List-item-sub List-item-close" />
+                        </Fragment>
+                    </div>
+                )}
                 <div className="List-container">
                     <ul
                         className="List"
                         onMouseLeave={this.handleMouseLeaveList}
                     >
                         {map(list, (track, idx) => {
-                            this.renderItem({ ...track, idx });
+                            return isMobile
+                                ? this.renderItemMobile({ ...track, idx })
+                                : this.renderItem({ ...track, idx });
                         })}
                     </ul>
                 </div>
@@ -263,4 +344,10 @@ class List extends Component {
     }
 }
 
-export default connect()(List);
+const mapStateToProps = state => {
+    return {
+        isMobile: state.app.isMobile
+    };
+};
+
+export default connect(mapStateToProps)(List);
