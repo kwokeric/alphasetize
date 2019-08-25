@@ -8,7 +8,7 @@ import CloseIcon from '../../assets/close.svg';
 import cx from '../../utils/cx.js';
 import TrackActions from '../../redux/actions/TrackActions';
 
-class List extends Component {
+class ListMobile extends Component {
     static defaultProps = {
         list: []
     };
@@ -17,7 +17,6 @@ class List extends Component {
         super(props);
 
         this.state = {
-            hoverIndex: -1,
             activeIndex: -1,
             dragStartIndex: -1,
             dragEndIndex: -1,
@@ -31,26 +30,24 @@ class List extends Component {
         const { list } = this.props;
 
         if (controller.hasListChanged(list, prevProps.list)) {
-            this.setMatches(true);
+            // this.setMatches();
         }
     }
 
-    handleSelect = () => {
-        const { activeIndex, hoverIndex } = this.state;
+    handleSelect = idx => {
+        const { activeIndex } = this.state;
 
-        if (activeIndex === hoverIndex) {
+        if (activeIndex === idx) {
             this.resetMatches();
         } else {
-            this.setMatches();
+            this.setMatches(idx);
         }
     };
 
-    setMatches = shouldUseActive => {
+    setMatches = idx => {
         const { list } = this.props;
-        const { activeIndex, hoverIndex } = this.state;
 
-        const index = shouldUseActive ? activeIndex : hoverIndex;
-        if (index < 0) {
+        if (idx < 0) {
             // prevent error
             return;
         }
@@ -59,10 +56,10 @@ class List extends Component {
             perfectMatches,
             keyMatches,
             modeMatches
-        } = controller.getMatches(index, list);
+        } = controller.getMatches(idx, list);
 
         this.setState({
-            activeIndex: index,
+            activeIndex: idx,
             perfectMatches,
             keyMatches,
             modeMatches
@@ -79,7 +76,7 @@ class List extends Component {
     };
 
     handleTouchDown = idx => {
-        window.addEventListener('touchmove', this.handleTouchMove);
+        window.addEventListMobileener('touchmove', this.handleTouchMove);
         console.log('touchdown');
         this.setState({
             dragStartIndex: idx
@@ -87,9 +84,9 @@ class List extends Component {
     };
 
     handleTouchMove = () => {
-        window.removeEventListener('touchmove', this.handleTouchMove);
-        window.addEventListener('touchcancel', this.handleTouchEnd);
-        window.addEventListener('touchend', this.handleTouchEnd);
+        window.removeEventListMobileener('touchmove', this.handleTouchMove);
+        window.addEventListMobileener('touchcancel', this.handleTouchEnd);
+        window.addEventListMobileener('touchend', this.handleTouchEnd);
         console.log('touchMove');
 
         this.setState({
@@ -98,7 +95,7 @@ class List extends Component {
     };
 
     handleTouchEnd = () => {
-        window.removeEventListener('mousemove', this.handleMouseMove);
+        window.removeEventListMobileener('mousemove', this.handleMouseMove);
 
         const { dispatch } = this.props;
         const {
@@ -166,37 +163,40 @@ class List extends Component {
 
         return (
             <li
-                className={cx('List-item', {
-                    'List-item-hover': isHovered && !isDragging,
-                    'List-item-drag-over': isDragOver && !isActive,
-                    'List-item-active': isActive,
-                    'List-item-active-hover': isActive && isHovered,
-                    'List-item-perfect-match': isPerfectMatch,
-                    'List-item-perfect-match-hover':
+                className={cx('ListMobile-item', {
+                    'ListMobile-item-hover': isHovered && !isDragging,
+                    'ListMobile-item-drag-over': isDragOver && !isActive,
+                    'ListMobile-item-active': isActive,
+                    'ListMobile-item-active-hover': isActive && isHovered,
+                    'ListMobile-item-perfect-match': isPerfectMatch,
+                    'ListMobile-item-perfect-match-hover':
                         isPerfectMatch && isHovered,
-                    'List-item-key-match': isKeyMatch,
-                    'List-item-key-match-hover': isKeyMatch && isHovered,
-                    'List-item-mode-match': isModeMatch,
-                    'List-item-mode-match-hover': isModeMatch && isHovered
+                    'ListMobile-item-key-match': isKeyMatch,
+                    'ListMobile-item-key-match-hover': isKeyMatch && isHovered,
+                    'ListMobile-item-mode-match': isModeMatch,
+                    'ListMobile-item-mode-match-hover': isModeMatch && isHovered
                 })}
                 key={id + idx}
-                onMouseOver={() => this.handleMouseOver(idx)}
                 onMouseDown={this.handleMouseDown}
                 onMouseUp={this.handleMouseUp}
-                onClick={this.handleSelect}
+                onClick={() => this.handleSelect(idx)}
             >
-                <div className="List-item-sub List-item-order">{idx + 1}</div>
-                <div className="List-item-info-m">
-                    <div className="List-item-sub List-item-title-m">
+                <div className="ListMobile-item-sub ListMobile-item-order">
+                    {idx + 1}
+                </div>
+                <div className="ListMobile-item-info">
+                    <div className="ListMobile-item-sub ListMobile-item-title">
                         <span>{name}</span>
                     </div>
-                    <div className="List-item-sub List-item-artist-m">
+                    <div className="ListMobile-item-sub ListMobile-item-artist">
                         <span>{artists}</span>
                     </div>
                 </div>
-                <div className="List-item-sub List-item-cam-key">{camKey}</div>
+                <div className="ListMobile-item-sub ListMobile-item-cam-key">
+                    {camKey}
+                </div>
                 <div
-                    className="List-item-sub List-item-close"
+                    className="ListMobile-item-sub ListMobile-item-close"
                     onClick={this.handleRemove}
                 >
                     <img src={CloseIcon} alt="x" width="12px" height="12px" />
@@ -209,8 +209,11 @@ class List extends Component {
         const { list } = this.props;
 
         return (
-            <div className="List-container">
-                <ul className="List" onMouseLeave={this.handleMouseLeaveList}>
+            <div className="ListMobile-container">
+                <ul
+                    className="ListMobile"
+                    onMouseLeave={this.handleMouseLeaveListMobile}
+                >
                     {map(list, (track, idx) => {
                         return this.renderItem({ ...track, idx });
                     })}
@@ -220,4 +223,4 @@ class List extends Component {
     }
 }
 
-export default connect()(List);
+export default connect()(ListMobile);

@@ -1,6 +1,6 @@
 @import '../../css/colors.css';
 
-.List-container {
+.ListMobile-container {
     width: 100vw;
     box-sizing: border-box;
     overflow: scroll;
@@ -9,12 +9,12 @@
 }
 
 @media (min-width: 767px) {
-    .List {
+    .ListMobile {
         padding: 0;
     }
 }
 
-.List {
+.ListMobile {
     padding: 0;
     cursor: default;
     -webkit-touch-callout: none; /* iOS Safari */
@@ -26,13 +26,13 @@
 }
 
 @media (min-width: 767px) {
-    .List {
+    .ListMobile {
         padding: 0 24px;
     }
 }
 
-.List-item-header,
-.List-item {
+.ListMobile-item-header,
+.ListMobile-item {
     width: 100%;
     height: 48px;
     display: flex;
@@ -45,111 +45,96 @@
     cursor: auto;
 }
 @media (min-width: 767px) {
-    .List-item {
+    .ListMobile-item {
         height: 36px;
     }
 }
-.List-item-header {
+.ListMobile-item-header {
     color: #555;
     font-size: 12px;
     letter-spacing: 1px;
     cursor: default;
     padding: 0 40px;
 }
-.List-item-hover {
+.ListMobile-item-hover {
     background: #ebf5f7;
 }
-.List-item-drag-over {
+.ListMobile-item-drag-over {
     border-bottom: 1px solid #2eb0c4;
 }
-.List-item-active {
+.ListMobile-item-active {
     background: #c6e9ee;
 }
-.List-item-active-hover {
+.ListMobile-item-active-hover {
     background: #d4eff3;
 }
-.List-item-perfect-match {
+.ListMobile-item-perfect-match {
     background: linear-gradient(to left, #fafafa, #c5e9ee);
 }
-.List-item-perfect-match-hover {
+.ListMobile-item-perfect-match-hover {
     background: #d4eff3;
 }
-.List-item-key-match {
+.ListMobile-item-key-match {
     background: linear-gradient(to left, #fafafa, #caefdb);
 }
-.List-item-key-match-hover {
+.ListMobile-item-key-match-hover {
     background: #dff4e8;
 }
-.List-item-mode-match {
+.ListMobile-item-mode-match {
     background: linear-gradient(to left, #fafafa, #f9eec7);
 }
-.List-item-mode-match-hover {
+.ListMobile-item-mode-match-hover {
     background: #fbf4db;
 }
-.List-item-sub {
+.ListMobile-item-sub {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
-.List-item-order {
+.ListMobile-item-order {
     width: 6%;
     max-width: 32px;
 }
-.List-item-artist {
-    width: 30%;
-    padding-right: 8px;
-}
-.List-item-title {
-    flex: 1;
-    padding-right: 8px;
-    overflow: hidden;
-}
-.List-item-artist > *,
-.List-item-title > * {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.List-item-key {
-    width: 6%;
-}
-.List-item-cam-key {
-    width: 6%;
-}
-.List-item-tempo {
-    width: 6%;
-}
-.List-item-energy {
-    width: 6%;
-    margin-right: -8px;
-}
-.List-item-close {
-    width: 12px;
-    margin: 0 8px;
-}
-
-/* Mobile */
-
-.List-item-info-m {
+.ListMobile-item-info {
     flex: 1;
     overflow: hidden;
     padding-right: 8px;
 }
-.List-item-title-m {
+.ListMobile-item-title {
     width: 100%;
     padding-right: 8px;
     overflow: hidden;
     padding-bottom: 2px;
 }
-.List-item-artist-m {
+.ListMobile-item-artist {
     width: 100%;
     font-size: 14px;
     color: #808080;
 }
-.List-item-artist-m > *,
-.List-item-title-m > * {
+.ListMobile-item-artist > *,
+.ListMobile-item-title > * {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.ListMobile-item-key {
+    width: 6%;
+}
+.ListMobile-item-cam-key {
+    width: 6%;
+}
+.ListMobile-item-tempo {
+    width: 6%;
+}
+.ListMobile-item-energy {
+    width: 6%;
+    margin-right: -8px;
+}
+.ListMobile-item-close {
+    width: 12px;
+    margin: 0 8px;
+}
+
+/* Mobile */
