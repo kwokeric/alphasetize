@@ -2,6 +2,11 @@ import requester from './requester';
 
 const api = {
     spotify: {
+        getUser() {
+            return requester({
+                path: 'https://api.spotify.com/v1/me'
+            });
+        },
         searchBasic(q) {
             return requester({
                 path: 'https://api.spotify.com/v1/search',
@@ -25,9 +30,14 @@ const api = {
                 path: 'https://api.spotify.com/v1/me/playlists?limit=50'
             });
         },
-        getPlaylist(id) {
+        getPlaylist(playlistId) {
             return requester({
-                path: 'https://api.spotify.com/v1/playlists/' + id
+                path: 'https://api.spotify.com/v1/playlists/' + playlistId
+            });
+        },
+        createPlaylist(userId) {
+            return requester({
+                path: `https://api.spotify.com/v1/users/${userId}/playlists`
             });
         }
     }
