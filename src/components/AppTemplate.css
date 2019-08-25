@@ -1,13 +1,16 @@
 .AppTemplate {
     background: #fafafa;
     width: 100vw;
-    height: calc(100vh - 60px);
-    padding-top: 60px;
+    height: 100vh;
+    padding: 0;
     font-family: 'Hind', sans-serif;
     display: flex;
     flex-direction: column;
 }
 
-.AppTemplate-m {
-    padding: 0;
+@media (min-width: 767px) {
+    .AppTemplate {
+        height: calc(100vh - 60px);
+        padding-top: 60px;
+    }
 }

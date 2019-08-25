@@ -11,18 +11,11 @@
 .Search-top {
     width: 100vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-}
-
-@media (min-width: 767px) {
-    .Search-top {
-        padding: 40px 40px 32px;
-        flex-direction: row;
-    }
 }
 
 .Search-autocomplete {
@@ -77,6 +70,7 @@
 /* Mobile */
 
 .Search-top-m {
+    position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -84,6 +78,7 @@
     align-items: flex-start;
     padding: 8px;
     box-sizing: border-box;
+    background: #fafafa;
 }
 
 .Search-top-active-m {
