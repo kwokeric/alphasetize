@@ -1,8 +1,6 @@
 const controller = {
     getMatches(index, list) {
         const currItem = list[index];
-        console.log('list', list);
-        console.log('index', index);
         const currCamKey = currItem.camKey;
         const currCamNum = Number(currCamKey.slice(0, currCamKey.length - 1));
         const stepUp =
