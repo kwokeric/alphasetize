@@ -4,7 +4,8 @@ export default function requester({
     method = 'get',
     path,
     queryParams = {},
-    header = {}
+    header = {},
+    body = {}
 }) {
     return function(dispatch, getState) {
         const { accessToken } = getState().user;
@@ -20,7 +21,8 @@ export default function requester({
             method,
             url: path,
             params: queryParams,
-            headers
+            headers,
+            data: body
         };
 
         return axios(requestOptions).then(response => {

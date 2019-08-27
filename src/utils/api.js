@@ -37,7 +37,12 @@ const api = {
         },
         createPlaylist(userId) {
             return requester({
-                path: `https://api.spotify.com/v1/users/${userId}/playlists`
+                path: `https://api.spotify.com/v1/users/${userId}/playlists`,
+                method: 'post',
+                body: JSON.stringify({
+                    name: 'Playlist',
+                    description: 'New playlist'
+                })
             });
         }
     }

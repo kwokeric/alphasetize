@@ -46,7 +46,7 @@ const PlaylistActions = {
                     tracksBasic = res.tracks.items;
 
                     const _trackIds = map(tracksBasic, t => {
-                        return t.track.id;
+                        return (t.track && t.track.id) || '';
                     });
 
                     return dispatch(
@@ -75,6 +75,31 @@ const PlaylistActions = {
                     return tracks;
                 })
                 .then(tracks => dispatch(TrackActions.addTracks(tracks)));
+        };
+    },
+    exportPlaylist(playlistId) {
+        return (dispatch, getState) => {
+            const user = getState().user;
+            return dispatch(api.spotify.createPlaylist(user.id))
+                .then(res => {
+                    if (res.statusText === 'Unauthorized') {
+                        window.location.href = './';
+                    }
+                    return res;
+                })
+                .then(res => console.log(res));
+        };
+    },
+    createEmptyPlaylist(playlistId) {
+        return (dispatch, getState) => {
+            return dispatch(api.spotify.getPlaylist(playlistId))
+                .then(res => {
+                    if (res.statusText === 'Unauthorized') {
+                        window.location.href = './';
+                    }
+                    return res;
+                })
+                .then(res => console.log(res));
         };
     }
 };

@@ -39,7 +39,7 @@ class Search extends Component {
     handleExport = () => {
         const { dispatch } = this.props;
 
-        // return dispatch(PlaylistActions.exportPlaylist());
+        return dispatch(PlaylistActions.exportPlaylist());
     };
 
     handleHideModal = () => {

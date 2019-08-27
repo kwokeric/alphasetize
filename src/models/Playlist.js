@@ -1,5 +1,5 @@
 const getImage = images => {
-    return String(images[images.length - 1].url);
+    return images.length ? String(images[images.length - 1].url) : '';
 };
 
 const Playlist = function({
