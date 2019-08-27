@@ -28,7 +28,7 @@ class About extends Component {
         });
     };
 
-    handleClick = e => {
+    handleSpotifyAuth = e => {
         e.preventDefault();
         const { token, history } = this.props;
         const client_id = 'b722de12baaf4052a82f8cd762edda76';
@@ -39,6 +39,8 @@ class About extends Component {
                 'https://accounts.spotify.com/authorize?' +
                 'client_id=' +
                 client_id +
+                '&scope=' +
+                encodeURIComponent('playlist-modify-public') +
                 '&response_type=token&redirect_uri=http://localhost:3000/search';
         } else {
             console.log('> Already authenticated!');
@@ -59,7 +61,7 @@ class About extends Component {
                         })}
                         onMouseOver={this.handleMouseOver}
                         onMouseLeave={this.handleMouseLeave}
-                        onClick={this.handleClick}
+                        onClick={this.handleSpotifyAuth}
                     >
                         {!authHover
                             ? 'Get started'
