@@ -38,10 +38,7 @@ class Search extends Component {
     };
 
     handleExport = () => {
-        const { dispatch } = this.props;
         this.setState({ modalToShow: 'export' });
-
-        // return dispatch(PlaylistActions.exportPlaylist());
     };
 
     handleHideModal = () => {

@@ -23,7 +23,7 @@
 .PlaylistExport-header {
     font-size: 14px;
     padding: 12px 0;
-    margin: 0 40px 18px;
+    margin: 0 60px 18px;
     border-bottom: 1px solid #2eb0c4;
     text-align: center;
 }
@@ -34,28 +34,8 @@
     overflow-y: scroll;
 }
 
-.PlaylistExport-playlist {
-    padding: 8px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.PlaylistExport-playlist-disable {
-    display: flex;
-    justify-content: space-between;
-    color: #888;
-}
-
-.PlaylistExport-playlist-active {
-    background: #d4eff3;
-}
-
-.PlaylistExport-playlist-length {
-    padding-right: 16px;
-}
-
-.PlaylistExport-playlist:hover {
-    background: #ebf5f7;
+.PlaylistExport-input {
+    padding: 12px 0;
 }
 
 .PlaylistExport-bottom {
@@ -98,21 +78,23 @@
     margin-top: 8px;
     text-align: center;
     line-height: 34px;
+    color: #808080;
 }
 
 .PlaylistExport-btn {
-    color: #aaa;
+    color: #2eb0c4;
+    border: 1px solid #2eb0c4;
 }
 
-.PlaylistExport-btn-active {
-    color: black;
-}
-
-.PlaylistExport-btn-active:hover,
-.PlaylistExport-btn-cancel:hover,
-.PlaylistExport-btn-active:active,
-.PlaylistExport-btn-cancel:active {
+.PlaylistExport-btn:hover,
+.PlaylistExport-btn:active {
     color: white;
     background: #2eb0c4;
     border: 1px solid #2eb0c4;
+}
+
+.PlaylistExport-btn-cancel:hover,
+.PlaylistExport-btn-cancel:active {
+    color: black;
+    border: 1px solid black;
 }

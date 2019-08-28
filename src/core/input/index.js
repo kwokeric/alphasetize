@@ -10,15 +10,13 @@ const ESC_KEYCODE = 27;
 class Input extends React.Component {
     static defaultProps = {
         border: true,
-        borderRadius: false,
         centerText: false,
         className: '',
         customTagClassName: null,
         disabled: false,
         fixedSize: false,
-        help: '',
-        hpxStyle: '',
-        inactive: false,
+        error: '',
+        style: '',
         includeClear: false,
         includeCancel: false,
         inputButtonGroupPosition: null,
@@ -70,158 +68,69 @@ class Input extends React.Component {
     render() {
         const {
             border,
-            borderRadius,
             centerText,
             className,
             customTagClassName,
             disabled,
             fixedSize,
             width,
-            help,
-            hpxStyle,
-            inactive,
+            error,
+            style,
             includeClear,
             includeCancel,
             inputButtonGroupPosition,
-            isActive,
             label,
-            required,
             size,
-            type,
-            value
+            type
         } = this.props;
         const rest = omit(this.props, [
             'border',
-            'borderRadius',
             'centerText',
             'customTagClassName',
             'dispatch',
             'fixedSize',
-            'help',
-            'inactive',
+            'error',
             'includeClear',
             'includeCancel',
             'inputButtonGroupPosition',
             'isActive',
             'onCancel',
             'onClear',
-            'hpxStyle',
+            'style',
             'label',
             'size',
             'width'
         ]);
         const CustomTag = type === 'textarea' ? 'textarea' : 'input';
-        let paddingRight = null;
-        if (isActive) {
-            if (includeClear && includeCancel && value) {
-                paddingRight = 'lg';
-            } else if (includeClear || includeCancel) {
-                paddingRight = 'md';
-            }
-        }
 
         return (
             <div className={cx('Input', className)}>
-                {label && (
-                    <div>
-                        {required && (
-                            <span className="Input-required-mark">{'* '}</span>
-                        )}
-                        {label}
-                        {!required && ' (optional)'}
-                    </div>
-                )}
-                {includeClear || includeCancel ? (
-                    <div className="Input-container">
-                        <CustomTag
-                            {...rest}
-                            className={cx('Input-element', customTagClassName, {
-                                'Input-button-after':
-                                    inputButtonGroupPosition === 'after' ||
-                                    inputButtonGroupPosition === 'both',
-                                'Input-button-before':
-                                    inputButtonGroupPosition === 'before' ||
-                                    inputButtonGroupPosition === 'both',
-                                'Input-center-text': centerText,
-                                'Input-disabled': disabled,
-                                'Input-element-border-radius': borderRadius,
-                                'Input-element-border': border,
-                                'Input-element-no-border': !border,
-                                'Input-error': hpxStyle === 'error',
-                                'Input-fixed-size': fixedSize,
-                                'Input-full-width': width === 'full',
-                                'Input-inactive': inactive,
-                                'Input-lg': size === 'lg',
-                                'Input-xl': size === 'xl',
-                                'Input-padding-right-lg': paddingRight === 'lg',
-                                'Input-padding-right-md': paddingRight === 'md',
-                                'Input-textarea': type === 'textarea',
-                                'Utils-text-overflow': type !== 'textarea'
-                            })}
-                            ref={this.input}
-                            onKeyDown={this.handleKeyDown}
-                        />
-                        {isActive &&
-                            (includeClear || includeCancel) && (
-                                <div className="Input-right">
-                                    {includeClear &&
-                                        value && (
-                                            <div
-                                                className="Input-clear Utils-horiz-center"
-                                                onClick={this.handleClear}
-                                            >
-                                                x
-                                            </div>
-                                        )}
-                                    {includeCancel && (
-                                        <div
-                                            className="Input-cancel Utils-horiz-center"
-                                            onClick={this.handleCancel}
-                                        >
-                                            <div
-                                                size="tiny"
-                                                className="Input-cancel-text"
-                                            >
-                                                Cancel
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            )}
-                    </div>
-                ) : (
-                    <CustomTag
-                        {...rest}
-                        className={cx('Input-element', customTagClassName, {
-                            'Input-button-after':
-                                inputButtonGroupPosition === 'after' ||
-                                inputButtonGroupPosition === 'both',
-                            'Input-button-before':
-                                inputButtonGroupPosition === 'before' ||
-                                inputButtonGroupPosition === 'both',
-                            'Input-center-text': centerText,
-                            'Input-disabled': disabled,
-                            'Input-element-border-radius': borderRadius,
-                            'Input-element-border': border,
-                            'Input-element-no-border': !border,
-                            'Input-error': hpxStyle === 'error',
-                            'Input-fixed-size': fixedSize,
-                            'Input-full-width': width === 'full',
-                            'Input-inactive': inactive,
-                            'Input-lg': size === 'lg',
-                            'Input-xl': size === 'xl',
-                            'Input-textarea': type === 'textarea',
-                            'Utils-text-overflow': type !== 'textarea'
-                        })}
-                        ref={this.input}
-                        onKeyDown={this.handleKeyDown}
-                    />
-                )}
-                {help && (
-                    <div size="sm" className="Utils-alert">
-                        {help}
-                    </div>
-                )}
+                {label && <div className="Input-label">{label}</div>}
+                <CustomTag
+                    {...rest}
+                    className={cx('Input-element', customTagClassName, {
+                        'Input-button-after':
+                            inputButtonGroupPosition === 'after' ||
+                            inputButtonGroupPosition === 'both',
+                        'Input-button-before':
+                            inputButtonGroupPosition === 'before' ||
+                            inputButtonGroupPosition === 'both',
+                        'Input-center-text': centerText,
+                        'Input-disabled': disabled,
+                        'Input-element-border': border,
+                        'Input-element-no-border': !border,
+                        'Input-error': error,
+                        'Input-fixed-size': fixedSize,
+                        'Input-full-width': width === 'full',
+                        'Input-lg': size === 'lg',
+                        'Input-xl': size === 'xl',
+                        'Input-textarea': type === 'textarea',
+                        'Utils-text-overflow': type !== 'textarea'
+                    })}
+                    ref={this.input}
+                    onKeyDown={this.handleKeyDown}
+                />
+                {error && <div className="Input-alert">{error}</div>}
             </div>
         );
     }
