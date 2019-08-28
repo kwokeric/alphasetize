@@ -15,7 +15,7 @@ class Search extends Component {
         super(props);
 
         this.state = {
-            showPlaylistImport: false,
+            modalToShow: null,
             fullCta: null,
             isInputActive: false
         };
@@ -32,7 +32,7 @@ class Search extends Component {
             .then(playlists => {
                 return dispatch(PlaylistActions.setPlaylists(playlists.items));
             })
-            .then(() => this.setState({ showPlaylistImport: true }))
+            .then(() => this.setState({ modalToShow: 'import' }))
             .catch(err => console.log(err));
     };
 
@@ -43,16 +43,12 @@ class Search extends Component {
     };
 
     handleHideModal = () => {
-        this.setState({ showPlaylistImport: false });
+        this.setState({ modalToShow: null });
     };
 
     handleImportMobile = () => {
         this.setState({ fullCta: 'playlist' });
         this.handleImport();
-    };
-
-    handleCancelImportMobile = () => {
-        this.setState({ fullCta: '', showPlaylistImport: false });
     };
 
     handleInputFocus = () => {
@@ -97,11 +93,11 @@ class Search extends Component {
 
     render() {
         const { list, playlists, isMobile } = this.props;
-        const { showPlaylistImport } = this.state;
+        const { modalToShow } = this.state;
 
         return (
             <div className="Search">
-                {showPlaylistImport && (
+                {modalToShow === 'import' && (
                     <Modal onHideModal={this.handleHideModal}>
                         <PlaylistImport
                             playlists={playlists}
