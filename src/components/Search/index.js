@@ -9,6 +9,7 @@ import ListMobile from '../ListMobile';
 import Modal from '../Modal';
 import PlaylistActions from '../../redux/actions/PlaylistActions';
 import PlaylistImport from '../PlaylistImport';
+import PlaylistExport from '../PlaylistExport';
 
 class Search extends Component {
     constructor(props) {
@@ -38,8 +39,9 @@ class Search extends Component {
 
     handleExport = () => {
         const { dispatch } = this.props;
+        this.setState({ modalToShow: 'export' });
 
-        return dispatch(PlaylistActions.exportPlaylist());
+        // return dispatch(PlaylistActions.exportPlaylist());
     };
 
     handleHideModal = () => {
@@ -103,6 +105,11 @@ class Search extends Component {
                             playlists={playlists}
                             onHideModal={this.handleHideModal}
                         />
+                    </Modal>
+                )}
+                {modalToShow === 'export' && (
+                    <Modal onHideModal={this.handleHideModal}>
+                        <PlaylistExport onHideModal={this.handleHideModal} />
                     </Modal>
                 )}
                 {isMobile ? (

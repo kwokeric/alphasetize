@@ -1,0 +1,118 @@
+.PlaylistExport {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    padding: 20px;
+    cursor: default;
+    box-sizing: border-box;
+}
+
+@media (min-width: 767px) {
+    .PlaylistExport {
+        border-radius: 12px;
+        max-height: 520px;
+        max-width: 420px;
+        padding: 20px;
+        box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.15);
+    }
+}
+
+.PlaylistExport-header {
+    font-size: 14px;
+    padding: 12px 0;
+    margin: 0 40px 18px;
+    border-bottom: 1px solid #2eb0c4;
+    text-align: center;
+}
+
+.PlaylistExport-container {
+    width: 100%;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+.PlaylistExport-playlist {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.PlaylistExport-playlist-disable {
+    display: flex;
+    justify-content: space-between;
+    color: #888;
+}
+
+.PlaylistExport-playlist-active {
+    background: #d4eff3;
+}
+
+.PlaylistExport-playlist-length {
+    padding-right: 16px;
+}
+
+.PlaylistExport-playlist:hover {
+    background: #ebf5f7;
+}
+
+.PlaylistExport-bottom {
+    padding-top: 12px;
+}
+
+.PlaylistExport-error-container {
+    height: 16px;
+}
+
+.PlaylistExport-error {
+    opacity: 1;
+    transform: translate(0px, 0px);
+    text-align: center;
+    font-size: 14px;
+    color: #ee964b;
+    width: 100%;
+    transition: all ease-out 175ms;
+}
+
+.PlaylistExport-error-hidden {
+    opacity: 0;
+    transform: translate(0px, 10px);
+}
+
+.PlaylistExport-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.PlaylistExport-btn,
+.PlaylistExport-btn-cancel {
+    width: 120px;
+    height: 32px;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    font-size: 14px;
+    margin: auto;
+    margin-top: 8px;
+    text-align: center;
+    line-height: 34px;
+}
+
+.PlaylistExport-btn {
+    color: #aaa;
+}
+
+.PlaylistExport-btn-active {
+    color: black;
+}
+
+.PlaylistExport-btn-active:hover,
+.PlaylistExport-btn-cancel:hover,
+.PlaylistExport-btn-active:active,
+.PlaylistExport-btn-cancel:active {
+    color: white;
+    background: #2eb0c4;
+    border: 1px solid #2eb0c4;
+}
