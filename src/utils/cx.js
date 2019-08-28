@@ -2,7 +2,9 @@ const cx = (...args) => {
     let result = [];
 
     args.forEach(arg => {
-        if (typeof arg === 'string') {
+        if (!arg) {
+            // do nothing
+        } else if (typeof arg === 'string') {
             result.push(arg);
         } else if (typeof arg === 'object' && !(arg instanceof Array)) {
             Object.entries(arg).forEach(entry => {
