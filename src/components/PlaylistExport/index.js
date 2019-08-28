@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import map from 'lodash/map';
 
+import Input from '../../core/input/index.js';
 import PlaylistActions from '../../redux/actions/PlaylistActions';
 import './style.css';
 import cx from '../../utils/cx.js';
@@ -59,7 +59,20 @@ class PlaylistExport extends Component {
         return (
             <div className="PlaylistExport">
                 <h1 className="PlaylistExport-header">EXPORT PLAYLIST</h1>
-                <div className="PlaylistExport-container">FORM GOES HERE</div>
+                <form className="PlaylistExport-container">
+                    <Input
+                        autoFocus
+                        className="login-input login-input-pw"
+                        label="Password"
+                        help={'this is help'}
+                        maxLength={50}
+                        name="title"
+                        onChange={this.handleTextInput}
+                        required
+                        type="title"
+                        value={'halo'}
+                    />
+                </form>
                 <div className="PlaylistExport-bottom">
                     <div className="PlaylistExport-error-container">
                         <div
