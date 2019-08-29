@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import assign from 'lodash/assign';
 
-import Input from '../../core/input/index.js';
-import PlaylistActions from '../../redux/actions/PlaylistActions';
 import './style.css';
 import cx from '../../utils/cx.js';
+import IconPlaylist from '../../assets/icon-playlist.svg';
+import Input from '../../core/input/index.js';
+import PlaylistActions from '../../redux/actions/PlaylistActions';
 
 const PLAYLIST_MAX_LENGTH = 100;
 
@@ -70,7 +71,16 @@ class PlaylistExport extends Component {
         return (
             <div className="PlaylistExport">
                 <h1 className="PlaylistExport-header">EXPORT PLAYLIST</h1>
-                <div>Save your new setlist to your Spotify account</div>
+                <div className="PlaylistExport-subheader">
+                    <img
+                        alt="IconPlaylist"
+                        src={IconPlaylist}
+                        className="PlaylistExport-icon-playlist"
+                        height="24"
+                        width="24"
+                    />
+                    <div>Save your new setlist to your Spotify account</div>
+                </div>
                 <form className="PlaylistExport-container">
                     <Input
                         className="PlaylistExport-input"

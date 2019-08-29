@@ -28,6 +28,15 @@
     text-align: center;
 }
 
+.PlaylistExport-subheader {
+    display: flex;
+    align-items: center;
+}
+
+.PlaylistExport-icon-playlist {
+    padding-right: 8px;
+}
+
 .PlaylistExport-container {
     width: 100%;
     flex: 1;
