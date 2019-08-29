@@ -40,7 +40,7 @@ class PlaylistExport extends Component {
 
     handleSubmit = (i, shouldDisable) => {
         const { dispatch, onHideModal } = this.props;
-        const { title } = this.state;
+        const { title, description } = this.state;
         let _title = assign({}, title);
 
         if (!title.value.length) {
@@ -49,9 +49,12 @@ class PlaylistExport extends Component {
             return;
         }
 
-        dispatch(PlaylistActions.exportPlaylist()).catch(err =>
-            console.log(err)
-        );
+        dispatch(
+            PlaylistActions.exportPlaylist({
+                title: title.value,
+                description: description.value
+            })
+        ).catch(err => console.log(err));
 
         onHideModal();
     };
@@ -67,6 +70,7 @@ class PlaylistExport extends Component {
         return (
             <div className="PlaylistExport">
                 <h1 className="PlaylistExport-header">EXPORT PLAYLIST</h1>
+                <div>Save your new setlist to your Spotify account</div>
                 <form className="PlaylistExport-container">
                     <Input
                         className="PlaylistExport-input"

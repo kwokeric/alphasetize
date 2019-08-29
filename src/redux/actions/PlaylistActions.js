@@ -77,22 +77,39 @@ const PlaylistActions = {
                 .then(tracks => dispatch(TrackActions.addTracks(tracks)));
         };
     },
-    exportPlaylist(playlistId) {
+    exportPlaylist({ title, description = '' }) {
         return (dispatch, getState) => {
-            const user = getState().user;
-            return dispatch(api.spotify.createPlaylist(user.id))
-                .then(res => {
-                    if (res.statusText === 'Unauthorized') {
-                        window.location.href = './';
-                    }
-                    return res;
-                })
-                .then(res => console.log(res));
+            return dispatch(
+                PlaylistActions.createEmptyPlaylist({ title, description })
+            ).then(res => dispatch(PlaylistActions.addTracksToPlaylist(res)));
         };
     },
-    createEmptyPlaylist(playlistId) {
+    createEmptyPlaylist({ title, description }) {
         return (dispatch, getState) => {
-            return dispatch(api.spotify.getPlaylist(playlistId))
+            const userId = getState().user.id;
+            return dispatch(
+                api.spotify.createPlaylist({ userId, title, description })
+            ).then(res => {
+                if (res.statusText === 'Unauthorized') {
+                    window.location.href = './';
+                }
+                return res;
+            });
+        };
+    },
+    addTracksToPlaylist(playlistObj) {
+        return (dispatch, getState) => {
+            const playlistId = playlistObj.id;
+            const _tracks = getState().tracks.list;
+            const spotifyPrefix = 'spotify:track:';
+
+            const tracks = map(_tracks, t => {
+                return spotifyPrefix + t.id;
+            });
+
+            return dispatch(
+                api.spotify.addTracksToPlaylist({ playlistId, tracks })
+            )
                 .then(res => {
                     if (res.statusText === 'Unauthorized') {
                         window.location.href = './';

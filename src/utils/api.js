@@ -35,13 +35,22 @@ const api = {
                 path: 'https://api.spotify.com/v1/playlists/' + playlistId
             });
         },
-        createPlaylist(userId) {
+        createPlaylist({ userId, title, description }) {
             return requester({
                 path: `https://api.spotify.com/v1/users/${userId}/playlists`,
                 method: 'post',
                 body: JSON.stringify({
-                    name: 'Playlist',
-                    description: 'New playlist'
+                    name: title,
+                    description: description
+                })
+            });
+        },
+        addTracksToPlaylist({ playlistId, tracks }) {
+            return requester({
+                path: `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
+                method: 'post',
+                body: JSON.stringify({
+                    uris: tracks
                 })
             });
         }
