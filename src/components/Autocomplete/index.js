@@ -7,6 +7,8 @@ import SearchActions from '../../redux/actions/SearchActions';
 import './style.css';
 import controller from './controller.js';
 import cx from '../../utils/cx.js';
+import IconSearchDark from '../../assets/icon-search-black.svg';
+import IconSearchLight from '../../assets/icon-search-gray.svg';
 import IconX from '../../assets/icon-x.svg';
 import debounce from '../../utils/debounce.js';
 
@@ -183,6 +185,15 @@ class Autocomplete extends Component {
                 })}
             >
                 <div className="Autocomplete-input-container">
+                    <img
+                        alt="IconSearch"
+                        src={isActive ? IconSearchDark : IconSearchLight}
+                        className={cx('Autocomplete-icon-search', {
+                            'Autocomplete-icon-search-active': isActive
+                        })}
+                        height="18"
+                        width="18"
+                    />
                     <input
                         className="Autocomplete-input"
                         onChange={e => this.handleChange(e)}
@@ -198,7 +209,7 @@ class Autocomplete extends Component {
                         <img
                             alt="IconX"
                             src={IconX}
-                            className="Input-iconX"
+                            className="Autocomplete-icon-x"
                             height="18"
                             width="18"
                         />

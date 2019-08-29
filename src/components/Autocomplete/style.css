@@ -51,10 +51,29 @@
     margin: 0 16px;
 }
 
+.Autocomplete-icon-search {
+    position: absolute;
+    top: 13px;
+    left: 14px;
+}
+
+.Autocomplete-icon-search-active {
+    position: absolute;
+    top: 21px;
+    left: 15px;
+}
+
+@media (min-width: 767px) {
+    .Autocomplete-icon-search-active {
+        top: 13px;
+        left: 14px;
+    }
+}
+
 .Autocomplete-input {
     width: 100%;
     height: 100%;
-    padding: 2px 16px 0 16px;
+    padding: 2px 16px 0 38px;
     outline: none;
     background: transparent;
     font-size: 16px;
