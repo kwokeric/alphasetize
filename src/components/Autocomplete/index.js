@@ -134,6 +134,7 @@ class Autocomplete extends Component {
         const { index, suggestions } = this.state;
         const selection = suggestions[index];
 
+        this.handleClose();
         return dispatch(SearchActions.getTrackWithBasicAndFeatures(selection));
     };
 

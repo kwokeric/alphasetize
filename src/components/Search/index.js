@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import './style.css';
 import Autocomplete from '../Autocomplete';
 import cx from '../../utils/cx.js';
+import IconDots from '../../assets/icon-dots.svg';
 import List from '../List';
 import ListMobile from '../ListMobile';
 import Modal from '../Modal';
+import ModalAllOpts from '../ModalAllOpts';
 import PlaylistActions from '../../redux/actions/PlaylistActions';
 import PlaylistImport from '../PlaylistImport';
 import PlaylistExport from '../PlaylistExport';
@@ -45,9 +47,8 @@ class Search extends Component {
         this.setState({ modalToShow: null });
     };
 
-    handleImportMobile = () => {
-        this.setState({ fullCta: 'playlist' });
-        this.handleImport();
+    handleShowAllOptions = () => {
+        this.setState({ modalToShow: 'allOptions' });
     };
 
     handleInputFocus = () => {
@@ -56,6 +57,42 @@ class Search extends Component {
 
     handleInputBlur = () => {
         this.setState({ isInputActive: false });
+    };
+
+    renderModal = () => {
+        const { playlists } = this.props;
+        const { modalToShow } = this.state;
+
+        if (!modalToShow) {
+            return null;
+        } else if (modalToShow === 'allOptions') {
+            // mweb only
+            return (
+                <Modal onHideModal={this.handleHideModal} background={false}>
+                    <ModalAllOpts
+                        playlists={playlists}
+                        onHideModal={this.handleHideModal}
+                        onClickImport={this.handleImport}
+                        onClickExport={this.handleExport}
+                    />
+                </Modal>
+            );
+        } else if (modalToShow === 'import') {
+            return (
+                <Modal onHideModal={this.handleHideModal}>
+                    <PlaylistImport
+                        playlists={playlists}
+                        onHideModal={this.handleHideModal}
+                    />
+                </Modal>
+            );
+        } else if (modalToShow === 'export') {
+            return (
+                <Modal onHideModal={this.handleHideModal}>
+                    <PlaylistExport onHideModal={this.handleHideModal} />
+                </Modal>
+            );
+        }
     };
 
     renderMobileView = () => {
@@ -82,33 +119,22 @@ class Search extends Component {
                     className={cx('Search-playlist-m', {
                         'Search-playlist-hidden-m': isInputActive
                     })}
-                    onClick={this.handleImportMobile}
+                    onClick={this.handleShowAllOptions}
                 >
-                    <div className="Search-playlist-open">+</div>
+                    <div className="Search-playlist-open">
+                        <img height="16" src={IconDots} alt="icon-dots" />
+                    </div>
                 </div>
             </div>
         );
     };
 
     render() {
-        const { list, playlists, isMobile } = this.props;
-        const { modalToShow } = this.state;
+        const { list, isMobile } = this.props;
 
         return (
             <div className="Search">
-                {modalToShow === 'import' && (
-                    <Modal onHideModal={this.handleHideModal}>
-                        <PlaylistImport
-                            playlists={playlists}
-                            onHideModal={this.handleHideModal}
-                        />
-                    </Modal>
-                )}
-                {modalToShow === 'export' && (
-                    <Modal onHideModal={this.handleHideModal}>
-                        <PlaylistExport onHideModal={this.handleHideModal} />
-                    </Modal>
-                )}
+                {this.renderModal()}
                 {isMobile ? (
                     this.renderMobileView()
                 ) : (

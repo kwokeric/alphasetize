@@ -44,6 +44,8 @@ class AppTemplate extends Component {
 
     render() {
         const { pathname, children, isMobile } = this.props;
+        console.log('isMobile', isMobile);
+        console.log('pathname', pathname);
         return (
             <div
                 className={cx('AppTemplate', {
@@ -61,7 +63,7 @@ class AppTemplate extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        isMobile: state.app.isMobile,
+        isMobile: state.app.isMobile || true,
         pathname: ownProps.location.pathname,
         token: state.user.token
     };

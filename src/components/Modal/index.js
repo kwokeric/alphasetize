@@ -6,6 +6,7 @@ import cx from '../../utils/cx.js';
 
 class Modal extends Component {
     static defaultProps = {
+        background: true,
         children: {},
         onHideModal: () => {}
     };
@@ -21,11 +22,14 @@ class Modal extends Component {
     };
 
     render() {
-        const { children } = this.props;
+        const { background, children } = this.props;
         const childClassName = children.props ? children.props.className : '';
 
         return (
-            <div className="Modal" onClick={this.handleBackdropClick}>
+            <div
+                className={cx('Modal', { 'Modal-no-background': !background })}
+                onClick={this.handleBackdropClick}
+            >
                 {React.cloneElement(children, {
                     className: cx('Modal-children', childClassName)
                 })}
