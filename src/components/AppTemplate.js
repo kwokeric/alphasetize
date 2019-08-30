@@ -63,7 +63,10 @@ class AppTemplate extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        isMobile: state.app.isMobile || true,
+        isMobile:
+            typeof state.app.isMobile !== 'undefined'
+                ? state.app.isMobile
+                : true,
         pathname: ownProps.location.pathname,
         token: state.user.token
     };

@@ -17,6 +17,7 @@
     .Modal {
         justify-content: center;
         background: rgba(255, 255, 255, 0.8);
+        padding-top: 0;
         padding-bottom: 20%;
     }
 }
