@@ -44,8 +44,6 @@ class AppTemplate extends Component {
 
     render() {
         const { pathname, children, isMobile } = this.props;
-        console.log('isMobile', isMobile);
-        console.log('pathname', pathname);
         return (
             <div
                 className={cx('AppTemplate', {

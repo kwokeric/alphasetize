@@ -10,20 +10,15 @@ const ESC_KEYCODE = 27;
 class Input extends React.Component {
     static defaultProps = {
         border: true,
-        centerText: false,
         className: '',
         customTagClassName: null,
         disabled: false,
-        fixedSize: false,
         error: '',
-        style: '',
-        includeClear: false,
-        includeCancel: false,
-        inputButtonGroupPosition: null,
+        fixedSize: false,
         isActive: false,
+        label: '',
         onCancel: () => {},
         onClear: () => {},
-        label: '',
         required: false,
         size: 'md',
         type: 'text',
@@ -68,35 +63,23 @@ class Input extends React.Component {
     render() {
         const {
             border,
-            centerText,
             className,
             customTagClassName,
             disabled,
             fixedSize,
             width,
             error,
-            style,
-            includeClear,
-            includeCancel,
-            inputButtonGroupPosition,
             label,
             size,
             type
         } = this.props;
         const rest = omit(this.props, [
             'border',
-            'centerText',
             'customTagClassName',
             'dispatch',
             'fixedSize',
             'error',
-            'includeClear',
-            'includeCancel',
-            'inputButtonGroupPosition',
             'isActive',
-            'onCancel',
-            'onClear',
-            'style',
             'label',
             'size',
             'width'
@@ -109,13 +92,6 @@ class Input extends React.Component {
                 <CustomTag
                     {...rest}
                     className={cx('Input-element', customTagClassName, {
-                        'Input-button-after':
-                            inputButtonGroupPosition === 'after' ||
-                            inputButtonGroupPosition === 'both',
-                        'Input-button-before':
-                            inputButtonGroupPosition === 'before' ||
-                            inputButtonGroupPosition === 'both',
-                        'Input-center-text': centerText,
                         'Input-disabled': disabled,
                         'Input-element-border': border,
                         'Input-element-no-border': !border,
