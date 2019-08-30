@@ -50,7 +50,9 @@ class AppTemplate extends Component {
                     'AppTemplate-m': isMobile
                 })}
             >
-                {!isMobile && <Header pathname={pathname} />}
+                {!(isMobile && pathname !== '/') && (
+                    <Header pathname={pathname} />
+                )}
                 {children}
             </div>
         );

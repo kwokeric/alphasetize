@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 
 import './style.css';
 import CamelotWheel from '../../assets/camelotWheel.jpg';
+import IconBulb from '../../assets/icon-bulb.svg';
+import IconGear from '../../assets/icon-gear.svg';
+import IconQuestion from '../../assets/icon-question.svg';
 import cx from '../../utils/cx.js';
 import urlUtils from '../../utils/urlUtils.js';
 
@@ -79,7 +82,7 @@ class About extends Component {
             <div className="About">
                 <div className="About-content">
                     <h1 className="About-header">Your sets in harmony</h1>
-                    <h2 className="About-subheader">
+                    <h2 className="About-header-2">
                         Alphasetize helps you order songs in your sets based on
                         key compatibility.
                     </h2>
@@ -92,27 +95,44 @@ class About extends Component {
                                 alt="camelotWheel"
                             />
                         </div>
-                        <div>
+                        <div className="About-description">
+                            <img
+                                className="About-icon"
+                                src={IconQuestion}
+                                alt="icon-question"
+                            />
+                            <div className="About-subheader">The Problem</div>
                             Have you ever noticed the uncomfortable dissonance
-                            when mixing two songs witch clashing pitches? Use
-                            Alphasetize to know which songs are compatible and
-                            open up a world of creativity!
+                            when mixing two songs witch clashing pitches?
                             <br />
                             <br />
+                            <img
+                                className="About-icon"
+                                src={IconBulb}
+                                alt="icon-bulb"
+                            />
+                            <div className="About-subheader">The Solution</div>
+                            Alphasetize shows you which songs are harmonically
+                            compatible to keep transitions silky smooth.
+                            <br />
+                            <br />
+                            <img
+                                className="About-icon"
+                                src={IconGear}
+                                alt="icon-gear"
+                            />
+                            <div className="About-subheader">How it works</div>
                             Using this wheel (akin to a clock) as a reference,
                             you can move to an adjacent key within each ring
                             (the next "hour"), or to a section in the adjacent
-                            ring (in the same "hour").
+                            ring in the same "hour".
                             <br />
-                            <br />
-                            To read more about how it works, check out{' '}
                             <a
                                 className="About-link"
                                 href="https://mixedinkey.com/harmonic-mixing-guide/"
                             >
-                                this
+                                Read more >
                             </a>{' '}
-                            great article
                         </div>
                     </div>
                 </div>
@@ -121,8 +141,9 @@ class About extends Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
     return {
+        isMobile: state.app.isMobile,
         token: state.user.token
     };
 };
