@@ -86,31 +86,6 @@
     border-bottom: 1px solid $hpx-grey-400;
 }
 
-.Input-center-text {
-    text-align: center;
-}
-
-.Input-button-before {
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
-    border-left: 1px solid $hpx-white;
-}
-
-.Input-button-after {
-    border-bottom-right-radius: 0px;
-    border-top-right-radius: 0px;
-    border-right: 1px solid $hpx-white;
-}
-
-.Input-right {
-    display: flex;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    cursor: pointer;
-}
-
 .Input-alert {
     position: absolute;
     margin-top: 2px;
