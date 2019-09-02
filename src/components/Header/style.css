@@ -1,6 +1,7 @@
 .Header {
-    width: 100%;
+    width: 100vw;
     height: 60px;
+    box-sizing: border-box;
     background: white;
     padding-left: 48px;
     display: flex;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
@@ -15,11 +15,12 @@ class About extends Component {
         super(props);
 
         this.state = {
-            authHover: false
+            authHover: false,
+            expandHow: false
         };
     }
 
-    handleMouseOver = index => {
+    handleMouseOver = () => {
         this.setState({
             authHover: true
         });
@@ -28,6 +29,12 @@ class About extends Component {
     handleMouseLeave = () => {
         this.setState({
             authHover: false
+        });
+    };
+
+    handleExpandHow = () => {
+        this.setState({
+            expandHow: true
         });
     };
 
@@ -78,6 +85,7 @@ class About extends Component {
     };
 
     render() {
+        const { expandHow } = this.state;
         return (
             <div className="About">
                 <div className="About-content">
@@ -103,7 +111,7 @@ class About extends Component {
                             />
                             <div className="About-subheader">The Problem</div>
                             Have you ever noticed the uncomfortable dissonance
-                            when mixing two songs witch clashing pitches?
+                            when mixing two songs with clashing pitches?
                             <br />
                             <br />
                             <img
@@ -122,17 +130,42 @@ class About extends Component {
                                 alt="icon-gear"
                             />
                             <div className="About-subheader">How it works</div>
-                            Using this wheel (akin to a clock) as a reference,
-                            you can move to an adjacent key within each ring
-                            (the next "hour"), or to a section in the adjacent
-                            ring in the same "hour".
-                            <br />
-                            <a
-                                className="About-link"
-                                href="https://mixedinkey.com/harmonic-mixing-guide/"
-                            >
-                                Read more >
-                            </a>{' '}
+                            The Camelot wheel is a visual representation of
+                            which keys are compatible with each other.{' '}
+                            {!expandHow && (
+                                <Fragment>
+                                    <br />
+                                    <span
+                                        className="About-link"
+                                        onClick={this.handleExpandHow}
+                                    >
+                                        Read more >
+                                    </span>
+                                </Fragment>
+                            )}
+                            {expandHow && (
+                                <span>
+                                    Each key is assigned a keycode number from
+                                    one to twelve, like hours around a clock.
+                                    <br />
+                                    <br />
+                                    To select a compatible song, choose a
+                                    keycode within one "hour" of your current
+                                    keycode. You can move to an adjacent key
+                                    within each ring (the next "hour"), or to a
+                                    section in the adjacent ring in the same
+                                    "hour".
+                                    <br />
+                                    <a
+                                        className="About-link"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="https://mixedinkey.com/harmonic-mixing-guide/"
+                                    >
+                                        Read even more >
+                                    </a>
+                                </span>
+                            )}
                         </div>
                     </div>
                 </div>
