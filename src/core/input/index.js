@@ -22,8 +22,7 @@ class Input extends React.Component {
         onClear: () => {},
         required: false,
         size: 'md',
-        type: 'text',
-        width: ''
+        type: 'text'
     };
 
     constructor(props) {
@@ -35,11 +34,6 @@ class Input extends React.Component {
         const { onClear } = this.props;
         onClear();
         this.focusInput();
-    };
-
-    handleCancel = () => {
-        const { onCancel } = this.props;
-        onCancel();
     };
 
     focusInput = () => {

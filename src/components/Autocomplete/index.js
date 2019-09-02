@@ -129,7 +129,7 @@ class Autocomplete extends Component {
         }
     };
 
-    handleClear = () => {
+    onClear = () => {
         this.setState({
             value: ''
         });
@@ -216,8 +216,8 @@ class Autocomplete extends Component {
                         full
                         includeClear
                         onChange={e => this.handleChange(e)}
-                        onClear={this.handleClear}
-                        onFocus={this.handleFocus}
+                        onClear={this.onClear}
+                        onFocus={this.onFocus}
                         onKeyDown={e => this.handleKeyDown(e)}
                         size="xl"
                         value={value}
