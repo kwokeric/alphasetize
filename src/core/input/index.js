@@ -4,6 +4,7 @@ import omit from 'lodash/omit';
 import cx from '../../utils/cx.js';
 
 import './style.css';
+import IconX from '../../assets/icon-x.svg';
 
 const ESC_KEYCODE = 27;
 
@@ -66,23 +67,26 @@ class Input extends React.Component {
             className,
             customTagClassName,
             disabled,
-            fixedSize,
-            width,
             error,
+            fixedSize,
+            full,
+            includeClear,
             label,
             size,
-            type
+            type,
+            value
         } = this.props;
         const rest = omit(this.props, [
             'border',
             'customTagClassName',
             'dispatch',
-            'fixedSize',
             'error',
+            'fixedSize',
+            'full',
+            'includeClear',
             'isActive',
             'label',
-            'size',
-            'width'
+            'size'
         ]);
         const CustomTag = type === 'textarea' ? 'textarea' : 'input';
 
@@ -97,7 +101,7 @@ class Input extends React.Component {
                         'Input-element-no-border': !border,
                         'Input-error': error,
                         'Input-fixed-size': fixedSize,
-                        'Input-full-width': width === 'full',
+                        'Input-full': full,
                         'Input-lg': size === 'lg',
                         'Input-xl': size === 'xl',
                         'Input-textarea': type === 'textarea',
@@ -106,6 +110,21 @@ class Input extends React.Component {
                     ref={this.input}
                     onKeyDown={this.handleKeyDown}
                 />
+                {includeClear &&
+                    value && (
+                        <div
+                            className="Input-x Utils-horiz-center"
+                            onClick={this.handleClear}
+                        >
+                            <img
+                                alt="IconX"
+                                src={IconX}
+                                className="Input-icon-x"
+                                height="18"
+                                width="18"
+                            />
+                        </div>
+                    )}
                 {error && <div className="Input-alert">{error}</div>}
             </div>
         );

@@ -24,7 +24,7 @@
     width: 100%;
     flex-grow: 1;
     letter-spacing: 0.2px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 18px;
     padding: 8px 12px;
     color: black;
@@ -73,6 +73,23 @@
     color: #888888;
 }
 
+.Input-x {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    width: 36px;
+    top: 10px;
+    right: 8px;
+}
+
+@media (min-width: 767px) {
+    .Input-x {
+        top: 4px;
+    }
+}
+
 .Input-error {
     border: 1px solid #ff6e36 !important;
 }
@@ -81,9 +98,9 @@
     resize: none;
 }
 
-.Input-full-width {
+.Input-full {
     width: 100%;
-    border-bottom: 1px solid $hpx-grey-400;
+    height: 100%;
 }
 
 .Input-alert {

@@ -59,14 +59,14 @@
     left: 14px;
 }
 
-.Autocomplete-icon-search-active {
+.Autocomplete-icon-back {
     position: absolute;
     top: 21px;
     left: 15px;
 }
 
 @media (min-width: 767px) {
-    .Autocomplete-icon-search-active {
+    .Autocomplete-icon-back {
         top: 13px;
         left: 14px;
     }
@@ -81,23 +81,6 @@
     font-size: 16px;
     border: none;
     box-sizing: border-box;
-}
-
-.Autocomplete-x {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 36px;
-    width: 36px;
-    top: 10px;
-    right: 8px;
-}
-
-@media (min-width: 767px) {
-    .Autocomplete-x {
-        top: 4px;
-    }
 }
 
 .Autocomplete-suggestions-container {

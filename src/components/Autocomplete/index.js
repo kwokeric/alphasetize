@@ -7,9 +7,9 @@ import SearchActions from '../../redux/actions/SearchActions';
 import './style.css';
 import controller from './controller.js';
 import cx from '../../utils/cx.js';
-import IconSearchDark from '../../assets/icon-search-black.svg';
-import IconSearchLight from '../../assets/icon-search-gray.svg';
-import IconX from '../../assets/icon-x.svg';
+import Input from '../../core/input/index.js';
+import IconBack from '../../assets/icon-left-arrow.svg';
+import IconSearch from '../../assets/icon-search-gray.svg';
 import debounce from '../../utils/debounce.js';
 
 const KEYCODES = {
@@ -129,6 +129,12 @@ class Autocomplete extends Component {
         }
     };
 
+    handleClear = () => {
+        this.setState({
+            value: ''
+        });
+    };
+
     handleSelect = e => {
         const { dispatch } = this.props;
         const { index, suggestions } = this.state;
@@ -186,18 +192,31 @@ class Autocomplete extends Component {
                 })}
             >
                 <div className="Autocomplete-input-container">
-                    <img
-                        alt="IconSearch"
-                        src={isActive ? IconSearchDark : IconSearchLight}
-                        className={cx('Autocomplete-icon-search', {
-                            'Autocomplete-icon-search-active': isActive
-                        })}
-                        height="18"
-                        width="18"
-                    />
-                    <input
+                    {isActive ? (
+                        <img
+                            alt="IconSearch"
+                            src={IconBack}
+                            className="Autocomplete-icon-back"
+                            height="18"
+                            width="18"
+                            onClick={this.handleClose}
+                        />
+                    ) : (
+                        <img
+                            alt="IconSearch"
+                            src={IconSearch}
+                            className="Autocomplete-icon-search"
+                            height="18"
+                            width="18"
+                        />
+                    )}
+                    <Input
                         className="Autocomplete-input"
+                        border={false}
+                        full
+                        includeClear
                         onChange={e => this.handleChange(e)}
+                        onClear={this.handleClear}
                         onFocus={this.handleFocus}
                         onKeyDown={e => this.handleKeyDown(e)}
                         size="xl"
@@ -205,17 +224,6 @@ class Autocomplete extends Component {
                     />
                 </div>
                 {isActive && this.renderSuggestions()}
-                {isActive && (
-                    <div className="Autocomplete-x" onClick={this.handleClose}>
-                        <img
-                            alt="IconX"
-                            src={IconX}
-                            className="Autocomplete-icon-x"
-                            height="18"
-                            width="18"
-                        />
-                    </div>
-                )}
             </div>
         );
     }
