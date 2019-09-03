@@ -108,14 +108,15 @@
     padding-bottom: 24px;
 }
 
-@media (min-width: 767px) {
-    .About-image-container {
-        padding-right: 24px;
-    }
+.About-description {
+    padding: 40px 0;
 }
 
-.About-description {
-    padding-bottom: 40px;
+@media (min-width: 767px) {
+    .About-description {
+        padding: 0;
+        padding-left: 40px;
+    }
 }
 
 .About-link {

@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import './style.css';
+import controller from './controller.js';
 import CamelotWheel from '../../assets/camelotWheel.jpg';
 import IconBulb from '../../assets/icon-bulb.svg';
 import IconGear from '../../assets/icon-gear.svg';
@@ -19,7 +20,20 @@ class About extends Component {
             authHover: false,
             expandHow: false
         };
+
+        this.imageRef = React.createRef();
     }
+
+    componentDidMount() {
+        window.addEventListener('mousemove', this.handleMouseMove);
+    }
+
+    handleMouseMove = e => {
+        console.log(
+            'isInside',
+            controller.isMouseInsideImage({ e, img: this.imageRef.current })
+        );
+    };
 
     handleMouseOver = () => {
         this.setState({
@@ -93,6 +107,7 @@ class About extends Component {
                         <div className="About-image-container">
                             <img
                                 className="About-image"
+                                ref={this.imageRef}
                                 src={CamelotWheel}
                                 alt="camelotWheel"
                             />
