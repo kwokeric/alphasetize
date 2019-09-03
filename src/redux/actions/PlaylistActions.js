@@ -109,14 +109,12 @@ const PlaylistActions = {
 
             return dispatch(
                 api.spotify.addTracksToPlaylist({ playlistId, tracks })
-            )
-                .then(res => {
-                    if (res.statusText === 'Unauthorized') {
-                        window.location.href = './';
-                    }
-                    return res;
-                })
-                .then(res => console.log(res));
+            ).then(res => {
+                if (res.statusText === 'Unauthorized') {
+                    window.location.href = './';
+                }
+                return res;
+            });
         };
     }
 };

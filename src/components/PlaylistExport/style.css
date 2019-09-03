@@ -79,12 +79,10 @@
 .PlaylistExport-btn,
 .PlaylistExport-btn-cancel {
     width: 120px;
-    height: 32px;
+    height: 34px;
     border: 1px solid #aaa;
     border-radius: 20px;
     font-size: 14px;
-    margin: auto;
-    margin-top: 8px;
     text-align: center;
     line-height: 34px;
     color: #808080;

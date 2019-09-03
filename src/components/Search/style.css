@@ -18,6 +18,7 @@
     box-sizing: border-box;
     position: fixed;
     background: #fafafa;
+    z-index: 5;
 }
 
 .Search-autocomplete {

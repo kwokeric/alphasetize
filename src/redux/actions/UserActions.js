@@ -10,7 +10,6 @@ const UserActions = {
     },
     getUser: () => {
         return (dispatch, getState) => {
-            console.log(getState());
             return dispatch(api.spotify.getUser())
                 .then(res => {
                     if (res.statusText === 'Unauthorized') {
