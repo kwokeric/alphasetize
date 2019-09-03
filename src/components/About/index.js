@@ -154,7 +154,7 @@ class About extends Component {
                                         className="About-link"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        href="https://mixedinkey.com/harmonic-mixing-guide/"
+                                        href="http://www.harmonic-mixing.com/howto.aspx"
                                     >
                                         Read even more >
                                     </a>
