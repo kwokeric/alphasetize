@@ -8,6 +8,7 @@ import IconBulb from '../../assets/icon-bulb.svg';
 import IconGear from '../../assets/icon-gear.svg';
 import IconQuestion from '../../assets/icon-question.svg';
 import cx from '../../utils/cx.js';
+import appUtils from '../../utils/appUtils.js';
 import urlUtils from '../../utils/urlUtils.js';
 
 class About extends Component {
@@ -41,17 +42,10 @@ class About extends Component {
     handleSpotifyAuth = e => {
         e.preventDefault();
         const { token, history } = this.props;
-        const client_id = 'b722de12baaf4052a82f8cd762edda76';
         const urlParams = urlUtils.getUrlParams();
 
         if (!urlParams.access_token && !token) {
-            window.location.href =
-                'https://accounts.spotify.com/authorize?' +
-                'client_id=' +
-                client_id +
-                '&scope=' +
-                encodeURIComponent('playlist-modify-public') +
-                '&response_type=token&redirect_uri=http://localhost:3000/search';
+            window.location.href = appUtils.getSpotifyAuthUrl();
         } else {
             console.log('> Already authenticated!');
             history.push('/search');

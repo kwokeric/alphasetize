@@ -1,6 +1,19 @@
 /* eslint-disable no-useless-escape */
 
 const appUtils = {
+    getSpotifyAuthUrl() {
+        const client_id = 'b722de12baaf4052a82f8cd762edda76';
+        return 'https://accounts.spotify.com/authorize?' +
+            'client_id=' +
+            client_id +
+            '&scope=' +
+            encodeURIComponent('playlist-modify-public') +
+            '&response_type=token&redirect_uri=' +
+            process.env.NODE_ENV ===
+            'development'
+            ? 'http://localhost:3000/search'
+            : 'https://alphasetize.herokuapp.com/search';
+    },
     isMobile() {
         var check = false;
         (function(a) {
