@@ -22,13 +22,12 @@
     font-size: 36px;
     font-weight: bold;
     padding: 64px 0 48px;
-    letter-spacing: 0;
+    letter-spacing: 0.5px;
 }
 
 @media (min-width: 767px) {
     .About-header {
         font-size: 48px;
-        letter-spacing: inherit;
     }
 }
 

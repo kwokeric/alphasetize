@@ -7,6 +7,12 @@
     flex: 1;
 }
 
+@media (min-width: 767px) {
+    .List-container {
+        margin-top: 122px;
+    }
+}
+
 .List {
     padding: 0 24px;
     cursor: default;
@@ -38,6 +44,14 @@
     cursor: default;
     padding: 0 40px;
 }
+
+@media (min-width: 767px) {
+    .List-item-header {
+        position: fixed;
+        top: 146px;
+        background: #fafafa;
+    }
+}
 .List-item-hover {
     background: #ebf5f7;
 }
@@ -49,6 +63,10 @@
 }
 .List-item-active-hover {
     background: #d4eff3;
+}
+/* must come after active */
+.List-item-drag {
+    background: #f0f0f0;
 }
 .List-item-perfect-match {
     background: linear-gradient(to left, #fafafa, #c5e9ee);

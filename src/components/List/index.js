@@ -162,6 +162,7 @@ class List extends Component {
         const {
             isDragging,
             activeIndex,
+            dragStartIndex,
             hoverIndex,
             perfectMatches,
             keyMatches,
@@ -179,6 +180,7 @@ class List extends Component {
             <li
                 className={cx('List-item', {
                     'List-item-hover': isHovered && !isDragging,
+                    'List-item-drag': isDragging && dragStartIndex === idx,
                     'List-item-drag-over': isDragOver && !isActive,
                     'List-item-active': isActive,
                     'List-item-active-hover': isActive && isHovered,

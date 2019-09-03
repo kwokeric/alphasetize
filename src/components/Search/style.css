@@ -16,6 +16,8 @@
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
+    position: fixed;
+    background: #fafafa;
 }
 
 .Search-autocomplete {
