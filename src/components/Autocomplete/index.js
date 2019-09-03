@@ -215,9 +215,10 @@ class Autocomplete extends Component {
                         border={false}
                         full
                         includeClear
+                        isActive={isActive}
                         onChange={e => this.handleChange(e)}
+                        onFocus={this.handleFocus}
                         onClear={this.onClear}
-                        onFocus={this.onFocus}
                         onKeyDown={e => this.handleKeyDown(e)}
                         size="xl"
                         value={value}

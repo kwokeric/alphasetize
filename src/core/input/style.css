@@ -80,12 +80,13 @@
     align-items: center;
     height: 36px;
     width: 36px;
-    top: 5px;
+    top: 11px;
     right: 8px;
 }
 
 @media (min-width: 767px) {
     .Input-x {
+        top: 5px;
         right: 12px;
     }
 }

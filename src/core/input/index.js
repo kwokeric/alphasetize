@@ -20,6 +20,7 @@ class Input extends React.Component {
         label: '',
         onCancel: () => {},
         onClear: () => {},
+        onFocus: () => {},
         required: false,
         size: 'md',
         type: 'text'
@@ -37,6 +38,8 @@ class Input extends React.Component {
     };
 
     focusInput = () => {
+        const { onFocus } = this.props;
+        onFocus();
         this.input.current.focus();
     };
 
@@ -65,6 +68,7 @@ class Input extends React.Component {
             fixedSize,
             full,
             includeClear,
+            isActive,
             label,
             size,
             type,
@@ -105,6 +109,7 @@ class Input extends React.Component {
                     onKeyDown={this.handleKeyDown}
                 />
                 {includeClear &&
+                    isActive &&
                     value && (
                         <div
                             className="Input-x Utils-horiz-center"

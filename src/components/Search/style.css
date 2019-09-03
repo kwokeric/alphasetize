@@ -86,12 +86,7 @@
 }
 
 .Search-autocomplete-m {
-    transition: 0.1s linear;
     width: 100%;
-}
-
-.Search-autocomplete-active-m {
-    width: calc(100vw - 16px);
 }
 
 .Search-playlist-m {
