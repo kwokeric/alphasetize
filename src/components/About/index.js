@@ -92,89 +92,117 @@ class About extends Component {
         );
     };
 
+    renderWheel = isForMobile => {
+        return (
+            <div
+                className={cx('About-image-container', {
+                    'About-image-container-mweb': isForMobile
+                })}
+            >
+                <img
+                    className="About-image"
+                    ref={this.imageRef}
+                    src={CamelotWheel}
+                    alt="camelotWheel"
+                />
+            </div>
+        );
+    };
+
     render() {
         const { expandHow } = this.state;
         return (
             <div className="About">
                 <div className="About-content">
-                    <h1 className="About-header">Your sets in harmony</h1>
-                    <h2 className="About-header-2">
-                        Alphasetize helps you order songs in your sets based on
-                        key compatibility.
-                    </h2>
-                    {this.renderSpotifyAuth()}
-                    <div className="About-section">
-                        <div className="About-image-container">
-                            <img
-                                className="About-image"
-                                ref={this.imageRef}
-                                src={CamelotWheel}
-                                alt="camelotWheel"
-                            />
+                    <div className="About-top">
+                        <div className="About-title-section">
+                            <h1 className="About-header">
+                                Your sets in harmony
+                            </h1>
+                            <h2 className="About-header-2">
+                                Alphasetize helps you order songs in your sets
+                                based on key compatibility.
+                            </h2>
+                            {this.renderSpotifyAuth()}
                         </div>
+                        {this.renderWheel()}
+                    </div>
+                    <div className="About-section">
+                        {this.renderWheel(true)}
                         <div className="About-description">
-                            <img
-                                className="About-icon"
-                                src={IconQuestion}
-                                alt="icon-question"
-                            />
-                            <div className="About-subheader">The Problem</div>
-                            Have you ever noticed the uncomfortable dissonance
-                            when mixing two songs with clashing pitches?
-                            <br />
-                            <br />
-                            <img
-                                className="About-icon"
-                                src={IconBulb}
-                                alt="icon-bulb"
-                            />
-                            <div className="About-subheader">The Solution</div>
-                            Alphasetize shows you which songs are harmonically
-                            compatible to keep transitions silky smooth.
-                            <br />
-                            <br />
-                            <img
-                                className="About-icon"
-                                src={IconGear}
-                                alt="icon-gear"
-                            />
-                            <div className="About-subheader">How it works</div>
-                            The Camelot wheel is a visual representation of
-                            which keys are compatible with each other.{' '}
-                            {!expandHow && (
-                                <Fragment>
-                                    <br />
-                                    <span
-                                        className="About-link"
-                                        onClick={this.handleExpandHow}
-                                    >
-                                        Read more >
+                            <div className="About-description-tile">
+                                <img
+                                    className="About-icon"
+                                    src={IconQuestion}
+                                    alt="icon-question"
+                                />
+                                <div className="About-subheader">
+                                    The Problem
+                                </div>
+                                Have you ever noticed the uncomfortable
+                                dissonance when mixing two songs with clashing
+                                pitches?
+                            </div>
+                            <div className="About-description-tile">
+                                <img
+                                    className="About-icon"
+                                    src={IconBulb}
+                                    alt="icon-bulb"
+                                />
+                                <div className="About-subheader">
+                                    The Solution
+                                </div>
+                                Alphasetize shows you which songs are
+                                harmonically compatible to keep transitions
+                                silky smooth.
+                            </div>
+                            <div className="About-description-tile">
+                                <img
+                                    className="About-icon"
+                                    src={IconGear}
+                                    alt="icon-gear"
+                                />
+                                <div className="About-subheader">
+                                    How it works
+                                </div>
+                                The Camelot wheel is a visual representation of
+                                which keys are compatible with each other.{' '}
+                                {!expandHow && (
+                                    <Fragment>
+                                        <br />
+                                        <span
+                                            className="About-link"
+                                            onClick={this.handleExpandHow}
+                                        >
+                                            Read more >
+                                        </span>
+                                    </Fragment>
+                                )}
+                                {expandHow && (
+                                    <span>
+                                        Each key is assigned a keycode number
+                                        from one to twelve, like hours around a
+                                        clock.
+                                        <br />
+                                        <br />
+                                        To select a compatible song, choose a
+                                        keycode within one "hour" of your
+                                        current keycode. You can move to an
+                                        adjacent key within each ring (the next
+                                        "hour"), or to a section in the adjacent
+                                        ring in the same "hour".
+                                        <br />
+                                        <a
+                                            className="About-link"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            href="http://www.harmonic-mixing.com/howto.aspx"
+                                        >
+                                            Read even more >
+                                        </a>
                                     </span>
-                                </Fragment>
-                            )}
-                            {expandHow && (
-                                <span>
-                                    Each key is assigned a keycode number from
-                                    one to twelve, like hours around a clock.
-                                    <br />
-                                    <br />
-                                    To select a compatible song, choose a
-                                    keycode within one "hour" of your current
-                                    keycode. You can move to an adjacent key
-                                    within each ring (the next "hour"), or to a
-                                    section in the adjacent ring in the same
-                                    "hour".
-                                    <br />
-                                    <a
-                                        className="About-link"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        href="http://www.harmonic-mixing.com/howto.aspx"
-                                    >
-                                        Read even more >
-                                    </a>
-                                </span>
-                            )}
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

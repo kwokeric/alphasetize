@@ -3,8 +3,38 @@
 }
 
 .About-content {
-    width: 90%;
+    flex: 1;
+    padding: 0 80px;
+    max-width: 1280px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@media (min-width: 767px) {
+    .About-content {
+        align-items: center;
+    }
+}
+
+.About-top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 64px;
+}
+
+@media (min-width: 767px) {
+    .About-top {
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+}
+
+.About-title-section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -13,8 +43,11 @@
 }
 
 @media (min-width: 767px) {
-    .About-content {
-        align-items: center;
+    .About-title-section {
+        align-items: flex-start;
+        max-width: 500px;
+        padding: 0;
+        padding-right: 48px;
     }
 }
 
@@ -28,6 +61,7 @@
 @media (min-width: 767px) {
     .About-header {
         font-size: 48px;
+        padding: 24px 0 48px;
     }
 }
 
@@ -47,6 +81,12 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+@media (min-width: 767px) {
+    .About-auth-section {
+        width: inherit;
+    }
 }
 
 .About-auth-container {
@@ -95,8 +135,11 @@
 
 @media (min-width: 767px) {
     .About-section {
-        flex-direction: row;
-        padding: 32px;
+        width: 100%;
+        max-width: none;
+        padding: 64px;
+        justify-content: space-between;
+        box-sizing: border-box;
     }
 }
 
@@ -108,14 +151,35 @@
     padding-bottom: 24px;
 }
 
+@media (min-width: 767px) {
+    .About-image-container-mweb {
+        display: none;
+    }
+}
+
 .About-description {
     padding: 40px 0;
 }
 
 @media (min-width: 767px) {
     .About-description {
+        width: 100%;
         padding: 0;
-        padding-left: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+.About-description-tile {
+    padding: 8px;
+}
+
+@media (min-width: 767px) {
+    .About-description-tile {
+        width: 30%;
+        padding: 0;
+        padding-right: 32px;
     }
 }
 
