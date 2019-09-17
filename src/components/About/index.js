@@ -28,6 +28,10 @@ class About extends Component {
         window.addEventListener('mousemove', this.handleMouseMove);
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('mousemove', this.handleMouseMove);
+    }
+
     handleMouseMove = e => {
         console.log(
             'isInside',
@@ -53,12 +57,19 @@ class About extends Component {
         });
     };
 
+    handleCollapseHow = () => {
+        this.setState({
+            expandHow: false
+        });
+    };
+
     handleSpotifyAuth = e => {
         e.preventDefault();
         const { token, history } = this.props;
         const urlParams = urlUtils.getUrlParams();
 
         if (!urlParams.access_token && !token) {
+            console.log(appUtils.getSpotifyAuthUrl());
             window.location.href = appUtils.getSpotifyAuthUrl();
         } else {
             console.log('> Already authenticated!');
@@ -191,6 +202,13 @@ class About extends Component {
                                         adjacent key within each ring (the next
                                         "hour"), or to a section in the adjacent
                                         ring in the same "hour".
+                                        <br />
+                                        <span
+                                            className="About-link"
+                                            onClick={this.handleCollapseHow}
+                                        >
+                                            Read less ^
+                                        </span>
                                         <br />
                                         <a
                                             className="About-link"
