@@ -55,7 +55,7 @@
 
 .Autocomplete-icon-search {
     position: absolute;
-    top: 13px;
+    top: 14px;
     left: 14px;
 }
 
@@ -67,7 +67,7 @@
 
 @media (min-width: 767px) {
     .Autocomplete-icon-back {
-        top: 13px;
+        top: 14px;
         left: 14px;
     }
 }

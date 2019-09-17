@@ -197,8 +197,8 @@ class Autocomplete extends Component {
                             alt="IconSearch"
                             src={IconBack}
                             className="Autocomplete-icon-back"
-                            height="18"
-                            width="18"
+                            height="16"
+                            width="16"
                             onClick={this.handleClose}
                         />
                     ) : (
@@ -206,8 +206,8 @@ class Autocomplete extends Component {
                             alt="IconSearch"
                             src={IconSearch}
                             className="Autocomplete-icon-search"
-                            height="18"
-                            width="18"
+                            height="16"
+                            width="16"
                         />
                     )}
                     <Input

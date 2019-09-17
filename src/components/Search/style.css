@@ -8,6 +8,10 @@
     align-items: center;
 }
 
+.Search > * {
+    overflow-x: hidden;
+}
+
 .Search-top {
     width: 100vw;
     display: flex;
