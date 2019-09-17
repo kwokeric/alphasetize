@@ -1,6 +1,10 @@
 import assign from 'lodash/assign';
 
-const UserReducer = (state = {}, action) => {
+const INITIAL_STATE = {
+    accessToken: ''
+};
+
+const UserReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'SET_TOKEN':
             return {

@@ -1,4 +1,8 @@
-const PlaylistsReducer = (state = {}, action) => {
+const INITIAL_STATE = {
+    playlists: []
+};
+
+const PlaylistsReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'ADD_PLAYLISTS':
             return {

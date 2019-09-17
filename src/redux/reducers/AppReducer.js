@@ -1,4 +1,8 @@
-const AppReducer = (state = {}, action) => {
+const INITIAL_STATE = {
+    isMobile: false
+};
+
+const AppReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'SET_APP_STORE_BOOL':
             return {

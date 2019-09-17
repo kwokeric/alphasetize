@@ -1,6 +1,10 @@
 import assign from 'lodash/assign';
 
-const TracksReducer = (state = {}, action) => {
+const INITIAL_STATE = {
+    list: []
+};
+
+const TracksReducer = (state = INITIAL_STATE, action) => {
     let newList = assign([], state.list);
 
     switch (action.type) {
