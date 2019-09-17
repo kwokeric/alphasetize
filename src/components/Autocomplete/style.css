@@ -17,7 +17,7 @@
 }
 
 .Autocomplete-container-active {
-    position: absolute;
+    position: fixed;
     border-top: 1px solid white;
     border-right: 8px solid white;
     border-left: 8px solid white;
@@ -27,6 +27,7 @@
 
 @media (min-width: 767px) {
     .Autocomplete-container-active {
+        position: absolute;
         border: 1px solid white;
         border-radius: 22px;
         border: 1px solid #e2e2e2;
