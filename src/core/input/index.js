@@ -83,6 +83,7 @@ class Input extends React.Component {
             'full',
             'includeClear',
             'isActive',
+            'onClear',
             'label',
             'size'
         ]);
