@@ -37,12 +37,18 @@
     border-bottom: 1px solid #ececec;
     cursor: auto;
 }
+
 .List-item-header {
     color: #555;
     font-size: 12px;
     letter-spacing: 1px;
     cursor: default;
     padding: 0 40px;
+}
+
+.List-item {
+    font-size: 16px;
+    line-height: 20px;
 }
 
 @media (min-width: 767px) {

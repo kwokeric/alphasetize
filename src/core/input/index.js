@@ -120,8 +120,8 @@ class Input extends React.Component {
                                 alt="IconX"
                                 src={IconX}
                                 className="Input-icon-x"
-                                height="18"
-                                width="18"
+                                height="16"
+                                width="16"
                             />
                         </div>
                     )}

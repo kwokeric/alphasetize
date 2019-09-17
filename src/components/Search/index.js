@@ -159,6 +159,11 @@ class Search extends Component {
                     </div>
                 )}
                 {isMobile ? <ListMobile list={list} /> : <List list={list} />}
+                {!list.length && (
+                    <div className="Search-empty-list">
+                        Start searching or import a playlist!
+                    </div>
+                )}
             </div>
         );
     }
