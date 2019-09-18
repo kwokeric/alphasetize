@@ -65,4 +65,10 @@ class AuthButton extends Component {
     }
 }
 
-export default withRouter(connect()(AuthButton));
+const mapStateToProps = state => {
+    return {
+        token: state.user.token
+    };
+};
+
+export default withRouter(connect(mapStateToProps)(AuthButton));

@@ -18,7 +18,6 @@ class About extends Component {
         super(props);
 
         this.state = {
-            authHover: false,
             expandHow: false
         };
 
@@ -40,18 +39,6 @@ class About extends Component {
         );
     };
 
-    handleMouseOver = () => {
-        this.setState({
-            authHover: true
-        });
-    };
-
-    handleMouseLeave = () => {
-        this.setState({
-            authHover: false
-        });
-    };
-
     handleExpandHow = () => {
         this.setState({
             expandHow: true
@@ -64,24 +51,7 @@ class About extends Component {
         });
     };
 
-    handleSpotifyAuth = e => {
-        e.preventDefault();
-        const { token, history } = this.props;
-        const urlParams = urlUtils.getUrlParams();
-
-        if (!urlParams.access_token && !token) {
-            console.log(appUtils.getSpotifyAuthUrl());
-            window.location.href = appUtils.getSpotifyAuthUrl();
-        } else {
-            console.log('> Already authenticated!');
-            history.push('/search');
-        }
-    };
-
     renderSpotifyAuth = () => {
-        const { token } = this.props;
-        const { authHover } = this.state;
-
         return (
             <div className="About-auth-section">
                 <div className="About-auth-container">
@@ -219,8 +189,7 @@ class About extends Component {
 
 const mapStateToProps = state => {
     return {
-        isMobile: state.app.isMobile,
-        token: state.user.token
+        isMobile: state.app.isMobile
     };
 };
 
