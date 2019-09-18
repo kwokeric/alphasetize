@@ -34,10 +34,25 @@
     padding: 16px;
     color: black;
     cursor: pointer;
+    position: relative;
 }
 
-.Header-tab:hover {
-    color: #26557f;
+.Header-tab:after {
+    content: '';
+    position: absolute;
+    background: none repeat scroll 0 0 transparent;
+    display: block;
+    height: 2px;
+    bottom: 8px;
+    left: 50%;
+    background: #2eb0c4;
+    transition: width 0.2s ease 0s, left 0.2s ease 0s;
+    width: 0;
+}
+
+.Header-tab:hover:after {
+    width: 80%;
+    left: 10%;
 }
 
 .Header-tab-active {
