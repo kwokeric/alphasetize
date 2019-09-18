@@ -38,7 +38,7 @@ class AppTemplate extends Component {
         const urlParams = urlUtils.getUrlParams();
 
         if (urlParams.access_token) {
-            console.log('> Setting Spotify access token');
+            console.log('Setting Spotify access token...');
             dispatch(UserActions.setToken(urlParams.access_token));
             dispatch(UserActions.getUser());
         }

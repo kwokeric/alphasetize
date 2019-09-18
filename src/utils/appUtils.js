@@ -3,18 +3,15 @@
 const appUtils = {
     getSpotifyAuthUrl() {
         const client_id = 'b722de12baaf4052a82f8cd762edda76';
-        let url =
-            'https://accounts.spotify.com/authorize?' +
-            'client_id=' +
-            client_id +
-            '&scope=' +
-            encodeURIComponent('playlist-modify-public') +
-            '&response_type=token&redirect_uri=';
-        let redirectUrl =
-            process.env.NODE_ENV === 'development'
+        let url = 'https://accounts.spotify.com/authorize?';
+        url += 'client_id=' + client_id;
+        url += '&scope=' + encodeURIComponent('playlist-modify-public');
+        url += '&response_type=token';
+        url +=
+            '&redirect_uri=' + process.env.NODE_ENV === 'development'
                 ? 'http://localhost:3000/search'
                 : 'https://alphasetize.herokuapp.com/search';
-        return url + redirectUrl;
+        return url;
     },
     isMobile() {
         var check = false;

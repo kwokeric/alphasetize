@@ -1,5 +1,5 @@
 const urlUtils = {
-    getUrlParams(artists = [], featured = []) {
+    getUrlParams() {
         let urlParams = {};
         let e,
             r = /([^&;=]+)=?([^&;]*)/g,
