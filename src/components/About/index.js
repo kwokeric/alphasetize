@@ -82,6 +82,7 @@ class About extends Component {
     render() {
         const { isMobile } = this.props;
         const { expandHow } = this.state;
+
         return (
             <div className="About">
                 <div className="About-content">

@@ -1,17 +1,17 @@
 const controller = {
     isMouseInsideImage({ mouse, img }) {
-        const imageTop = img.offsetTop;
-        const imageLeft = img.offsetLeft;
-        const imageBottom = imageTop + img.clientHeight;
-        const imageRight = imageLeft + img.clientWidth;
+        const imgRadius = img.clientHeight / 2;
+        const imgCenterTop = img.offsetTop + imgRadius;
+        const imgCenterLeft = img.offsetLeft + imgRadius;
+
         const mouseTop = mouse.pageY;
         const mouseLeft = mouse.pageX;
-        return (
-            mouseTop >= imageTop &&
-            mouseTop <= imageBottom &&
-            mouseLeft >= imageLeft &&
-            mouseLeft <= imageRight
+
+        const distanceMouseFromImgCenter = Math.sqrt(
+            (imgCenterTop - mouseTop) ** 2 + (imgCenterLeft - mouseLeft) ** 2
         );
+
+        return distanceMouseFromImgCenter <= imgRadius;
     }
 };
 
