@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import './style.css';
+import AuthButton from '../AuthButton';
 import controller from './controller.js';
 import CamelotWheel from '../../assets/camelotWheel.jpg';
 import IconBulb from '../../assets/icon-bulb.svg';
@@ -84,20 +85,7 @@ class About extends Component {
         return (
             <div className="About-auth-section">
                 <div className="About-auth-container">
-                    <div
-                        className={cx('About-auth-button', {
-                            'About-auth-button-hover': authHover
-                        })}
-                        onMouseOver={this.handleMouseOver}
-                        onMouseLeave={this.handleMouseLeave}
-                        onClick={this.handleSpotifyAuth}
-                    >
-                        {!authHover
-                            ? 'Get started'
-                            : token
-                                ? 'SEARCH'
-                                : 'SPOTIFY LOGIN'}
-                    </div>
+                    <AuthButton />
                 </div>
             </div>
         );
