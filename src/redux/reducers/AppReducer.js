@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-    isMobile: false
+    isMobile: false,
+    showAuthModal: false
 };
 
 const AppReducer = (state = INITIAL_STATE, action) => {

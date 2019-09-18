@@ -1,3 +1,4 @@
+import AppActions from './AppActions';
 import api from '../../utils/api';
 
 const UserActions = {
@@ -12,6 +13,11 @@ const UserActions = {
         return (dispatch, getState) => {
             return dispatch(api.spotify.getUser())
                 .then(res => {
+                    if (res.error) {
+                        dispatch(
+                            AppActions.setAppStoreBool('showAuthModal', true)
+                        );
+                    }
                     if (res.statusText === 'Unauthorized') {
                         window.location.href = './';
                     }

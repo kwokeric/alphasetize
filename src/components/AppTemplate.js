@@ -7,7 +7,9 @@ import AppActions from '../redux/actions/AppActions';
 import UserActions from '../redux/actions/UserActions';
 
 // Components
+import AuthButton from './AuthButton';
 import Header from './Header';
+import Modal from './Modal';
 
 // Misc / Utils
 import './AppTemplate.css';
@@ -43,7 +45,7 @@ class AppTemplate extends Component {
     }
 
     render() {
-        const { pathname, children, isMobile } = this.props;
+        const { pathname, children, isMobile, showAuthModal } = this.props;
         return (
             <div
                 className={cx('AppTemplate', {
@@ -54,6 +56,21 @@ class AppTemplate extends Component {
                     <Header pathname={pathname} />
                 )}
                 {children}
+                {showAuthModal && (
+                    <Modal
+                        onHideModal={this.handleHideModal}
+                        background={false}
+                    >
+                        <div className="AppTemplate-auth-modal">
+                            <div className="AppTemplate-auth-header">
+                                Please reauthorize Alphasetize
+                            </div>
+                            <div className="AppTemplate-auth-btn">
+                                <AuthButton />
+                            </div>
+                        </div>
+                    </Modal>
+                )}
             </div>
         );
     }
@@ -66,6 +83,7 @@ const mapStateToProps = (state, ownProps) => {
                 ? state.app.isMobile
                 : true,
         pathname: ownProps.location.pathname,
+        showAuthModal: state.app.showAuthModal,
         token: state.user.token
     };
 };

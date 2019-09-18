@@ -25,11 +25,15 @@ export default function requester({
             data: body
         };
 
-        return axios(requestOptions).then(response => {
-            // const endTime = new Date().getTime();
-            // const duration = endTime - startTime;
+        return axios(requestOptions)
+            .then(response => {
+                // const endTime = new Date().getTime();
+                // const duration = endTime - startTime;
 
-            return response.data;
-        });
+                return response.data;
+            })
+            .catch(error => {
+                return { error };
+            });
     };
 }
