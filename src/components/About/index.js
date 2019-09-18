@@ -10,8 +10,6 @@ import IconBulb from '../../assets/icon-bulb.svg';
 import IconGear from '../../assets/icon-gear.svg';
 import IconQuestion from '../../assets/icon-question.svg';
 import cx from '../../utils/cx.js';
-import appUtils from '../../utils/appUtils.js';
-import urlUtils from '../../utils/urlUtils.js';
 
 class About extends Component {
     constructor(props) {
