@@ -31,13 +31,19 @@ class About extends Component {
     }
 
     handleMouseMove = e => {
-        console.log(
-            'isInside',
-            controller.isMouseInsideImage({
+        if (
+            controller.isMouseInsideCircle({
                 mouse: e,
                 img: this.imageRef.current
             })
-        );
+        ) {
+            console.log(
+                controller.getSection({
+                    mouse: e,
+                    img: this.imageRef.current
+                })
+            );
+        }
     };
 
     handleExpandHow = () => {

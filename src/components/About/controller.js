@@ -1,5 +1,6 @@
 const controller = {
-    isMouseInsideCircle({ mouse, img }) {
+    isInsideCircle({ mouse, img, radius }) {
+        const _radius = radius || img.clientHeight / 2;
         const imgRadius = img.clientHeight / 2;
         const imgCenterTop = img.offsetTop + imgRadius;
         const imgCenterLeft = img.offsetLeft + imgRadius;
@@ -11,7 +12,15 @@ const controller = {
             (imgCenterTop - mouseTop) ** 2 + (imgCenterLeft - mouseLeft) ** 2
         );
 
-        return distanceMouseFromImgCenter <= imgRadius;
+        return distanceMouseFromImgCenter <= _radius;
+    },
+    isMouseInsideCircle({ mouse, img }) {
+        return controller.isInsideCircle({ mouse, img });
+    },
+    getSection({ mouse, img }) {
+        const hour = controller.getHourPosition({ mouse, img });
+        const circle = controller.getCirclePosition({ mouse, img });
+        return { hour, circle };
     },
     getHourPosition({ mouse, img }) {
         const imgRadius = img.clientHeight / 2;
@@ -59,6 +68,20 @@ const controller = {
             return 11;
         } else {
             return 12;
+        }
+    },
+    getCirclePosition({ mouse, img }) {
+        const eyeRadius = 50;
+        const innerRadius = 110;
+
+        if (controller.isInsideCircle({ mouse, img, radius: eyeRadius })) {
+            return false;
+        } else if (
+            controller.isInsideCircle({ mouse, img, radius: innerRadius })
+        ) {
+            return 'inner';
+        } else {
+            return 'outer';
         }
     }
 };
