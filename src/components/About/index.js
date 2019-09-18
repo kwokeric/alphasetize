@@ -33,7 +33,10 @@ class About extends Component {
     handleMouseMove = e => {
         console.log(
             'isInside',
-            controller.isMouseInsideImage({ e, img: this.imageRef.current })
+            controller.isMouseInsideImage({
+                mouse: e,
+                img: this.imageRef.current
+            })
         );
     };
 
@@ -77,6 +80,7 @@ class About extends Component {
     };
 
     render() {
+        const { isMobile } = this.props;
         const { expandHow } = this.state;
         return (
             <div className="About">
@@ -92,10 +96,10 @@ class About extends Component {
                             </h2>
                             {this.renderSpotifyAuth()}
                         </div>
-                        {this.renderWheel()}
+                        {!isMobile && this.renderWheel()}
                     </div>
                     <div className="About-section">
-                        {this.renderWheel(true)}
+                        {isMobile && this.renderWheel()}
                         <div className="About-description">
                             <div className="About-description-tile">
                                 <img

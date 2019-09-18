@@ -1,11 +1,11 @@
 const controller = {
-    isMouseInsideImage({ e, img }) {
+    isMouseInsideImage({ mouse, img }) {
         const imageTop = img.offsetTop;
         const imageLeft = img.offsetLeft;
         const imageBottom = imageTop + img.clientHeight;
         const imageRight = imageLeft + img.clientWidth;
-        const mouseTop = e.pageY;
-        const mouseLeft = e.pageX;
+        const mouseTop = mouse.pageY;
+        const mouseLeft = mouse.pageX;
         return (
             mouseTop >= imageTop &&
             mouseTop <= imageBottom &&
