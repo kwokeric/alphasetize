@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
-import './style.css';
 import AuthButton from '../AuthButton';
-import controller from './controller.js';
-import CamelotWheel from '../../assets/camelotWheel.jpg';
+import Wheel from '../Wheel';
+
+import './style.css';
 import IconBulb from '../../assets/icon-bulb.svg';
 import IconGear from '../../assets/icon-gear.svg';
 import IconQuestion from '../../assets/icon-question.svg';
@@ -15,51 +15,9 @@ class About extends Component {
         super(props);
 
         this.state = {
-            expandHow: false,
-            hoverSection: {}
+            expandHow: false
         };
-
-        this.imageRef = React.createRef();
     }
-
-    componentDidMount() {
-        window.addEventListener('mousemove', this.handleMouseMove);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('mousemove', this.handleMouseMove);
-    }
-
-    handleMouseMove = e => {
-        const { hoverSection } = this.state;
-
-        if (
-            controller.isMouseInsideCircle({
-                mouse: e,
-                img: this.imageRef.current
-            })
-        ) {
-            const currSection = controller.getSection({
-                mouse: e,
-                img: this.imageRef.current
-            });
-
-            if (
-                hoverSection.hour !== currSection.hour ||
-                hoverSection.ring !== currSection.ring
-            ) {
-                this.setState({
-                    hoverSection: currSection
-                });
-            }
-        } else {
-            if (hoverSection.hour || hoverSection.ring) {
-                this.setState({
-                    hoverSection: {}
-                });
-            }
-        }
-    };
 
     handleExpandHow = () => {
         this.setState({
@@ -83,28 +41,6 @@ class About extends Component {
         );
     };
 
-    renderWheel = () => {
-        const { isMobile } = this.props;
-        return (
-            <div className="About-image-container">
-                <img
-                    className="About-image"
-                    ref={this.imageRef}
-                    src={CamelotWheel}
-                    alt="camelotWheel"
-                />
-                {!isMobile && this.renderWheelCover()}
-            </div>
-        );
-    };
-
-    renderWheelCover = () => {
-        const { hoverSection } = this.state;
-        console.log(hoverSection);
-
-        return <div className="About-image-cover" />;
-    };
-
     render() {
         const { isMobile } = this.props;
         const { expandHow } = this.state;
@@ -123,10 +59,10 @@ class About extends Component {
                             </h2>
                             {this.renderSpotifyAuth()}
                         </div>
-                        {!isMobile && this.renderWheel()}
+                        {!isMobile && <Wheel />}
                     </div>
                     <div className="About-section">
-                        {isMobile && this.renderWheel()}
+                        {isMobile && <Wheel />}
                         <div className="About-description">
                             <div className="About-description-tile">
                                 <img
