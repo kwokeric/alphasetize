@@ -41,6 +41,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 100%;
     padding: 0 24px;
 }
 
@@ -82,7 +83,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
+    width: 100%;
+    padding: 0 24px;
     max-width: 900px;
     font-size: 16px;
     line-height: 24px;
@@ -90,21 +92,20 @@
 
 @media (min-width: 767px) {
     .Contact-section {
-        width: 100%;
         max-width: none;
-        padding: 64px;
+        padding: 0 64px;
         justify-content: space-between;
         box-sizing: border-box;
     }
 }
 
 .Contact-description {
+    width: 100%;
     padding: 40px 0;
 }
 
 @media (min-width: 767px) {
     .Contact-description {
-        width: 100%;
         padding: 0;
         display: flex;
         justify-content: space-between;
@@ -113,13 +114,12 @@
 }
 
 .Contact-description-tile {
-    padding: 8px;
+    padding: 8px 0;
     cursor: default;
 }
 
 @media (min-width: 767px) {
     .Contact-description-tile {
-        width: 30%;
         padding: 0;
         padding-right: 32px;
     }

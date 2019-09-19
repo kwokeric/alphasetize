@@ -3,9 +3,9 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import './style.css';
-import IconBulb from '../../assets/icon-bulb.svg';
-import IconGear from '../../assets/icon-gear.svg';
-import IconQuestion from '../../assets/icon-question.svg';
+import IconChat from '../../assets/icon-chat.svg';
+import IconCode from '../../assets/icon-code.svg';
+import IconMusic from '../../assets/icon-music.svg';
 
 class Contact extends Component {
     render() {
@@ -16,7 +16,7 @@ class Contact extends Component {
                         <div className="Contact-title-section">
                             <h1 className="Contact-header">Contact</h1>
                             <h2 className="Contact-header-2">
-                                Alphasetize was created with love by Eric Kwok
+                                Alphasetize was created by Eric Kwok
                             </h2>
                         </div>
                     </div>
@@ -25,40 +25,69 @@ class Contact extends Component {
                             <div className="Contact-description-tile">
                                 <img
                                     className="Contact-icon"
-                                    src={IconQuestion}
-                                    alt="icon-question"
+                                    src={IconChat}
+                                    alt="icon-chat"
                                 />
                                 <div className="Contact-subheader">
-                                    The Problem
+                                    Reach out
                                 </div>
-                                Have you ever noticed the uncomfortable
-                                dissonance when mixing two songs with clashing
-                                pitches?
+                                <a
+                                    className="Contact-link"
+                                    href="mailto: erickwokdev@gmail.com"
+                                >
+                                    Email
+                                </a>
+                                <br />
+                                <a
+                                    className="Contact-link"
+                                    href="https://www.linkedin.com/in/eric-kwok/"
+                                >
+                                    Linked In
+                                </a>
+                                <br />
                             </div>
                             <div className="Contact-description-tile">
                                 <img
                                     className="Contact-icon"
-                                    src={IconBulb}
+                                    src={IconCode}
+                                    alt="icon-code"
+                                />
+                                <div className="Contact-subheader">
+                                    Engineering
+                                </div>
+                                <a
+                                    className="Contact-link"
+                                    href="https://github.com/kwokeric"
+                                >
+                                    GitHub
+                                </a>
+                                <br />
+                                <a className="Contact-link" href="erickwok.io">
+                                    erickwok.io
+                                </a>
+                                <br />
+                            </div>
+                            <div className="Contact-description-tile">
+                                <img
+                                    className="Contact-icon"
+                                    src={IconMusic}
                                     alt="icon-bulb"
                                 />
-                                <div className="Contact-subheader">
-                                    The Solution
-                                </div>
-                                Alphasetize shows you which songs are
-                                harmonically compatible to keep transitions
-                                silky smooth.
-                            </div>
-                            <div className="Contact-description-tile">
-                                <img
-                                    className="Contact-icon"
-                                    src={IconGear}
-                                    alt="icon-gear"
-                                />
-                                <div className="Contact-subheader">
-                                    How it works
-                                </div>
-                                The Camelot wheel is a visual representation of
-                                which keys are compatible with each other.
+                                <div className="Contact-subheader">Music</div>
+                                <a
+                                    className="Contact-link"
+                                    href="https://soundcloud.com/eks-official"
+                                >
+                                    SoundCloud
+                                </a>
+                                <br />
+                                <a
+                                    className="Contact-link"
+                                    href="https://open.spotify.com/user/xtz2r9shizlr37boi82pz14nt?si=vu8A27sYRhq_vukW0q19BQ"
+                                >
+                                    Spotify
+                                </a>
+                                <br />
                             </div>
                         </div>
                     </div>
