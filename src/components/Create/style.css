@@ -52,7 +52,7 @@
     border-radius: 25px;
     border: 1px solid #e2e2e2;
     background: white;
-    color: #555;
+    color: #505050;
     font-size: 12px;
     letter-spacing: 0.6px;
     cursor: pointer;
@@ -70,7 +70,7 @@
 
 .Create-import:active {
     border: 1px solid #2eb0c4;
-    color: #555;
+    color: black;
     box-shadow: none;
 }
 
@@ -78,7 +78,7 @@
     position: absolute;
     top: 40%;
     line-height: 22px;
-    color: #808080;
+    color: #505050;
 }
 
 @media (min-width: 767px) {
