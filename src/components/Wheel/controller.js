@@ -26,20 +26,29 @@ const controller = {
         return controller.isInsideCircle({ mouse, img });
     },
     getSection({ mouse, img }) {
-        const hour = controller.getHourPosition({ mouse, img });
+        const { hour, rotation } = controller.getHourPosition({ mouse, img });
         const ring = controller.getRingPosition({ mouse, img });
-        return { hour, ring };
+        return { hour, rotation, ring };
     },
     getHourPosition({ mouse, img }) {
         const imgRadius = img.clientHeight / 2;
         const imgCenterY = img.offsetTop + imgRadius;
         const imgCenterX = img.offsetLeft + imgRadius;
 
+        const parentOffsetY = img.offsetParent ? img.offsetParent.offsetTop : 0;
+        const parentOffsetX = img.offsetParent
+            ? img.offsetParent.offsetLeft
+            : 0;
+
         const mouseY = mouse.pageY;
         const mouseX = mouse.pageX;
 
         const angleFromNegativeX =
-            (Math.atan2(imgCenterY - mouseY, imgCenterX - mouseX) * 180) /
+            (Math.atan2(
+                imgCenterY + parentOffsetY - mouseY,
+                imgCenterX + parentOffsetX - mouseX
+            ) *
+                180) /
             Math.PI;
         const threeSixtyFromNegativeX =
             angleFromNegativeX > 0
@@ -51,41 +60,41 @@ const controller = {
                 : 270 + threeSixtyFromNegativeX;
 
         if (angleFromTop - 15 < 0) {
-            return 12;
+            return { hour: 12, rotation: 0 };
         } else if (angleFromTop - 15 < 30) {
-            return 1;
+            return { hour: 1, rotation: 30 };
         } else if (angleFromTop - 15 < 60) {
-            return 2;
+            return { hour: 2, rotation: 60 };
         } else if (angleFromTop - 15 < 90) {
-            return 3;
+            return { hour: 3, rotation: 90 };
         } else if (angleFromTop - 15 < 120) {
-            return 4;
+            return { hour: 4, rotation: 120 };
         } else if (angleFromTop - 15 < 150) {
-            return 5;
+            return { hour: 5, rotation: 150 };
         } else if (angleFromTop - 15 < 180) {
-            return 6;
+            return { hour: 6, rotation: 180 };
         } else if (angleFromTop - 15 < 210) {
-            return 7;
+            return { hour: 7, rotation: 210 };
         } else if (angleFromTop - 15 < 240) {
-            return 8;
+            return { hour: 8, rotation: 240 };
         } else if (angleFromTop - 15 < 270) {
-            return 9;
+            return { hour: 9, rotation: 270 };
         } else if (angleFromTop - 15 < 300) {
-            return 10;
+            return { hour: 10, rotation: 300 };
         } else if (angleFromTop - 15 < 330) {
-            return 11;
+            return { hour: 11, rotation: 330 };
         } else {
-            return 12;
+            return { hour: 12, rotation: 0 };
         }
     },
     getRingPosition({ mouse, img }) {
-        const eyeRadius = 50;
-        const innerRadius = 110;
+        const EYE_RADIUS = 50;
+        const INNER_RADIUS = 105;
 
-        if (controller.isInsideCircle({ mouse, img, radius: eyeRadius })) {
+        if (controller.isInsideCircle({ mouse, img, radius: EYE_RADIUS })) {
             return false;
         } else if (
-            controller.isInsideCircle({ mouse, img, radius: innerRadius })
+            controller.isInsideCircle({ mouse, img, radius: INNER_RADIUS })
         ) {
             return 'A';
         } else {
