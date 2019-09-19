@@ -51,7 +51,7 @@ class Wheel extends Component {
         } else {
             if (hoverSection.hour || hoverSection.ring) {
                 this.setState({
-                    // hoverSection: {}
+                    hoverSection: {}
                 });
             }
         }
@@ -99,8 +99,7 @@ class Wheel extends Component {
 
         return (
             <Fragment>
-                <div className="Wheel-image-eye-cover">hi</div>
-                <div className="Wheel-image-inner-cover" style={innerStyle}>
+                <div className="Wheel-cover" style={innerStyle}>
                     <svg className="Wheel-svg-inner" height="210" width="210">
                         <circle
                             cx="105"
@@ -112,7 +111,7 @@ class Wheel extends Component {
                         />
                     </svg>
                 </div>
-                <div className="Wheel-image-outer-cover" style={outerStyle}>
+                <div className="Wheel-cover" style={outerStyle}>
                     <svg className="Wheel-image-outer" height="300" width="300">
                         <circle
                             className="Wheel-svg-outer"
@@ -140,6 +139,10 @@ class Wheel extends Component {
                     src={CamelotWheel}
                     alt="camelotWheel"
                 />
+
+                <div className="Wheel-cover">
+                    <div className="Wheel-cover-center">What's this?</div>
+                </div>
                 {!isMobile && this.renderWheelCover()}
             </div>
         );
