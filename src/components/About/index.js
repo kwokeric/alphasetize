@@ -9,14 +9,14 @@ import CamelotWheel from '../../assets/camelotWheel.jpg';
 import IconBulb from '../../assets/icon-bulb.svg';
 import IconGear from '../../assets/icon-gear.svg';
 import IconQuestion from '../../assets/icon-question.svg';
-import cx from '../../utils/cx.js';
 
 class About extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            expandHow: false
+            expandHow: false,
+            hoverSection: {}
         };
 
         this.imageRef = React.createRef();
@@ -31,18 +31,33 @@ class About extends Component {
     }
 
     handleMouseMove = e => {
+        const { hoverSection } = this.state;
+
         if (
             controller.isMouseInsideCircle({
                 mouse: e,
                 img: this.imageRef.current
             })
         ) {
-            console.log(
-                controller.getSection({
-                    mouse: e,
-                    img: this.imageRef.current
-                })
-            );
+            const currSection = controller.getSection({
+                mouse: e,
+                img: this.imageRef.current
+            });
+
+            if (
+                hoverSection.hour !== currSection.hour ||
+                hoverSection.ring !== currSection.ring
+            ) {
+                this.setState({
+                    hoverSection: currSection
+                });
+            }
+        } else {
+            if (hoverSection.hour || hoverSection.ring) {
+                this.setState({
+                    hoverSection: {}
+                });
+            }
         }
     };
 
@@ -68,21 +83,26 @@ class About extends Component {
         );
     };
 
-    renderWheel = isForMobile => {
+    renderWheel = () => {
+        const { isMobile } = this.props;
         return (
-            <div
-                className={cx('About-image-container', {
-                    'About-image-container-mweb': isForMobile
-                })}
-            >
+            <div className="About-image-container">
                 <img
                     className="About-image"
                     ref={this.imageRef}
                     src={CamelotWheel}
                     alt="camelotWheel"
                 />
+                {!isMobile && this.renderWheelCover()}
             </div>
         );
+    };
+
+    renderWheelCover = () => {
+        const { hoverSection } = this.state;
+        console.log(hoverSection);
+
+        return <div className="About-image-cover" />;
     };
 
     render() {

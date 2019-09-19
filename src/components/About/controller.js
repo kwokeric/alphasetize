@@ -19,8 +19,8 @@ const controller = {
     },
     getSection({ mouse, img }) {
         const hour = controller.getHourPosition({ mouse, img });
-        const circle = controller.getCirclePosition({ mouse, img });
-        return { hour, circle };
+        const ring = controller.getRingPosition({ mouse, img });
+        return { hour, ring };
     },
     getHourPosition({ mouse, img }) {
         const imgRadius = img.clientHeight / 2;
@@ -70,7 +70,7 @@ const controller = {
             return 12;
         }
     },
-    getCirclePosition({ mouse, img }) {
+    getRingPosition({ mouse, img }) {
         const eyeRadius = 50;
         const innerRadius = 110;
 
@@ -79,9 +79,9 @@ const controller = {
         } else if (
             controller.isInsideCircle({ mouse, img, radius: innerRadius })
         ) {
-            return 'inner';
+            return 'A';
         } else {
-            return 'outer';
+            return 'B';
         }
     }
 };
