@@ -1,0 +1,149 @@
+.Contact {
+    width: 100%;
+}
+
+.Contact-content {
+    padding: 0 16px;
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+@media (min-width: 767px) {
+    .Contact-content {
+        padding: 0 80px;
+        align-items: center;
+    }
+}
+
+.Contact-top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 0;
+}
+
+@media (min-width: 767px) {
+    .Contact-top {
+        padding: 64px;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+}
+
+.Contact-title-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 24px;
+}
+
+@media (min-width: 767px) {
+    .Contact-title-section {
+        align-items: flex-start;
+        max-width: 500px;
+        padding: 0;
+        padding-right: 48px;
+    }
+}
+
+.Contact-header {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 64px 0 48px;
+    letter-spacing: 0.5px;
+}
+
+@media (min-width: 767px) {
+    .Contact-header {
+        font-size: 36px;
+        padding: 24px 0 48px;
+    }
+}
+
+.Contact-header-2 {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+@media (min-width: 767px) {
+    .Contact-header-2 {
+        font-size: 16px;
+    }
+}
+
+.Contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    max-width: 900px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@media (min-width: 767px) {
+    .Contact-section {
+        width: 100%;
+        max-width: none;
+        padding: 64px;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+}
+
+.Contact-description {
+    padding: 40px 0;
+}
+
+@media (min-width: 767px) {
+    .Contact-description {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+.Contact-description-tile {
+    padding: 8px;
+    cursor: default;
+}
+
+@media (min-width: 767px) {
+    .Contact-description-tile {
+        width: 30%;
+        padding: 0;
+        padding-right: 32px;
+    }
+    .Contact-description-tile:last-of-type {
+        padding-right: 0;
+    }
+}
+
+.Contact-link {
+    color: #2799aa;
+    cursor: pointer;
+}
+
+.Contact-link:hover {
+    text-decoration: underline;
+}
+
+.Contact-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.Contact-subheader {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 32px;
+}
