@@ -1,6 +1,6 @@
 @import '../../css/colors.css';
 
-.Search {
+.Create {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -8,11 +8,11 @@
     align-items: center;
 }
 
-.Search > * {
+.Create > * {
     overflow-x: hidden;
 }
 
-.Search-top {
+.Create-top {
     width: 100vw;
     display: flex;
     flex-direction: row;
@@ -25,25 +25,25 @@
     z-index: 5;
 }
 
-.Search-autocomplete {
+.Create-autocomplete {
     width: 100%;
     position: relative;
     height: 46px;
 }
 
 @media (min-width: 767px) {
-    .Search-autocomplete {
+    .Create-autocomplete {
         flex: 1;
         max-width: 500px;
         margin-right: 24px;
     }
 }
 
-.Search-import-export {
+.Create-import-export {
     display: flex;
 }
-.Search-import,
-.Search-export {
+.Create-import,
+.Create-export {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,23 +58,23 @@
     cursor: pointer;
 }
 
-.Search-import {
+.Create-import {
     margin-right: 12px;
 }
 
-.Search-import:hover,
-.Search-export:hover {
+.Create-import:hover,
+.Create-export:hover {
     border: 1px solid #e2e2e2;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.2);
 }
 
-.Search-import:active {
+.Create-import:active {
     border: 1px solid #2eb0c4;
     color: #555;
     box-shadow: none;
 }
 
-.Search-empty-list {
+.Create-empty-list {
     position: absolute;
     top: 40%;
     line-height: 22px;
@@ -82,14 +82,14 @@
 }
 
 @media (min-width: 767px) {
-    .Search-empty-list {
+    .Create-empty-list {
         top: 300px;
     }
 }
 
 /* Mobile */
 
-.Search-top-m {
+.Create-top-m {
     position: fixed;
     display: flex;
     flex-direction: row;
@@ -101,15 +101,15 @@
     background: #fafafa;
 }
 
-.Search-top-active-m {
+.Create-top-active-m {
     padding: 0;
 }
 
-.Search-autocomplete-m {
+.Create-autocomplete-m {
     width: 100%;
 }
 
-.Search-playlist-m {
+.Create-playlist-m {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,15 +125,15 @@
     opacity: 1;
 }
 
-.Search-playlist-m:active {
+.Create-playlist-m:active {
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.2);
 }
 
-.Search-playlist-hidden-m {
+.Create-playlist-hidden-m {
     display: none;
 }
 
-.Search-playlist-open {
+.Create-playlist-open {
     padding-top: 2px;
 }
 

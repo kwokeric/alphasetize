@@ -7,7 +7,8 @@ import configureStore from './redux/store';
 import './index.css';
 import AppTemplate from './components/AppTemplate';
 import About from './components/About';
-import Search from './components/Search';
+import Create from './components/Create';
+import Contact from './components/Contact';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -15,8 +16,9 @@ ReactDOM.render(
         <Router>
             <AppTemplate>
                 <Route exact path="/" component={About} />
-                <Route path="/About" component={About} />
-                <Route path="/search" component={Search} />
+                <Route path="/about" component={About} />
+                <Route path="/create" component={Create} />
+                <Route path="/contact" component={Contact} />
             </AppTemplate>
         </Router>
     </Provider>,

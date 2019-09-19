@@ -13,7 +13,7 @@ import PlaylistActions from '../../redux/actions/PlaylistActions';
 import PlaylistImport from '../PlaylistImport';
 import PlaylistExport from '../PlaylistExport';
 
-class Search extends Component {
+class Create extends Component {
     constructor(props) {
         super(props);
 
@@ -100,13 +100,13 @@ class Search extends Component {
 
         return (
             <div
-                className={cx('Search-top-m', {
-                    'Search-top-active-m': isInputActive
+                className={cx('Create-top-m', {
+                    'Create-top-active-m': isInputActive
                 })}
             >
                 <div
-                    className={cx('Search-autocomplete-m', {
-                        'Search-autocomplete-active-m': isInputActive
+                    className={cx('Create-autocomplete-m', {
+                        'Create-autocomplete-active-m': isInputActive
                     })}
                 >
                     <Autocomplete
@@ -116,12 +116,12 @@ class Search extends Component {
                 </div>
 
                 <div
-                    className={cx('Search-playlist-m', {
-                        'Search-playlist-hidden-m': isInputActive
+                    className={cx('Create-playlist-m', {
+                        'Create-playlist-hidden-m': isInputActive
                     })}
                     onClick={this.handleShowAllOptions}
                 >
-                    <div className="Search-playlist-open">
+                    <div className="Create-playlist-open">
                         <img height="16" src={IconDots} alt="icon-dots" />
                     </div>
                 </div>
@@ -133,24 +133,24 @@ class Search extends Component {
         const { list, isMobile } = this.props;
 
         return (
-            <div className="Search">
+            <div className="Create">
                 {this.renderModal()}
                 {isMobile ? (
                     this.renderMobileView()
                 ) : (
-                    <div className="Search-top">
-                        <div className="Search-autocomplete">
+                    <div className="Create-top">
+                        <div className="Create-autocomplete">
                             <Autocomplete />
                         </div>
-                        <div className="Search-import-export">
+                        <div className="Create-import-export">
                             <div
-                                className="Search-import noselect"
+                                className="Create-import noselect"
                                 onClick={this.handleImport}
                             >
                                 IMPORT PLAYLIST
                             </div>
                             <div
-                                className="Search-export noselect"
+                                className="Create-export noselect"
                                 onClick={this.handleExport}
                             >
                                 EXPORT PLAYLIST
@@ -160,7 +160,7 @@ class Search extends Component {
                 )}
                 {isMobile ? <ListMobile list={list} /> : <List list={list} />}
                 {!list.length && (
-                    <div className="Search-empty-list">
+                    <div className="Create-empty-list">
                         Start searching or import a playlist!
                     </div>
                 )}
@@ -177,4 +177,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(Search);
+export default connect(mapStateToProps)(Create);

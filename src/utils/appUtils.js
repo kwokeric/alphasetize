@@ -10,8 +10,8 @@ const appUtils = {
         url += '&redirect_uri=';
         url +=
             process.env.NODE_ENV === 'development'
-                ? 'http://localhost:3000/search'
-                : 'https://alphasetize.herokuapp.com/search';
+                ? 'http://localhost:3000/create'
+                : 'https://alphasetize.herokuapp.com/create';
         return url;
     },
     isMobile() {

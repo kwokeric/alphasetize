@@ -32,7 +32,7 @@
 
 .Header-tab {
     padding: 16px;
-    color: black;
+    color: #808080;
     cursor: pointer;
     position: relative;
 }
@@ -57,6 +57,6 @@
 
 .Header-tab-active {
     padding: 16px;
-    color: #2eb0c4;
+    color: #2799aa;
     cursor: default;
 }

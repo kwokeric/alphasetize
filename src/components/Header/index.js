@@ -24,12 +24,21 @@ class Header extends Component {
                     </div>
                     <div
                         className={
-                            pathname === '/search'
+                            pathname === '/create'
                                 ? 'Header-tab-active'
                                 : 'Header-tab'
                         }
                     >
-                        <Link to={'/search'}>SEARCH</Link>
+                        <Link to={'/create'}>CREATE</Link>
+                    </div>
+                    <div
+                        className={
+                            pathname === '/contact'
+                                ? 'Header-tab-active'
+                                : 'Header-tab'
+                        }
+                    >
+                        <Link to={'/contact'}>CONTACT</Link>
                     </div>
                 </div>
             </div>
