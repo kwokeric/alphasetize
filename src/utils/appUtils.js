@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-escape */
 
 const appUtils = {
-    getSpotifyAuthUrl() {
+    getSpotifyAuthUrl(pathname) {
         const client_id = 'b722de12baaf4052a82f8cd762edda76';
         let url = 'https://accounts.spotify.com/authorize?';
         url += 'client_id=' + client_id;
@@ -9,7 +9,7 @@ const appUtils = {
         url += '&response_type=token';
         url += '&redirect_uri=';
         url +=
-            process.env.NODE_ENV === 'development'
+            window.location.href.indexOf('localhost') >= 0
                 ? 'http://localhost:3000/create'
                 : 'https://alphasetize.herokuapp.com/create';
         return url;

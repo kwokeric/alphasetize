@@ -34,7 +34,6 @@ class AuthButton extends Component {
         const urlParams = urlUtils.getUrlParams();
 
         if (!urlParams.access_token && !token) {
-            console.log(appUtils.getSpotifyAuthUrl());
             window.location.href = appUtils.getSpotifyAuthUrl();
         } else {
             console.log('> Already authenticated!');
