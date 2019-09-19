@@ -5,11 +5,19 @@ const controller = {
         const imgCenterTop = img.offsetTop + imgRadius;
         const imgCenterLeft = img.offsetLeft + imgRadius;
 
+        const parentOffsetTop = img.offsetParent
+            ? img.offsetParent.offsetTop
+            : 0;
+        const parentOffsetLeft = img.offsetParent
+            ? img.offsetParent.offsetLeft
+            : 0;
+
         const mouseTop = mouse.pageY;
         const mouseLeft = mouse.pageX;
 
         const distanceMouseFromImgCenter = Math.sqrt(
-            (imgCenterTop - mouseTop) ** 2 + (imgCenterLeft - mouseLeft) ** 2
+            (imgCenterTop + parentOffsetTop - mouseTop) ** 2 +
+                (imgCenterLeft + parentOffsetLeft - mouseLeft) ** 2
         );
 
         return distanceMouseFromImgCenter <= _radius;
