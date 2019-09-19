@@ -7,8 +7,9 @@ const appUtils = {
         url += 'client_id=' + client_id;
         url += '&scope=' + encodeURIComponent('playlist-modify-public');
         url += '&response_type=token';
+        url += '&redirect_uri=';
         url +=
-            '&redirect_uri=' + process.env.NODE_ENV === 'development'
+            process.env.NODE_ENV === 'development'
                 ? 'http://localhost:3000/search'
                 : 'https://alphasetize.herokuapp.com/search';
         return url;
