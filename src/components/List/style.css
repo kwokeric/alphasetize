@@ -45,6 +45,7 @@
     letter-spacing: 1px;
     cursor: default;
     padding: 0 40px;
+    overflow-x: hidden;
 }
 
 .List-item {

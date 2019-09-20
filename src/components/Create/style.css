@@ -8,10 +8,6 @@
     align-items: center;
 }
 
-.Create > * {
-    overflow-x: hidden;
-}
-
 .Create-top {
     width: 100vw;
     display: flex;
