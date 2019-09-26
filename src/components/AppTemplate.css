@@ -1,3 +1,10 @@
+body.lock-vertical-scroll {
+    -webkit-overflow-scrolling: auto;
+    overflow-y: hidden;
+    position: fixed;
+    width: 100vw;
+}
+
 .AppTemplate {
     background: #fafafa;
     width: 100vw;

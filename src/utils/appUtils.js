@@ -28,6 +28,12 @@ const appUtils = {
                 check = true;
         })(navigator.userAgent || navigator.vendor || window.opera);
         return check;
+    },
+    lockVerticalScrolling() {
+        document.body.classList.add('lock-vertical-scroll');
+    },
+    unlockVerticalScrolling() {
+        document.body.classList.remove('lock-vertical-scroll');
     }
 };
 
