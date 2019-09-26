@@ -141,7 +141,9 @@ class Wheel extends Component {
                 />
 
                 <div className="Wheel-cover">
-                    <div className="Wheel-cover-center">What's this?</div>
+                    <a className="Wheel-cover-center" href="#camelot-wheel">
+                        What's this?
+                    </a>
                 </div>
                 {!isMobile && this.renderWheelCover()}
             </div>

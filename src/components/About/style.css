@@ -78,6 +78,18 @@
     }
 }
 
+.About-header-3 {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+@media (min-width: 767px) {
+    .About-header-3 {
+        font-size: 20px;
+    }
+}
+
 .About-auth-section {
     display: flex;
     justify-content: center;
@@ -145,6 +157,16 @@
     }
 }
 
+.About-section-2 {
+    align-items: center;
+}
+
+@media (min-width: 767px) {
+    .About-section-2 {
+        align-items: flex-start;
+    }
+}
+
 .About-description {
     padding: 40px 0;
 }
@@ -193,6 +215,10 @@
     font-size: 18px;
     font-weight: bold;
     line-height: 32px;
+}
+
+.About-subsection {
+    padding-top: 16px;
 }
 
 @-webkit-keyframes fadeSlideIn {

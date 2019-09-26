@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import './style.css';
 import cx from '../../utils/cx.js';
-import appUtils from '../utils/appUtils.js';
+import appUtils from '../../utils/appUtils.js';
 
 class Modal extends Component {
     static defaultProps = {

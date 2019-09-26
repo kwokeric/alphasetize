@@ -11,26 +11,6 @@ import IconGear from '../../assets/icon-gear.svg';
 import IconQuestion from '../../assets/icon-question.svg';
 
 class About extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            expandHow: false
-        };
-    }
-
-    handleExpandHow = () => {
-        this.setState({
-            expandHow: true
-        });
-    };
-
-    handleCollapseHow = () => {
-        this.setState({
-            expandHow: false
-        });
-    };
-
     renderSpotifyAuth = () => {
         return (
             <div className="About-auth-section">
@@ -43,7 +23,6 @@ class About extends Component {
 
     render() {
         const { isMobile } = this.props;
-        const { expandHow } = this.state;
 
         return (
             <div className="About">
@@ -101,49 +80,44 @@ class About extends Component {
                                 </div>
                                 The Camelot wheel is a visual representation of
                                 which keys are compatible with each other.{' '}
-                                {!expandHow && (
-                                    <Fragment>
-                                        <br />
-                                        <span
-                                            className="About-link"
-                                            onClick={this.handleExpandHow}
-                                        >
-                                            Read more >
-                                        </span>
-                                    </Fragment>
-                                )}
-                                {expandHow && (
-                                    <span>
-                                        Each key is assigned a keycode number
-                                        from one to twelve, like hours around a
-                                        clock.
-                                        <br />
-                                        <br />
-                                        To select a compatible song, choose a
-                                        keycode within one "hour" of your
-                                        current keycode. You can move to an
-                                        adjacent key within each ring (the next
-                                        "hour"), or to a section in the adjacent
-                                        ring in the same "hour".
-                                        <br />
-                                        <span
-                                            className="About-link"
-                                            onClick={this.handleCollapseHow}
-                                        >
-                                            Read less ^
-                                        </span>
-                                        <br />
-                                        <a
-                                            className="About-link"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            href="http://www.harmonic-mixing.com/howto.aspx"
-                                        >
-                                            Read even more >
-                                        </a>
-                                    </span>
-                                )}
+                                <br />
+                                <a className="About-link" href="#camelot-wheel">
+                                    Read more >
+                                </a>
                             </div>
+                        </div>
+                    </div>
+                    <div
+                        id="camelot-wheel"
+                        className="About-section About-section-2"
+                    >
+                        <h3 className="About-header-3">The Camelot Wheel</h3>
+                        <div className="About-subsection">
+                            Each key is assigned a keycode number from one to
+                            twelve, like hours around a clock.
+                            <br />
+                            <br />
+                            There are two ways to select a compatible song:
+                            <br />
+                            1. Choose a keycode within one "hour" of your
+                            current keycode. For example: if you are in 8A, you
+                            can play 7A, 8A or 9A next.
+                            <br />
+                            <br />
+                            2. You can also mix between inner and outer wheels
+                            if you stay in the same "hour." For example, try
+                            mixing from 8A to 8B, and notice the change in
+                            melody as you go from Minor to Major.
+                            <br />
+                            <br />
+                            <a
+                                className="About-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="http://www.harmonic-mixing.com/howto.aspx"
+                            >
+                                Read even more >
+                            </a>
                         </div>
                     </div>
                 </div>
