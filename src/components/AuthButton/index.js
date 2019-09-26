@@ -36,7 +36,7 @@ class AuthButton extends Component {
         if (!urlParams.access_token && !token) {
             window.location.href = appUtils.getSpotifyAuthUrl();
         } else {
-            console.log('> Already authenticated!');
+            console.log('Already authenticated!');
             history.push('/search');
         }
     };
@@ -55,7 +55,7 @@ class AuthButton extends Component {
                 onClick={this.handleSpotifyAuth}
             >
                 {!authHover
-                    ? 'Get started'
+                    ? 'GET STARTED'
                     : token
                         ? 'SEARCH'
                         : 'SPOTIFY LOGIN'}
