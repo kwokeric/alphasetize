@@ -12,6 +12,44 @@ import IconQuestion from '../../assets/icon-question.svg';
 import Image from '../../assets/controller.jpg';
 
 class About extends Component {
+    constructor(props) {
+        super(props);
+
+        this.imgRef = React.createRef();
+    }
+
+    componentDidMount() {
+        if (!this.imgRef.current) return;
+
+        const options = {
+            root: null,
+            rootMargin: '-150px',
+            threshold: 0.0
+        };
+
+        this.observer = new IntersectionObserver(
+            this.observerCallback,
+            options
+        );
+        this.observer.observe(this.imgRef.current);
+    }
+
+    componentWillUnmount() {
+        if (this.observer) {
+            this.observer.disconnect();
+        }
+    }
+
+    observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                observer.unobserve(this.imgRef.current);
+                this.visible = true;
+                this.forceUpdate();
+            }
+        });
+    };
+
     renderTop = () => {
         const { isMobile } = this.props;
 
@@ -82,39 +120,47 @@ class About extends Component {
     renderHowTo = () => {
         return (
             <div id="camelot-wheel" className="About-section About-section-2">
-                <h3 className="About-header-3">The Camelot Wheel</h3>
-                <div className="About-subsection">
-                    Each key is assigned a keycode number from one to twelve,
-                    like hours around a clock.
-                    <br />
-                    <br />
-                    There are two ways to select a compatible song:
-                    <br />
-                    1. Choose a keycode within one "hour" of your current
-                    keycode. For example: if you are in 8A, you can play 7A, 8A
-                    or 9A next.
-                    <br />
-                    <br />
-                    2. You can also mix between inner and outer wheels if you
-                    stay in the same "hour." For example, try mixing from 8A to
-                    8B, and notice the change in melody as you go from Minor to
-                    Major.
-                    <br />
-                    <br />
-                    <a
-                        className="About-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="http://www.harmonic-mixing.com/howto.aspx"
-                    >
-                        Read more >
-                    </a>
+                <div className="About-section-left">
+                    <h3 className="About-header-3">The Camelot Wheel</h3>
+                    <div className="About-subsection">
+                        Each key is assigned a keycode number from one to
+                        twelve, like hours around a clock.
+                        <br />
+                        <br />
+                        There are two ways to select a compatible song:
+                        <br />
+                        1. Choose a keycode within one "hour" of your current
+                        keycode. For example: if you are in 8A, you can play 7A,
+                        8A or 9A next.
+                        <br />
+                        <br />
+                        2. You can also mix between inner and outer wheels if
+                        you stay in the same "hour." For example, try mixing
+                        from 8A to 8B, and notice the change in melody as you go
+                        from Minor to Major.
+                        <br />
+                        <br />
+                        <a
+                            className="About-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="http://www.harmonic-mixing.com/howto.aspx"
+                        >
+                            Read more >
+                        </a>
+                    </div>
                 </div>
-                <img
-                    className="About-controller-img"
-                    alt="controller-img"
-                    src={Image}
-                />
+                <div className="About-section-right">
+                    <div className="About-scene">
+                        <img
+                            className={`About-controller-img ${this.visible &&
+                                'visible'}`}
+                            alt="controller-img"
+                            src={Image}
+                            ref={this.imgRef}
+                        />
+                    </div>
+                </div>
             </div>
         );
     };

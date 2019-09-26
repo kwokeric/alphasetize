@@ -34,6 +34,8 @@
     }
 }
 
+/* TOP */
+
 .About-top {
     width: 100%;
     flex-direction: row;
@@ -64,6 +66,7 @@
 @media (min-width: 767px) {
     .About-section-2 {
         align-items: flex-start;
+        flex-direction: row;
     }
 }
 
@@ -99,6 +102,8 @@
         padding: 24px 0;
     }
 }
+
+/* OUTLINE */
 
 .About-header-2 {
     font-size: 18px;
@@ -190,6 +195,8 @@
     height: 32px;
 }
 
+/* HOW TO */
+
 .About-subheader {
     font-size: 18px;
     font-weight: bold;
@@ -198,4 +205,28 @@
 
 .About-subsection {
     padding-top: 16px;
+}
+
+.About-section-left {
+    flex: 1;
+}
+
+.About-section-right {
+    width: 300px;
+}
+
+.About-scene {
+    perspective: 300px;
+}
+
+.About-controller-img {
+    opacity: 0;
+    width: 400px;
+    transform: rotateX(5deg) rotateY(-5deg) rotateZ(14deg);
+    transition: transform 2s, opacity 0.5s ease-out;
+}
+
+.About-controller-img.visible {
+    opacity: 1;
+    transform: rotateX(15deg) rotateY(-5deg) rotateZ(10deg);
 }

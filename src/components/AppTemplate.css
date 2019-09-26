@@ -5,6 +5,11 @@ body.lock-vertical-scroll {
     width: 100vw;
 }
 
+html {
+    /* smooth scrolling to id */
+    scroll-behavior: smooth;
+}
+
 .AppTemplate {
     background: #fafafa;
     width: 100vw;
