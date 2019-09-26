@@ -10,6 +10,7 @@
     line-height: 18px;
     cursor: pointer;
     box-shadow: 0 5px 0 rgba(17, 17, 31, 0.25);
+    transition: margin 0.1s linear, box-shadow 0.1s linear;
 
     &.AuthButton-button-hover {
         animation: fadeSlideIn 2s;

@@ -42,21 +42,34 @@
     position: absolute;
     background: none repeat scroll 0 0 transparent;
     display: block;
-    height: 2px;
+    height: 0;
     bottom: 8px;
     left: 50%;
     background: #2eb0c4;
-    transition: width 0.15s ease 0s, left 0.15s ease 0s;
-    width: 0;
-}
-
-.Header-tab:hover:after {
+    transition: height 0.25s ease 0s;
     width: 80%;
     left: 10%;
 }
 
+.Header-tab:hover:after {
+    height: 2px;
+}
+
 .Header-tab-active {
+    position: relative;
     padding: 16px;
-    color: #2799aa;
     cursor: default;
+}
+
+.Header-tab-active:after {
+    content: '';
+    position: absolute;
+    background: none repeat scroll 0 0 transparent;
+    display: block;
+    height: 2px;
+    bottom: 8px;
+    left: 50%;
+    background: #2eb0c4;
+    width: 80%;
+    left: 10%;
 }
