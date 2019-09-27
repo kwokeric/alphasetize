@@ -23,7 +23,7 @@ class About extends Component {
 
         const options = {
             root: null,
-            rootMargin: '-150px',
+            rootMargin: '-300px',
             threshold: 0.0
         };
 
@@ -67,7 +67,16 @@ class About extends Component {
                         </div>
                     </div>
                 </div>
-                {!isMobile && <Wheel />}
+                <div className="About-scene">
+                    <img
+                        className={`About-controller-img ${this.visible &&
+                            'visible'}`}
+                        alt="controller-img"
+                        src={Image}
+                        ref={this.imgRef}
+                    />
+                </div>
+                {!isMobile && false && <Wheel />}
             </div>
         );
     };
@@ -121,6 +130,9 @@ class About extends Component {
         return (
             <div id="camelot-wheel" className="About-section About-section-2">
                 <div className="About-section-left">
+                    <Wheel />
+                </div>
+                <div className="About-section-right">
                     <h3 className="About-header-3">The Camelot Wheel</h3>
                     <div className="About-subsection">
                         Each key is assigned a keycode number from one to
@@ -148,17 +160,6 @@ class About extends Component {
                         >
                             Read more >
                         </a>
-                    </div>
-                </div>
-                <div className="About-section-right">
-                    <div className="About-scene">
-                        <img
-                            className={`About-controller-img ${this.visible &&
-                                'visible'}`}
-                            alt="controller-img"
-                            src={Image}
-                            ref={this.imgRef}
-                        />
                     </div>
                 </div>
             </div>

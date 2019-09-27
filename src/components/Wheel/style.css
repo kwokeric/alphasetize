@@ -32,18 +32,6 @@
     /* transition: 0.1s ease-in-out; */
 }
 
-.Wheel-cover-center {
-    position: relative;
-    background: white;
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
 .Wheel-cover-center:after {
     content: '';
     position: absolute;

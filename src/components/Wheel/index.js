@@ -139,12 +139,6 @@ class Wheel extends Component {
                     src={CamelotWheel}
                     alt="camelotWheel"
                 />
-
-                <div className="Wheel-cover">
-                    <a className="Wheel-cover-center" href="#camelot-wheel">
-                        What's this?
-                    </a>
-                </div>
                 {!isMobile && this.renderWheelCover()}
             </div>
         );
