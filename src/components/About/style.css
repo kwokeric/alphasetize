@@ -1,25 +1,28 @@
 .About {
     width: 100%;
-    max-width: 1280px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 }
 
-@media (min-width: 767px) {
-    .About-content {
-        align-items: center;
-    }
+section {
+    display: block;
+    width: 100%;
+}
+
+.About-white {
+    background: white;
 }
 
 .About-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1280px;
+    margin: auto;
     padding: 0 16px;
-    max-width: 900px;
     font-size: 16px;
     line-height: 24px;
 }
@@ -28,7 +31,6 @@
     .About-section {
         width: 100%;
         padding: 64px 144px;
-        max-width: none;
         justify-content: space-between;
         box-sizing: border-box;
     }
@@ -46,16 +48,6 @@
     .About-top {
         justify-content: space-between;
         box-sizing: border-box;
-    }
-}
-
-.About-section-1 {
-    background: #f0f2f5;
-    background: white;
-}
-
-@media (min-width: 767px) {
-    .About-section-1 {
     }
 }
 
@@ -227,7 +219,7 @@
 }
 
 .About-section-left {
-    padding-right: 48px;
+    padding-right: 60px;
 }
 
 .About-section-right {

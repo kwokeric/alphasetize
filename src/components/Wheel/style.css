@@ -61,7 +61,7 @@ circle {
     right: 0px;
     width: 40px;
     height: 40px;
-    animation: ring 4s infinite;
+    animation: ring 3s infinite;
     transform: rotate(20deg);
     transform-origin: 60% 60%;
 }
@@ -71,16 +71,16 @@ circle {
         transform: rotate(20deg);
     }
     4% {
-        transform: rotate(15deg);
+        transform: rotate(12deg);
     }
     8% {
-        transform: rotate(25deg);
+        transform: rotate(28deg);
     }
     12% {
-        transform: rotate(15deg);
+        transform: rotate(12deg);
     }
     16% {
-        transform: rotate(25deg);
+        transform: rotate(28deg);
     }
     20% {
         transform: rotate(20deg);
