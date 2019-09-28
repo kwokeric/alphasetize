@@ -23,7 +23,7 @@ class About extends Component {
 
         const options = {
             root: null,
-            rootMargin: '-300px',
+            rootMargin: '-100px',
             threshold: 0.0
         };
 

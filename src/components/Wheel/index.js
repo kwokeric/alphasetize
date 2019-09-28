@@ -6,12 +6,14 @@ import './style.css';
 import AuthButton from '../AuthButton';
 import controller from './controller.js';
 import CamelotWheel from '../../assets/camelotWheel.jpg';
+import IconTap from '../../assets/icon-tap.svg';
 
 class Wheel extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            hasTapped: false,
             hoverSection: {}
         };
 
@@ -27,7 +29,7 @@ class Wheel extends Component {
     }
 
     handleMouseMove = e => {
-        const { hoverSection } = this.state;
+        const { hasTapped, hoverSection } = this.state;
 
         if (
             controller.isMouseInsideCircle({
@@ -35,6 +37,12 @@ class Wheel extends Component {
                 img: this.imageRef.current
             })
         ) {
+            if (!hasTapped) {
+                this.setState({
+                    hasTapped: true
+                });
+            }
+
             const currSection = controller.getSection({
                 mouse: e,
                 img: this.imageRef.current
@@ -55,16 +63,6 @@ class Wheel extends Component {
                 });
             }
         }
-    };
-
-    renderSpotifyAuth = () => {
-        return (
-            <div className="Wheel-auth-section">
-                <div className="Wheel-auth-container">
-                    <AuthButton />
-                </div>
-            </div>
-        );
     };
 
     renderWheel = () => {
@@ -130,6 +128,7 @@ class Wheel extends Component {
 
     render() {
         const { isMobile } = this.props;
+        const { hasTapped } = this.state;
 
         return (
             <div className="Wheel-image-container">
@@ -139,6 +138,13 @@ class Wheel extends Component {
                     src={CamelotWheel}
                     alt="camelotWheel"
                 />
+                {!hasTapped && (
+                    <img
+                        className="Wheel-icon-tap"
+                        src={IconTap}
+                        alt="icon-tap"
+                    />
+                )}
                 {!isMobile && this.renderWheelCover()}
             </div>
         );
