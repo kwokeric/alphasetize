@@ -9,6 +9,7 @@ import UserActions from '../redux/actions/UserActions';
 // Components
 import AuthButton from './AuthButton';
 import Header from './Header';
+import Footer from './Footer';
 import Modal from './Modal';
 
 // Misc / Utils
@@ -71,6 +72,7 @@ class AppTemplate extends Component {
                         </div>
                     </Modal>
                 )}
+                {pathname !== '/create' && <Footer />}
             </div>
         );
     }

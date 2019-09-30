@@ -1,0 +1,38 @@
+.Footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: black;
+    color: white;
+}
+
+.Footer-section {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    padding: 60px 144px;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.Footer-right {
+    display: flex;
+    color: #808080;
+}
+
+.Footer-thanks {
+    padding-left: 16px;
+    cursor: pointer;
+    color: white;
+}
+
+.Footer-thanks:hover {
+    text-decoration: underline;
+}
