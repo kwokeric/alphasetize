@@ -225,3 +225,11 @@ section {
 .About-section-right {
     flex: 1;
 }
+
+.About-numeral {
+    padding: 12px 0 4px 16px;
+}
+
+.gray {
+    color: #808080;
+}

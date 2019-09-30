@@ -143,22 +143,25 @@ class About extends Component {
                     <div className="About-section-right">
                         <h3 className="About-header-3">The Camelot Wheel</h3>
                         <div className="About-subsection">
-                            Each key is assigned a keycode number from one to
-                            twelve, like hours around a clock.
+                            The camelot wheel is visual aid for harmonic mixing.
+                            Each musical key is assigned a keycode number from
+                            one to twelve, like hours around a clock.
                             <br />
                             <br />
                             There are two ways to select a compatible song:
-                            <br />
-                            1. Choose a keycode within one "hour" of your
-                            current keycode. For example: if you are in 8A, you
-                            can play 7A, 8A or 9A next.
-                            <br />
-                            <br />
-                            2. You can also mix between inner and outer wheels
-                            if you stay in the same "hour." For example, try
-                            mixing from 8A to 8B, and notice the change in
-                            melody as you go from Minor to Major.
-                            <br />
+                            <div className="About-numeral">
+                                <span className="gray">1.</span> Adjacent Hours.
+                                Choose a keycode within one "hour" of your
+                                current keycode. For example: if you are in 8A,
+                                you can play 7A, 8A or 9A next.
+                            </div>
+                            <div className="About-numeral">
+                                <span className="gray">2.</span> Adjacent Rings.
+                                You can also mix between inner and outer wheels
+                                if you stay in the same "hour." For example, try
+                                mixing from 8A to 8B, and notice the change in
+                                melody as you go from Minor to Major.
+                            </div>
                             <br />
                             <a
                                 className="About-link"
