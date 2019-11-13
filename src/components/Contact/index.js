@@ -62,7 +62,10 @@ class Contact extends Component {
                                     GitHub
                                 </a>
                                 <br />
-                                <a className="Contact-link" href="erickwok.io">
+                                <a
+                                    className="Contact-link"
+                                    href="https://erickwok.io/"
+                                >
                                     erickwok.io
                                 </a>
                                 <br />
