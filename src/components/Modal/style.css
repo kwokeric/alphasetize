@@ -10,15 +10,12 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 10% 0;
 }
 
 @media (min-width: 767px) {
     .Modal {
         justify-content: center;
         background: rgba(255, 255, 255, 0.8);
-        padding-top: 0;
-        padding-bottom: 20%;
     }
 }
 
