@@ -1,6 +1,14 @@
 const controller = {
     getMatches(index, list) {
         const currItem = list[index];
+        let perfectMatches = []; // same key
+        let keyMatches = []; // key change
+        let modeMatches = []; // mode change
+
+        if (!currItem) {
+            return { perfectMatches, keyMatches, modeMatches };
+        }
+
         const currCamKey = currItem.camKey;
         const currCamNum = Number(currCamKey.slice(0, currCamKey.length - 1));
         const stepUp =
@@ -12,10 +20,6 @@ const controller = {
         const stepSide =
             currCamNum +
             (currCamKey[currCamKey.length - 1] === 'A' ? 'B' : 'A');
-
-        let perfectMatches = []; // same key
-        let keyMatches = []; // key change
-        let modeMatches = []; // mode change
 
         list.forEach((track, idx) => {
             if (idx === index) {
