@@ -135,7 +135,7 @@ class About extends Component {
             <section>
                 <div
                     id="camelot-wheel"
-                    className="About-section About-section-2"
+                    className="About-section About-section-4"
                 >
                     <div className="About-section-left">
                         <Wheel />

@@ -17,9 +17,15 @@
     width: 100%;
     max-width: 1280px;
     margin: auto;
-    padding: 60px 144px;
+    padding: 32px 24px;
     font-size: 14px;
     line-height: 24px;
+}
+
+@media (min-width: 767px) {
+    .Footer-section {
+        padding: 60px 144px;
+    }
 }
 
 .Footer-right {

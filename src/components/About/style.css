@@ -40,12 +40,13 @@ section {
 
 .About-top {
     width: 100%;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
 }
 
 @media (min-width: 767px) {
     .About-top {
+        flex-direction: row;
         justify-content: space-between;
         box-sizing: border-box;
     }
@@ -79,12 +80,11 @@ section {
 }
 
 .About-header {
-    font-size: 36px;
-    line-height: 36px;
+    line-height: 48px;
     font-weight: bold;
     padding: 64px 0 48px;
     letter-spacing: 0.5px;
-    font-size: 72px;
+    font-size: 60px;
     background: -webkit-linear-gradient(45deg, #2799aa, #333);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -92,21 +92,34 @@ section {
 
 @media (min-width: 767px) {
     .About-header {
-        font-size: 48px;
-        line-height: 48px;
         padding: 24px 0;
     }
 }
 
 .About-scene {
     perspective: 300px;
+    margin-top: 16px;
+    margin-right: 10vw;
+    margin-bottom: 48px;
+}
+
+@media (min-width: 767px) {
+    .About-scene {
+        margin: 0;
+    }
 }
 
 .About-controller-img {
     opacity: 0;
-    width: 400px;
+    width: 80vw;
     transform: rotateX(8deg) rotateY(-7deg) rotateZ(8deg);
     transition: transform 2s, opacity 0.8s;
+}
+
+@media (min-width: 767px) {
+    .About-controller-img {
+        width: 400px;
+    }
 }
 
 .About-controller-img.visible {
@@ -163,7 +176,7 @@ section {
 }
 
 .About-description {
-    padding: 40px 0;
+    padding-bottom: 40px;
 }
 
 @media (min-width: 767px) {
@@ -208,6 +221,18 @@ section {
 
 /* HOW TO */
 
+.About-section-4 {
+    align-items: center;
+    padding: 24px 16px;
+}
+
+@media (min-width: 767px) {
+    .About-section-4 {
+        padding: 0;
+        flex-direction: row;
+    }
+}
+
 .About-subheader {
     font-size: 18px;
     font-weight: bold;
@@ -219,7 +244,13 @@ section {
 }
 
 .About-section-left {
-    padding-right: 60px;
+    padding: 0;
+}
+
+@media (min-width: 767px) {
+    .About-section-left {
+        padding-right: 60px;
+    }
 }
 
 .About-section-right {
