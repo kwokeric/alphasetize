@@ -84,12 +84,9 @@ class About extends Component {
     };
 
     renderOutline = () => {
-        const { isMobile } = this.props;
-
         return (
             <section className="About-white">
                 <div className="About-section">
-                    {isMobile && <Wheel />}
                     <div className="About-description">
                         <div className="About-description-tile">
                             <img

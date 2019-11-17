@@ -176,7 +176,7 @@ section {
 }
 
 .About-description {
-    padding-bottom: 40px;
+    padding: 36px 0;
 }
 
 @media (min-width: 767px) {
@@ -224,11 +224,12 @@ section {
 .About-section-4 {
     align-items: center;
     padding: 24px 16px;
+    flex-direction: column;
 }
 
 @media (min-width: 767px) {
     .About-section-4 {
-        padding: 0;
+        padding: 64px 144px;
         flex-direction: row;
     }
 }

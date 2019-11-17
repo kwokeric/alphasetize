@@ -13,7 +13,9 @@ class Wheel extends Component {
 
         this.state = {
             hasTapped: false,
-            hoverSection: {}
+            hoverSection: {},
+            touchX: null,
+            touchY: null
         };
 
         this.imageRef = React.createRef();
@@ -21,10 +23,12 @@ class Wheel extends Component {
 
     componentDidMount() {
         window.addEventListener('mousemove', this.handleMouseMove);
+        window.addEventListener('touchend', this.handleMouseDown);
     }
 
     componentWillUnmount() {
         window.removeEventListener('mousemove', this.handleMouseMove);
+        window.removeEventListener('touchend', this.handleMouseDown);
     }
 
     handleMouseMove = e => {
@@ -62,21 +66,6 @@ class Wheel extends Component {
                 });
             }
         }
-    };
-
-    renderWheel = () => {
-        const { isMobile } = this.props;
-        return (
-            <div className="Wheel-image-container">
-                <img
-                    className="Wheel-image"
-                    ref={this.imageRef}
-                    src={CamelotWheel}
-                    alt="camelotWheel"
-                />
-                {!isMobile && this.renderWheelCover()}
-            </div>
-        );
     };
 
     renderWheelCover = () => {
@@ -126,7 +115,6 @@ class Wheel extends Component {
     };
 
     render() {
-        const { isMobile } = this.props;
         const { hasTapped } = this.state;
 
         return (
@@ -144,16 +132,10 @@ class Wheel extends Component {
                         alt="icon-tap"
                     />
                 )}
-                {!isMobile && this.renderWheelCover()}
+                {this.renderWheelCover()}
             </div>
         );
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        isMobile: state.app.isMobile
-    };
-};
-
-export default withRouter(connect(mapStateToProps)(Wheel));
+export default withRouter(connect()(Wheel));
