@@ -3,8 +3,9 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import './style.css';
-import cx from '../../utils/cx.js';
 import appUtils from '../../utils/appUtils.js';
+import constants from '../../constants';
+import cx from '../../utils/cx.js';
 import urlUtils from '../../utils/urlUtils.js';
 
 class AuthButton extends Component {
@@ -37,7 +38,7 @@ class AuthButton extends Component {
             window.location.href = appUtils.getSpotifyAuthUrl();
         } else {
             console.log('Already authenticated!');
-            history.push('/search');
+            history.push(constants.CREAT_URI);
         }
     };
 

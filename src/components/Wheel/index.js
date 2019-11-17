@@ -3,7 +3,6 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import './style.css';
-import AuthButton from '../AuthButton';
 import controller from './controller.js';
 import CamelotWheel from '../../assets/camelotWheel.jpg';
 import IconTap from '../../assets/icon-tap.svg';
