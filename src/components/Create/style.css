@@ -94,16 +94,9 @@
 }
 
 .Create-empty-list {
-    position: absolute;
-    top: 40%;
+    padding-top: 180px;
     line-height: 22px;
     color: #505050;
-}
-
-@media (min-width: 767px) {
-    .Create-empty-list {
-        top: 300px;
-    }
 }
 
 /* Mobile */
