@@ -27,32 +27,37 @@
 }
 
 .Header-tabs {
+    color: black;
     display: flex;
 }
 
 .Header-tab {
-    padding: 16px;
-    color: #505050;
-    cursor: pointer;
     position: relative;
+    padding: 16px;
+    cursor: pointer;
+    color: #808080;
 }
 
-.Header-tab:after {
-    content: '';
-    position: absolute;
-    background: none repeat scroll 0 0 transparent;
-    display: block;
-    height: 0;
-    bottom: 8px;
-    left: 50%;
-    background: #2eb0c4;
-    transition: height 0.25s ease 0s;
-    width: 80%;
-    left: 10%;
-}
+.Header-tab:hover {
+    background: linear-gradient(-45deg, #808080 40%, #8dd4df 60%, #404040 80%);
+    background: -webkit-linear-gradient(
+        -45deg,
+        #808080 40%,
+        #8dd4df 60%,
+        #404040 80%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
 
-.Header-tab:hover:after {
-    height: 2px;
+    background-position-x: 0;
+    background-position-y: 0;
+    background-size: 350% 100%;
+
+    animation-name: whoosh;
+    animation-duration: 600ms;
+    animation-fill-mode: forwards;
 }
 
 .Header-tab-active {
@@ -61,15 +66,11 @@
     cursor: default;
 }
 
-.Header-tab-active:after {
-    content: '';
-    position: absolute;
-    background: none repeat scroll 0 0 transparent;
-    display: block;
-    height: 2px;
-    bottom: 8px;
-    left: 50%;
-    background: #2eb0c4;
-    width: 80%;
-    left: 10%;
+@keyframes whoosh {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 100%;
+    }
 }
