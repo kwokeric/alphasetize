@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './style.css';
+import AuthButton from '../AuthButton';
 import Autocomplete from '../Autocomplete';
 import cx from '../../utils/cx.js';
 import IconDots from '../../assets/icon-dots.svg';
@@ -129,8 +130,20 @@ class Create extends Component {
         );
     };
 
+    renderAuthorizePrompt = () => {
+        return (
+            <div className="Create-authorize">
+                <div className="Create-authorize-text">
+                    Please log into your Spofity account and authorize
+                    Alphasetize to create your set!
+                </div>
+                <AuthButton />
+            </div>
+        );
+    };
+
     render() {
-        const { list, isMobile } = this.props;
+        const { list, isMobile, token } = this.props;
 
         return (
             <div className="Create">
@@ -159,11 +172,13 @@ class Create extends Component {
                     </div>
                 )}
                 {isMobile ? <ListMobile list={list} /> : <List list={list} />}
-                {!list.length && (
-                    <div className="Create-empty-list">
-                        Start searching or import a playlist!
-                    </div>
-                )}
+                {!token && this.renderAuthorizePrompt()}
+                {token &&
+                    !list.length && (
+                        <div className="Create-empty-list">
+                            Start searching or import a playlist!
+                        </div>
+                    )}
             </div>
         );
     }
@@ -172,8 +187,9 @@ class Create extends Component {
 const mapStateToProps = state => {
     return {
         isMobile: state.app.isMobile,
+        list: state.tracks.list,
         playlists: state.playlists.playlists,
-        list: state.tracks.list
+        token: state.user.accessToken
     };
 };
 

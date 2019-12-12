@@ -44,7 +44,7 @@ class About extends Component {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 observer.unobserve(this.imgRef.current);
-                this.visible = true;
+                this.isTopVisible = true;
                 this.forceUpdate();
             }
         });
@@ -70,8 +70,8 @@ class About extends Component {
                     </div>
                     <div className="About-scene">
                         <img
-                            className={`About-controller-img ${this.visible &&
-                                'visible'}`}
+                            className={`About-controller-img ${this
+                                .isTopVisible && 'visible'}`}
                             alt="controller-img"
                             src={Image}
                             ref={this.imgRef}

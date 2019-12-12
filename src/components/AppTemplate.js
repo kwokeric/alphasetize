@@ -86,7 +86,7 @@ const mapStateToProps = (state, ownProps) => {
                 : true,
         pathname: ownProps.location.pathname,
         showAuthModal: state.app.showAuthModal,
-        token: state.user.token
+        token: state.user.accessToken
     };
 };
 
