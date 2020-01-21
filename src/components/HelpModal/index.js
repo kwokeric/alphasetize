@@ -13,11 +13,11 @@ const HelpModal = ({ onHideModal }) => {
             </div>
             <ul className="HelpModal-details">
                 <li>Import a song by searching in the search field</li>
-                <li>Import an existing playlist of yours</li>
+                <li>Import an existing playlist from your library</li>
+                <li>Click and drag songs to reorder your set</li>
             </ul>
             <div className="HelpModal-subheader">What do the colors mean?</div>
             <ul className="HelpModal-details">
-                <li>Each song's key and is mapped to a key code</li>
                 <li className="HelpModal-point">
                     Clicking on a song will highlight other harmonically
                     compatible songs
