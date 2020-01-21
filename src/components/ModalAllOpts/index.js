@@ -24,9 +24,9 @@ class ModalAllOpts extends Component {
                 <div className="ModalAllOpts-btn" onClick={onClickExport}>
                     Export playlist
                 </div>
-                <div className="ModalAllOpts-btn">
-                    <Link to={'/'}>Home</Link>
-                </div>
+                <Link to={'/'}>
+                    <div className="ModalAllOpts-btn">Home</div>
+                </Link>
                 {/*
                 <div className="ModalAllOpts-btn" onClick={this.handleCancel}>
                     Share

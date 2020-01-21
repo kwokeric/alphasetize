@@ -8,7 +8,7 @@
     width: 250px;
     max-height: 90vh;
     overflow: hidden;
-    padding: 32px 20px;
+    padding: 32px 20px 40px;
     cursor: default;
     box-sizing: border-box;
     margin-top: 10%;
@@ -40,10 +40,6 @@
     line-height: 36px;
     color: black;
     border: 1px solid black;
-}
-
-.ModalAllOpts-btn:first-of-type {
-    margin-top: 0;
 }
 
 .ModalAllOpts-btn:hover,
