@@ -44,8 +44,13 @@ class Create extends Component {
             .then(() => this.setState({ modalToShow: 'import' }))
             .catch(err => console.log(err));
     };
+
     handleExport = () => {
         this.setState({ modalToShow: 'export' });
+    };
+
+    handleHelp = () => {
+        this.setState({ modalToShow: 'help' });
     };
 
     handleHideModal = () => {
@@ -70,23 +75,22 @@ class Create extends Component {
 
         if (!modalToShow) {
             return null;
-        } else if (modalToShow === 'help') {
-            // mweb only
-            return (
-                <Modal onHideModal={this.handleHideModal} background={false}>
-                    <HelpModal onHideModal={this.handleHideModal} />
-                </Modal>
-            );
         } else if (modalToShow === 'allOptions') {
             // mweb only
             return (
                 <Modal onHideModal={this.handleHideModal} background={false}>
                     <ModalAllOpts
-                        playlists={playlists}
-                        onHideModal={this.handleHideModal}
                         onClickImport={this.handleImport}
                         onClickExport={this.handleExport}
+                        onClickHelp={this.handleHelp}
+                        onHideModal={this.handleHideModal}
                     />
+                </Modal>
+            );
+        } else if (modalToShow === 'help') {
+            return (
+                <Modal onHideModal={this.handleHideModal} background={false}>
+                    <HelpModal onHideModal={this.handleHideModal} />
                 </Modal>
             );
         } else if (modalToShow === 'import') {

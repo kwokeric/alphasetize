@@ -6,10 +6,9 @@
     align-items: center;
     background: white;
     width: 250px;
-    height: 320px;
     max-height: 90vh;
     overflow: hidden;
-    padding: 20px;
+    padding: 32px 20px;
     cursor: default;
     box-sizing: border-box;
     margin-top: 10%;
@@ -30,7 +29,7 @@
 
 .ModalAllOpts-btn {
     width: 140px;
-    height: 32px;
+    height: 36px;
     color: #808080;
     border: 1px solid #aaa;
     border-radius: 20px;
@@ -38,9 +37,13 @@
     margin: auto;
     margin-top: 16px;
     text-align: center;
-    line-height: 34px;
+    line-height: 36px;
     color: black;
     border: 1px solid black;
+}
+
+.ModalAllOpts-btn:first-of-type {
+    margin-top: 0;
 }
 
 .ModalAllOpts-btn:hover,
