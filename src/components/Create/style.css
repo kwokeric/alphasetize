@@ -35,9 +35,10 @@
     }
 }
 
-.Create-import-export {
+.Create-right {
     display: flex;
 }
+.Create-help,
 .Create-import,
 .Create-export {
     display: flex;
@@ -54,10 +55,16 @@
     cursor: pointer;
 }
 
+.Create-help {
+    width: 44px;
+}
+
+.Create-help,
 .Create-import {
     margin-right: 12px;
 }
 
+.Create-help:hover,
 .Create-import:hover,
 .Create-export:hover {
     border: 1px solid #e2e2e2;

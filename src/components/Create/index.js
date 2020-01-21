@@ -5,6 +5,7 @@ import './style.css';
 import AuthButton from '../AuthButton';
 import Autocomplete from '../Autocomplete';
 import cx from '../../utils/cx.js';
+import HelpModal from '../HelpModal';
 import IconDots from '../../assets/icon-dots.svg';
 import List from '../List';
 import ListMobile from '../ListMobile';
@@ -29,6 +30,10 @@ class Create extends Component {
         // create Input ref and set to active
     }
 
+    handleHelp = () => {
+        this.setState({ modalToShow: 'help' });
+    };
+
     handleImport = () => {
         const { dispatch } = this.props;
 
@@ -39,7 +44,6 @@ class Create extends Component {
             .then(() => this.setState({ modalToShow: 'import' }))
             .catch(err => console.log(err));
     };
-
     handleExport = () => {
         this.setState({ modalToShow: 'export' });
     };
@@ -66,6 +70,13 @@ class Create extends Component {
 
         if (!modalToShow) {
             return null;
+        } else if (modalToShow === 'help') {
+            // mweb only
+            return (
+                <Modal onHideModal={this.handleHideModal} background={false}>
+                    <HelpModal onHideModal={this.handleHideModal} />
+                </Modal>
+            );
         } else if (modalToShow === 'allOptions') {
             // mweb only
             return (
@@ -155,7 +166,13 @@ class Create extends Component {
                         <div className="Create-autocomplete">
                             <Autocomplete />
                         </div>
-                        <div className="Create-import-export">
+                        <div className="Create-right">
+                            <div
+                                className="Create-help noselect"
+                                onClick={this.handleHelp}
+                            >
+                                ?
+                            </div>
                             <div
                                 className="Create-import noselect"
                                 onClick={this.handleImport}

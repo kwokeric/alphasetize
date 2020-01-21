@@ -1,0 +1,103 @@
+.HelpModal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: white;
+    width: 420px;
+    height: 520px;
+    max-height: 90vh;
+    overflow: hidden;
+    padding: 20px 32px;
+    cursor: default;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0 1px 30px 0 rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.HelpModal-header {
+    font-size: 14px;
+    padding: 12px 0;
+    margin: 0 auto 16px;
+    border-bottom: 1px solid #2eb0c4;
+    text-align: center;
+    width: 200px;
+}
+
+.HelpModal-subheader {
+    padding: 8px 0;
+}
+
+.HelpModal-details {
+    padding-bottom: 8px;
+    margin-left: 32px;
+}
+
+.HelpModal-details > li {
+    line-height: 24px;
+}
+
+.HelpModal-details-colors {
+    margin-left: 32px;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+.HelpModal-tab,
+.HelpModal-tab-link,
+.HelpModal-blue,
+.HelpModal-green,
+.HelpModal-yellow,
+.HelpModal-gray {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.HelpModal-tab-link {
+    text-decoration: underline;
+}
+
+.HelpModal-tab-link:hover {
+    cursor: pointer;
+    color: #2eb0c4;
+}
+
+.HelpModal-blue {
+    color: #2eb0c4;
+}
+
+.HelpModal-green {
+    color: #54ca8a;
+}
+
+.HelpModal-yellow {
+    color: #f1cb43;
+}
+
+.HelpModal-gray {
+    color: #aaa;
+}
+
+.HelpModal-btn {
+    width: 140px;
+    height: 36px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin: auto;
+    text-align: center;
+    line-height: 36px;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.HelpModal-btn:hover,
+.HelpModal-btn:active {
+    color: white;
+    background: #2eb0c4;
+    border: 1px solid #2eb0c4;
+}
