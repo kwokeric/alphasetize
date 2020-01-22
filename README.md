@@ -16,6 +16,9 @@
 -   Reorder songs (click + drag) as desired
 -   Export organized set as new playlist
 
-![ScreenshotList](./src/assets/camelotWHg)
+### Interactive Camelot Wheel
+
+![ScreencaptureWheel](./src/assets/screencapture-wheel.gif)
 
 -   Interact with the Camelot Wheel - used to visually indicate key compatibility
+-   Mousing over any key will highlight other keys that will not clash
