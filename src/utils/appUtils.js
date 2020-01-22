@@ -8,11 +8,7 @@ const appUtils = {
         url += '&scope=' + encodeURIComponent('playlist-modify-public');
         url += '&response_type=token';
         url += '&redirect_uri=';
-        url += window.location.href.includes('localhost')
-            ? 'http://localhost:3000/create'
-            : window.location.href.includes('herokuapp')
-                ? 'https://alphasetize.herokuapp.com/create'
-                : 'https://alphasetize.com/create';
+        url += window.location.origin + '/create';
         return url;
     },
     isMobile() {
