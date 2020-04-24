@@ -5,6 +5,10 @@ body.lock-vertical-scroll {
     width: 100vw;
 }
 
+.root.blur {
+    filter: blur(3px);
+}
+
 html {
     /* smooth scrolling to id */
     scroll-behavior: smooth;
@@ -14,8 +18,6 @@ html {
     background: #fafafa;
     width: 100vw;
     min-height: 100vh;
-    font-family: 'Source Sans Pro', sans-serif;
-    letter-spacing: 0.2px;
     display: flex;
     flex-direction: column;
 }
