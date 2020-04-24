@@ -2,8 +2,8 @@
 
 .List-container {
     width: 100vw;
+    max-width: 1280px;
     box-sizing: border-box;
-    overflow-y: scroll;
     flex: 1;
 }
 
@@ -25,9 +25,16 @@
     user-select: none; /* Chrome and Opera */
 }
 
+@media (min-width: 1280px) {
+    .List {
+        padding: 0;
+    }
+}
+
 .List-item-header,
 .List-item {
     width: 100%;
+    max-width: 1280px;
     height: 36px;
     display: flex;
     flex-direction: row;
@@ -46,6 +53,12 @@
     cursor: default;
     padding: 0 40px;
     overflow-x: hidden;
+}
+
+@media (min-width: 1280px) {
+    .List-item-header {
+        padding: 0 16px;
+    }
 }
 
 .List-item {

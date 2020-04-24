@@ -219,7 +219,7 @@ class List extends Component {
         const { list } = this.props;
 
         return (
-            <Fragment>
+            <div className="List-container">
                 <div
                     className="List-item-header"
                     onMouseOver={this.handleMouseOverHeader}
@@ -246,17 +246,12 @@ class List extends Component {
                     </Fragment>
                 </div>
 
-                <div className="List-container">
-                    <ul
-                        className="List"
-                        onMouseLeave={this.handleMouseLeaveList}
-                    >
-                        {map(list, (track, idx) => {
-                            return this.renderItem({ ...track, idx });
-                        })}
-                    </ul>
-                </div>
-            </Fragment>
+                <ul className="List" onMouseLeave={this.handleMouseLeaveList}>
+                    {map(list, (track, idx) => {
+                        return this.renderItem({ ...track, idx });
+                    })}
+                </ul>
+            </div>
         );
     }
 }

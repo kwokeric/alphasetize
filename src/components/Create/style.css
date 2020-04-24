@@ -1,7 +1,11 @@
 @import '../../css/colors.css';
 
 .Create {
+    height: fill-available;
+    height: -webkit-fill-available;
     width: 100%;
+    max-width: 1280px;
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -9,7 +13,8 @@
 }
 
 .Create-top {
-    width: 100vw;
+    width: 100%;
+    max-width: 1280px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -19,6 +24,12 @@
     position: fixed;
     background: #fafafa;
     z-index: 5;
+}
+
+@media (min-width: 1280px) {
+    .Create-top {
+        padding: 20px 0;
+    }
 }
 
 .Create-autocomplete {
