@@ -55,11 +55,13 @@ class AuthButton extends Component {
                 onMouseLeave={this.handleMouseLeave}
                 onClick={this.handleSpotifyAuth}
             >
-                {!authHover
-                    ? 'GET STARTED'
-                    : token
-                        ? 'SEARCH'
-                        : 'SPOTIFY LOGIN'}
+                {!authHover ? (
+                    'GET STARTED'
+                ) : (
+                    <div className="AuthButton-hovered">
+                        {token ? 'SEARCH' : 'SPOTIFY LOGIN'}
+                    </div>
+                )}
             </div>
         );
     }
