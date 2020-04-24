@@ -5,7 +5,7 @@ import Track from '../../models/Track';
 
 const SearchActions = {
     getTrackBasicByQuery(query) {
-        return (dispatch, getState) => {
+        return dispatch => {
             return dispatch(api.spotify.searchBasic(query)).then(res => {
                 const items = res.tracks && res.tracks.items;
                 if (!items) {
@@ -16,7 +16,7 @@ const SearchActions = {
         };
     },
     getTrackWithBasicAndFeatures(basicData = {}) {
-        return (dispatch, getState) => {
+        return dispatch => {
             return dispatch(
                 SearchActions.getTrackFeaturesByIds(basicData.id)
             ).then(featuresData => {

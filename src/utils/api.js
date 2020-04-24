@@ -12,8 +12,8 @@ const api = {
                 path: 'https://api.spotify.com/v1/search',
                 queryParams: {
                     q,
-                    limit: 10,
-                    type: 'artist,track'
+                    limit: 12,
+                    type: 'track'
                 }
             });
         },

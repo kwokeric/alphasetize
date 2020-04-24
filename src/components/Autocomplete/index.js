@@ -87,10 +87,10 @@ class Autocomplete extends Component {
             value: query
         });
 
-        this.getResults(query);
+        this.getResults();
     };
 
-    getResults = debounce(query => {
+    getResults = debounce(() => {
         const { dispatch } = this.props;
         const { value } = this.state;
 
