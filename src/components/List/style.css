@@ -4,7 +4,6 @@
     width: 100vw;
     max-width: 1280px;
     box-sizing: border-box;
-    flex: 1;
 }
 
 @media (min-width: 767px) {
@@ -108,10 +107,9 @@
     background: #fbf4db;
 }
 .List-item-sub {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .List-item-order {
     width: 6%;
@@ -119,11 +117,11 @@
 }
 .List-item-artist {
     width: 30%;
-    padding-right: 8px;
+    margin-right: 8px;
 }
 .List-item-title {
     flex: 1;
-    padding-right: 8px;
+    margin-right: 8px;
     overflow: hidden;
 }
 .List-item-artist > *,

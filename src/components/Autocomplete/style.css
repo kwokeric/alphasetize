@@ -108,8 +108,8 @@
     box-sizing: border-box;
     display: inline-block;
     width: 100%;
-    line-height: 24px;
-    padding: 6px 16px 0;
+    line-height: 26px;
+    padding: 6px 16px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
