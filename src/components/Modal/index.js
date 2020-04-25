@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { createPortal } from 'react-dom';
 import { connect } from 'react-redux';
 
 import './style.css';
 import cx from '../../utils/cx.js';
 import appUtils from '../../utils/appUtils.js';
+
+const modalRoot = document.getElementById('modal-root');
 
 class Modal extends Component {
     static defaultProps = {
@@ -12,12 +15,22 @@ class Modal extends Component {
         onHideModal: () => {}
     };
 
+    constructor(props) {
+        super(props);
+        this.el = document.createElement('div');
+    }
+
     componentDidMount() {
+        modalRoot.appendChild(this.el);
+
         appUtils.lockVerticalScrolling();
+        appUtils.addBlur();
     }
 
     componentWillUnmount() {
         appUtils.unlockVerticalScrolling();
+        appUtils.removeBlur();
+        modalRoot.removeChild(this.el);
     }
 
     handleBackdropClick = e => {
@@ -34,7 +47,7 @@ class Modal extends Component {
         const { background, children } = this.props;
         const childClassName = children.props ? children.props.className : '';
 
-        return (
+        return createPortal(
             <div
                 className={cx('Modal', { 'Modal-no-background': !background })}
                 onClick={this.handleBackdropClick}
@@ -42,7 +55,8 @@ class Modal extends Component {
                 {React.cloneElement(children, {
                     className: cx('Modal-children', childClassName)
                 })}
-            </div>
+            </div>,
+            this.el
         );
     }
 }

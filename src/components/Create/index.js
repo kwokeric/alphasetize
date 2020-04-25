@@ -89,7 +89,7 @@ class Create extends Component {
             );
         } else if (modalToShow === 'help') {
             return (
-                <Modal onHideModal={this.handleHideModal} background={false}>
+                <Modal onHideModal={this.handleHideModal}>
                     <HelpModal onHideModal={this.handleHideModal} />
                 </Modal>
             );
@@ -194,12 +194,11 @@ class Create extends Component {
                 )}
                 {isMobile ? <ListMobile list={list} /> : <List list={list} />}
                 {!token && this.renderAuthorizePrompt()}
-                {token &&
-                    !list.length && (
-                        <div className="Create-empty-list">
-                            Start searching or import a playlist!
-                        </div>
-                    )}
+                {token && !list.length && (
+                    <div className="Create-empty-list">
+                        Start searching or import a playlist!
+                    </div>
+                )}
             </div>
         );
     }

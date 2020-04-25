@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-escape */
 
 const appUtils = {
-    getSpotifyAuthUrl(pathname) {
+    getSpotifyAuthUrl() {
         const client_id = 'b722de12baaf4052a82f8cd762edda76';
         let url = 'https://accounts.spotify.com/authorize?';
         url += 'client_id=' + client_id;
@@ -12,8 +12,8 @@ const appUtils = {
         return url;
     },
     isMobile() {
-        var check = false;
-        (function(a) {
+        let check = false;
+        (function (a) {
             if (
                 /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
                     a
@@ -31,6 +31,14 @@ const appUtils = {
     },
     unlockVerticalScrolling() {
         document.body.classList.remove('lock-vertical-scroll');
+    },
+    addBlur() {
+        const appRoot = document.getElementById('root');
+        appRoot.classList.add('blur');
+    },
+    removeBlur() {
+        const appRoot = document.getElementById('root');
+        appRoot.classList.remove('blur');
     }
 };
 
