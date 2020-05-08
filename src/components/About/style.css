@@ -23,14 +23,14 @@ section {
     max-width: 1280px;
     margin: auto;
     padding: 0 16px;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 24px;
 }
 
 @media (min-width: 767px) {
     .About-section {
         width: 100%;
-        padding: 64px 144px;
+        padding: 64px 24px;
         justify-content: space-between;
         box-sizing: border-box;
     }
@@ -80,12 +80,13 @@ section {
 }
 
 .About-header {
-    line-height: 48px;
+    line-height: 56px;
     font-weight: bold;
     padding: 64px 0 48px;
     letter-spacing: 0.5px;
-    font-size: 60px;
+    font-size: 64px;
     background: -webkit-linear-gradient(45deg, #2799aa, #333);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -106,6 +107,7 @@ section {
 @media (min-width: 767px) {
     .About-scene {
         margin: 0;
+        margin-right: 48px;
     }
 }
 
@@ -118,7 +120,7 @@ section {
 
 @media (min-width: 767px) {
     .About-controller-img {
-        width: 400px;
+        width: 450px;
     }
 }
 
@@ -136,7 +138,7 @@ section {
 
 @media (min-width: 767px) {
     .About-header-2 {
-        font-size: 20px;
+        font-size: 22px;
         padding: 24px 0;
     }
 }
@@ -175,6 +177,8 @@ section {
     }
 }
 
+/* ABOUT */
+
 .About-description {
     padding: 36px 0;
 }
@@ -196,13 +200,25 @@ section {
 
 @media (min-width: 767px) {
     .About-description-tile {
-        width: 30%;
-        padding: 0;
-        padding-right: 32px;
+        width: calc(33% - 18px);
+        min-height: 240px;
+        padding: 40px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px 0px;
+        box-sizing: border-box;
+        border-radius: 10px;
     }
-    .About-description-tile:last-of-type {
-        padding-right: 0;
-    }
+}
+
+.About-icon {
+    width: 32px;
+    height: 32px;
+    float: left;
+    padding-right: 18px;
+}
+
+.About-p {
+    float: left;
+    margin-top: 20px;
 }
 
 .About-link {
@@ -212,11 +228,6 @@ section {
 
 .About-link:hover {
     text-decoration: underline;
-}
-
-.About-icon {
-    width: 32px;
-    height: 32px;
 }
 
 /* HOW TO */
@@ -229,15 +240,16 @@ section {
 
 @media (min-width: 767px) {
     .About-section-4 {
-        padding: 64px 144px;
+        padding: 64px 24px;
         flex-direction: row;
     }
 }
 
 .About-subheader {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     line-height: 32px;
+    float: left;
 }
 
 .About-subsection {
@@ -245,17 +257,17 @@ section {
 }
 
 .About-section-left {
+    flex: 1;
+}
+
+.About-section-right {
     padding: 0;
 }
 
 @media (min-width: 767px) {
-    .About-section-left {
-        padding-right: 60px;
+    .About-section-right {
+        min-width: 40%;
     }
-}
-
-.About-section-right {
-    flex: 1;
 }
 
 .About-numeral {

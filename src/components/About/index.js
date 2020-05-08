@@ -57,7 +57,9 @@ class About extends Component {
             <section>
                 <div className="About-section About-top">
                     <div className="About-title-section">
-                        <h1 className="About-header">Your sets in harmony</h1>
+                        <h1 className="About-header">
+                            Your sets <br /> in harmony
+                        </h1>
                         <h2 className="About-header-2">
                             Alphasetize helps you order songs in your sets based
                             on key compatibility.
@@ -70,8 +72,9 @@ class About extends Component {
                     </div>
                     <div className="About-scene">
                         <img
-                            className={`About-controller-img ${this
-                                .isTopVisible && 'visible'}`}
+                            className={`About-controller-img ${
+                                this.isTopVisible && 'visible'
+                            }`}
                             alt="controller-img"
                             src={Image}
                             ref={this.imgRef}
@@ -95,8 +98,11 @@ class About extends Component {
                                 alt="icon-question"
                             />
                             <div className="About-subheader">The Problem</div>
-                            Have you ever noticed the uncomfortable dissonance
-                            when mixing two songs with clashing pitches?
+                            <div className="About-p">
+                                Have you ever noticed the uncomfortable
+                                dissonance when mixing two songs with clashing
+                                pitches?
+                            </div>
                         </div>
                         <div className="About-description-tile">
                             <img
@@ -105,8 +111,11 @@ class About extends Component {
                                 alt="icon-bulb"
                             />
                             <div className="About-subheader">The Solution</div>
-                            Alphasetize shows you which songs are harmonically
-                            compatible to keep transitions silky smooth.
+                            <div className="About-p">
+                                Alphasetize shows you which songs are
+                                harmonically compatible to keep transitions
+                                silky smooth.
+                            </div>
                         </div>
                         <div className="About-description-tile">
                             <img
@@ -115,11 +124,14 @@ class About extends Component {
                                 alt="icon-gear"
                             />
                             <div className="About-subheader">How it works</div>
-                            The Camelot wheel is a visual representation of
-                            which keys are compatible with each other. Read more{' '}
-                            <a className="About-link" href="#camelot-wheel">
-                                below
-                            </a>
+                            <div className="About-p">
+                                The Camelot wheel is a visual representation of
+                                which keys are compatible with each other. Read
+                                more{' '}
+                                <a className="About-link" href="#camelot-wheel">
+                                    below
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -135,9 +147,6 @@ class About extends Component {
                     className="About-section About-section-4"
                 >
                     <div className="About-section-left">
-                        <Wheel />
-                    </div>
-                    <div className="About-section-right">
                         <h3 className="About-header-3">The Camelot Wheel</h3>
                         <div className="About-subsection">
                             The camelot wheel is visual aid for harmonic mixing.
@@ -169,6 +178,9 @@ class About extends Component {
                                 Learn more >
                             </a>
                         </div>
+                    </div>
+                    <div className="About-section-right">
+                        <Wheel />
                     </div>
                 </div>
             </section>

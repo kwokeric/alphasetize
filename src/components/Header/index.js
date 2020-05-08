@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 class Header extends Component {
-    handleClick = route => {};
-
     render() {
         const { pathname } = this.props;
 
