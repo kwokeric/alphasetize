@@ -23,9 +23,13 @@ class PlaylistImport extends Component {
     }
 
     handleClick = i => {
-        if (this.state.activeIndex === i) {
+        if (this.firstClickWithinTime && this.state.activeIndex === i) {
             this.handleImport();
         } else {
+            this.firstClickWithinTime = true;
+            setTimeout(() => {
+                this.firstClickWithinTime = false;
+            }, 300);
             this.setState({ activeIndex: i });
         }
     };
