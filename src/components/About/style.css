@@ -228,6 +228,10 @@ section {
 }
 
 .About-link {
+    margin-top: 8px;
+}
+
+.link {
     color: #2799aa;
     cursor: pointer;
 
@@ -241,7 +245,7 @@ section {
         linear-gradient(transparent calc(100% - 1px), #cbcbcb 1px);
 }
 
-.About-link:hover {
+.link:hover {
     background-size: 100% 6px, 100% 6px;
 }
 

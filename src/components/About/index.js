@@ -6,6 +6,10 @@ import AuthButton from '../AuthButton';
 import Wheel from '../Wheel';
 
 import './style.css';
+import appUtils from '../../utils/appUtils.js';
+import constants from '../../constants';
+import urlUtils from '../../utils/urlUtils.js';
+
 import IconBulb from '../../assets/icon-bulb.svg';
 import IconGear from '../../assets/icon-gear.svg';
 import IconQuestion from '../../assets/icon-question.svg';
@@ -48,6 +52,19 @@ class About extends Component {
                 this.forceUpdate();
             }
         });
+    };
+
+    handleSpotifyAuth = e => {
+        e.preventDefault();
+        const { token, history } = this.props;
+        const urlParams = urlUtils.getUrlParams();
+
+        if (!urlParams.access_token && !token) {
+            window.location.href = appUtils.getSpotifyAuthUrl();
+        } else {
+            console.log('Already authenticated!');
+            history.push(constants.CREAT_URI);
+        }
     };
 
     renderTop = () => {
@@ -106,6 +123,14 @@ class About extends Component {
                                 Have you ever noticed the uncomfortable
                                 dissonance when mixing two songs with clashing
                                 pitches?
+                                <div className="About-link">
+                                    <a
+                                        className="link"
+                                        href="https://study.com/academy/lesson/dissonant-definition-music-harmony-chords.html"
+                                    >
+                                        Dissonance?
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div className="About-description-tile">
@@ -123,6 +148,15 @@ class About extends Component {
                                 Alphasetize shows you which songs are
                                 harmonically compatible to keep transitions
                                 silky smooth.
+                                <div className="About-link">
+                                    <a
+                                        className="link"
+                                        href="/create"
+                                        onClick={this.handleSpotifyAuth}
+                                    >
+                                        Link your Spotify account
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div className="About-description-tile">
@@ -139,10 +173,11 @@ class About extends Component {
                             <div className="About-p">
                                 The Camelot wheel is a visual representation of
                                 which keys are compatible with each other.
-                                <br />
-                                <a className="About-link" href="#camelot-wheel">
-                                    Read more below
-                                </a>
+                                <div className="About-link">
+                                    <a className="link" href="#camelot-wheel">
+                                        Read more below
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -180,15 +215,17 @@ class About extends Component {
                                 mixing from 8A to 8B, and notice the change in
                                 melody as you go from Minor to Major.
                             </div>
-                            <br />
-                            <a
-                                className="About-link"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="http://www.harmonic-mixing.com/howto.aspx"
-                            >
-                                Learn more
-                            </a>
+                            <div className="About-link">
+                                <a
+                                    className="link"
+                                    href="#camelot-wheel"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href="http://www.harmonic-mixing.com/howto.aspx"
+                                >
+                                    Learn more
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div className="About-section-right">

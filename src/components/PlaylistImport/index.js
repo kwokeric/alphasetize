@@ -23,10 +23,14 @@ class PlaylistImport extends Component {
     }
 
     handleClick = i => {
-        this.setState({ activeIndex: i });
+        if (this.state.activeIndex === i) {
+            this.handleImport();
+        } else {
+            this.setState({ activeIndex: i });
+        }
     };
 
-    handleImport = (i, shouldDisable) => {
+    handleImport = () => {
         const { dispatch, playlists, onHideModal } = this.props;
         const { activeIndex } = this.state;
         const currPlaylist = playlists[activeIndex];
@@ -41,9 +45,9 @@ class PlaylistImport extends Component {
             return;
         }
 
-        dispatch(PlaylistActions.getAndSetPlaylist(currPlaylist.id)).catch(
-            err => console.log(err)
-        );
+        dispatch(
+            PlaylistActions.getAndSetPlaylist(currPlaylist.id)
+        ).catch(err => console.log(err));
 
         onHideModal();
     };
