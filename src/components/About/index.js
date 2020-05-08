@@ -187,7 +187,7 @@ class About extends Component {
                                 rel="noopener noreferrer"
                                 href="http://www.harmonic-mixing.com/howto.aspx"
                             >
-                                Learn more >
+                                Learn more
                             </a>
                         </div>
                     </div>

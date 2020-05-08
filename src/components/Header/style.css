@@ -1,6 +1,6 @@
 .Header {
     width: 100vw;
-    height: 60px;
+    height: 80px;
     box-sizing: border-box;
     background: white;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px 0px;
@@ -38,13 +38,23 @@
 
 .Header-tab {
     position: relative;
-    padding: 16px;
+    margin: 16px;
+    padding: 8px 2px;
     cursor: pointer;
     color: #808080;
+
+    width: calc(100%);
+    padding-bottom: 6px;
+    transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1);
+    background-size: 0% 6px, 100% 6px;
+    background-repeat: no-repeat;
+    background-position: 0 bottom, 0 bottom;
+    background-image: linear-gradient(transparent calc(100% - 1px), #000000 1px),
+        linear-gradient(transparent calc(100% - 1px), #cbcbcb 1px);
 }
 
 .Header-tab:hover {
-    background: linear-gradient(-45deg, #808080 40%, #8dd4df 60%, #404040 80%);
+    /* background: linear-gradient(-45deg, #808080 40%, #8dd4df 60%, #404040 80%);
     background: -webkit-linear-gradient(
         -45deg,
         #808080 40%,
@@ -62,12 +72,15 @@
 
     animation-name: whoosh;
     animation-duration: 400ms;
-    animation-fill-mode: forwards;
+    animation-fill-mode: forwards; */
+
+    background-size: 100% 6px, 100% 6px;
 }
 
 .Header-tab-active {
     position: relative;
-    padding: 16px;
+    margin: 16px;
+    padding: 8px 2px;
     cursor: default;
 }
 
