@@ -92,12 +92,16 @@ class About extends Component {
                 <div className="About-section">
                     <div className="About-description">
                         <div className="About-description-tile">
-                            <img
-                                className="About-icon"
-                                src={IconQuestion}
-                                alt="icon-question"
-                            />
-                            <div className="About-subheader">The Problem</div>
+                            <div className="About-description-top">
+                                <img
+                                    className="About-icon"
+                                    src={IconQuestion}
+                                    alt="icon-question"
+                                />
+                                <div className="About-subheader">
+                                    The Problem
+                                </div>
+                            </div>
                             <div className="About-p">
                                 Have you ever noticed the uncomfortable
                                 dissonance when mixing two songs with clashing
@@ -105,12 +109,16 @@ class About extends Component {
                             </div>
                         </div>
                         <div className="About-description-tile">
-                            <img
-                                className="About-icon"
-                                src={IconBulb}
-                                alt="icon-bulb"
-                            />
-                            <div className="About-subheader">The Solution</div>
+                            <div className="About-description-top">
+                                <img
+                                    className="About-icon"
+                                    src={IconBulb}
+                                    alt="icon-bulb"
+                                />
+                                <div className="About-subheader">
+                                    The Solution
+                                </div>
+                            </div>
                             <div className="About-p">
                                 Alphasetize shows you which songs are
                                 harmonically compatible to keep transitions
@@ -118,18 +126,22 @@ class About extends Component {
                             </div>
                         </div>
                         <div className="About-description-tile">
-                            <img
-                                className="About-icon"
-                                src={IconGear}
-                                alt="icon-gear"
-                            />
-                            <div className="About-subheader">How it works</div>
+                            <div className="About-description-top">
+                                <img
+                                    className="About-icon"
+                                    src={IconGear}
+                                    alt="icon-gear"
+                                />
+                                <div className="About-subheader">
+                                    How it works
+                                </div>
+                            </div>
                             <div className="About-p">
                                 The Camelot wheel is a visual representation of
-                                which keys are compatible with each other. Read
-                                more{' '}
+                                which keys are compatible with each other.
+                                <br />
                                 <a className="About-link" href="#camelot-wheel">
-                                    below
+                                    Read more below
                                 </a>
                             </div>
                         </div>

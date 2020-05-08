@@ -42,6 +42,7 @@ section {
     width: 100%;
     flex-direction: column;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 @media (min-width: 767px) {
@@ -147,6 +148,7 @@ section {
     font-weight: bold;
     font-size: 28px;
     line-height: 26px;
+    color: #2b707c;
 }
 
 @media (min-width: 767px) {
@@ -196,6 +198,7 @@ section {
 .About-description-tile {
     padding: 8px;
     cursor: default;
+    margin-top: 16px;
 }
 
 @media (min-width: 767px) {
@@ -206,28 +209,41 @@ section {
         box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px 0px;
         box-sizing: border-box;
         border-radius: 10px;
+        margin: 0;
     }
+}
+
+.About-description-top {
+    display: flex;
 }
 
 .About-icon {
     width: 32px;
     height: 32px;
-    float: left;
     padding-right: 18px;
 }
 
 .About-p {
-    float: left;
     margin-top: 20px;
 }
 
 .About-link {
     color: #2799aa;
     cursor: pointer;
+
+    width: calc(100%);
+    padding-bottom: 6px;
+    transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1);
+    background-size: 0% 6px, 100% 6px;
+    background-repeat: no-repeat;
+    background-position: 0 bottom, 0 bottom;
+    background-image: linear-gradient(transparent calc(100% - 1px), #000000 1px),
+        linear-gradient(transparent calc(100% - 1px), #cbcbcb 1px);
 }
 
 .About-link:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    background-size: 100% 6px, 100% 6px;
 }
 
 /* HOW TO */
@@ -249,7 +265,6 @@ section {
     font-size: 22px;
     font-weight: bold;
     line-height: 32px;
-    float: left;
 }
 
 .About-subsection {
@@ -258,6 +273,7 @@ section {
 
 .About-section-left {
     flex: 1;
+    padding-right: 48px;
 }
 
 .About-section-right {
