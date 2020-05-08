@@ -47,7 +47,7 @@
 }
 
 .PlaylistImport-playlist-active {
-    background: #d4eff3;
+    background: #c1e7ec;
 }
 
 .PlaylistImport-playlist-length {
@@ -58,12 +58,17 @@
     background: #ebf5f7;
 }
 
+.PlaylistImport-playlist-active:hover {
+    background: #d4eff3;
+}
+
 .PlaylistImport-bottom {
     padding-top: 12px;
 }
 
 .PlaylistImport-error-container {
     height: 16px;
+    padding-bottom: 8px;
 }
 
 .PlaylistImport-error {
