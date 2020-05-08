@@ -16,7 +16,7 @@
 
 @media (min-width: 767px) {
     .Contact-content {
-        padding: 0 80px;
+        padding: 0 24px;
         align-items: center;
     }
 }
@@ -31,7 +31,7 @@
 
 @media (min-width: 767px) {
     .Contact-top {
-        padding: 64px;
+        padding: 64px 0;
         justify-content: space-between;
         box-sizing: border-box;
     }
@@ -60,6 +60,7 @@
     font-weight: bold;
     padding: 64px 0 48px;
     letter-spacing: 0.5px;
+    color: #2b707c;
 }
 
 @media (min-width: 767px) {
@@ -76,7 +77,7 @@
 
 @media (min-width: 767px) {
     .Contact-header-2 {
-        font-size: 16px;
+        font-size: 22px;
     }
 }
 
@@ -95,7 +96,7 @@
 @media (min-width: 767px) {
     .Contact-section {
         max-width: none;
-        padding: 0 64px;
+        padding: 0;
         justify-content: space-between;
         box-sizing: border-box;
     }
@@ -116,27 +117,26 @@
 }
 
 .Contact-description-tile {
-    padding: 8px 0;
+    padding: 8px;
     cursor: default;
+    margin-top: 16px;
 }
 
 @media (min-width: 767px) {
     .Contact-description-tile {
-        padding: 0;
-        padding-right: 32px;
-    }
-    .Contact-description-tile:last-of-type {
-        padding-right: 0;
+        width: calc(33% - 18px);
+        min-height: 240px;
+        padding: 40px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px 0px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        margin: 0;
     }
 }
 
-.Contact-link {
-    color: #2799aa;
-    cursor: pointer;
-}
-
-.Contact-link:hover {
-    text-decoration: underline;
+.Contact-description-top {
+    display: flex;
+    margin-bottom: 16px;
 }
 
 .Contact-icon {
@@ -148,4 +148,10 @@
     font-size: 18px;
     font-weight: bold;
     line-height: 32px;
+    padding-left: 16px;
+}
+
+.Contact-link {
+    color: #2799aa;
+    cursor: pointer;
 }
