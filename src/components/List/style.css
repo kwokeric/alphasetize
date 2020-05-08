@@ -68,7 +68,7 @@
 @media (min-width: 767px) {
     .List-item-header {
         position: fixed;
-        top: 146px;
+        top: 166px;
         background: #fafafa;
     }
 }
