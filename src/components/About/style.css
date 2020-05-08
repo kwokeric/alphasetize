@@ -266,7 +266,8 @@ section {
 
 @media (min-width: 767px) {
     .About-section-right {
-        min-width: 40%;
+        width: 500px;
+        height: 500px;
     }
 }
 

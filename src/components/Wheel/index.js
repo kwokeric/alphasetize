@@ -83,30 +83,62 @@ class Wheel extends Component {
             transform: `rotate(${rotation - (ring === 'B' ? 45 : 75)}deg)`
         };
 
+        const wheelDiameter =
+            this.imageRef.current && this.imageRef.current.width;
+        const eyeDiameter = wheelDiameter * (95 / 300);
+
+        const innerWheelDiameter = wheelDiameter * (210 / 300);
+        const innerStrokeWidth = wheelDiameter * (60 / 300);
+        const innerDashArrayA = wheelDiameter * (353 / 300);
+        const innerDashArrayB = wheelDiameter * (432 / 300);
+
+        const outerWheelDiameter = wheelDiameter;
+        const outerStrokeWidth = (wheelDiameter - innerWheelDiameter) / 2;
+        const outerDashArrayA = wheelDiameter * (599 / 300);
+        const outerDashArrayB = wheelDiameter * (733 / 300);
+
         return (
             <Fragment>
                 <div className="Wheel-cover" style={innerStyle}>
-                    <svg className="Wheel-svg-inner" height="210" width="210">
+                    <svg
+                        className="Wheel-svg-inner"
+                        height={innerWheelDiameter}
+                        width={innerWheelDiameter}
+                    >
                         <circle
-                            cx="105"
-                            cy="105"
-                            r="75"
+                            cx={innerWheelDiameter / 2}
+                            cy={innerWheelDiameter / 2}
+                            r={
+                                (innerWheelDiameter / 2 + eyeDiameter / 2) / 2 -
+                                2
+                            }
                             opacity="0.8"
-                            strokeWidth="60.5"
-                            strokeDasharray={ring === 'A' ? '353' : '431'}
+                            strokeWidth={innerStrokeWidth}
+                            strokeDasharray={
+                                ring === 'A' ? innerDashArrayA : innerDashArrayB
+                            }
                         />
                     </svg>
                 </div>
                 <div className="Wheel-cover" style={outerStyle}>
-                    <svg className="Wheel-image-outer" height="300" width="300">
+                    <svg
+                        className="Wheel-image-outer"
+                        height={outerWheelDiameter}
+                        width={outerWheelDiameter}
+                    >
                         <circle
-                            className="Wheel-svg-outer"
-                            cx="150"
-                            cy="150"
-                            r="127"
+                            cx={outerWheelDiameter / 2}
+                            cy={outerWheelDiameter / 2}
+                            r={
+                                (outerWheelDiameter / 2 +
+                                    innerWheelDiameter / 2) /
+                                2
+                            }
                             opacity="0.8"
-                            strokeWidth="44"
-                            strokeDasharray={ring === 'B' ? '598' : '731'}
+                            strokeWidth={outerStrokeWidth}
+                            strokeDasharray={
+                                ring === 'B' ? outerDashArrayA : outerDashArrayB
+                            }
                         />
                     </svg>
                 </div>

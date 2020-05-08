@@ -88,8 +88,8 @@ const controller = {
         }
     },
     getRingPosition({ mouse, img }) {
-        const EYE_RADIUS = 50;
-        const INNER_RADIUS = 105;
+        const EYE_RADIUS = img.width / 6.1;
+        const INNER_RADIUS = img.width / 2.86;
 
         if (controller.isInsideCircle({ mouse, img, radius: EYE_RADIUS })) {
             return false;

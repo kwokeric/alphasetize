@@ -1,10 +1,10 @@
 .Wheel-image-container {
     position: relative;
-    width: 300px;
+    width: 100%;
+    height: 100%;
     min-width: 300px;
-    height: 300px;
+    min-height: 300px;
     padding: 0;
-    padding-bottom: 24px;
 }
 
 @media (min-width: 767px) {
@@ -23,30 +23,12 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     /* transition: 0.1s ease-in-out; */
-}
-
-.Wheel-cover-center:after {
-    content: '';
-    position: absolute;
-    background: none repeat scroll 0 0 transparent;
-    display: block;
-    height: 2px;
-    bottom: 30px;
-    left: 50%;
-    background: #2eb0c4;
-    transition: width 0.15s ease 0s, left 0.15s ease 0s;
-    width: 0;
-}
-
-.Wheel-cover-center:hover:after {
-    width: 90%;
-    left: 5%;
 }
 
 circle {
