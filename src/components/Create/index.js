@@ -149,8 +149,8 @@ class Create extends Component {
         return (
             <div className="Create-authorize">
                 <div className="Create-authorize-text">
-                    Please log into your Spofity account and authorize
-                    Alphasetize to create your set!
+                    Log into your Spofity account and authorize Alphasetize to
+                    create your set!
                 </div>
                 <AuthButton />
             </div>
