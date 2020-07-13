@@ -2,7 +2,7 @@ body.lock-vertical-scroll {
     -webkit-overflow-scrolling: auto;
     overflow-y: hidden;
     position: fixed;
-    width: 100vw;
+    width: 100%;
 }
 
 .blur {
@@ -16,7 +16,7 @@ html {
 
 .AppTemplate {
     background: #fafafa;
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

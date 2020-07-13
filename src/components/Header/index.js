@@ -35,10 +35,7 @@ class Header extends Component {
         const { pathname } = this.props;
 
         if (pathname !== prevProps.pathname) {
-            console.log('>>>>> updated pathname');
             const activeTab = this.getActiveTab();
-
-            console.log('activeTab.offsetWidth', activeTab.offsetWidth);
 
             this.setState({
                 underlineWidth: activeTab.offsetWidth,
