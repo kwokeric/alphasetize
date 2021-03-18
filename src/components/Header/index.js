@@ -27,12 +27,7 @@ class Header extends Component {
         setTimeout(() => {
             this.setState({
                 underlineWidth: activeTab.offsetWidth,
-                underlinePosX: activeTab.offsetLeft
-            });
-        }, 100);
-        
-        setTimeout(() => {
-            this.setState({
+                underlinePosX: activeTab.offsetLeft,
                 showLine: true
             });
         }, 500);
