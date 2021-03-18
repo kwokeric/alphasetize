@@ -58,14 +58,23 @@
     bottom: 8px;
     height: 3px;
     background-color: black;
-    transition: all 700ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: width 700ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: left 700ms cubic-bezier(0.23, 1, 0.32, 1);
+    display: none;
 }
 
-@keyframes whoosh {
-    0% {
-        background-position-x: 0;
-    }
-    100% {
-        background-position-x: 100%;
-    }
+.Header-underline-show {
+    display: block;
+    animation: fadeInAnimation ease 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
+
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+    } 
+} 

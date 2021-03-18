@@ -11,7 +11,8 @@ class Header extends Component {
         this.state = {
             activeTab: this.props.pathname.split('/').join(''),
             underlinePosX: 0,
-            underlineWidth: 200
+            underlineWidth: 0,
+            showLine: false
         };
 
         this.aboutRef = React.createRef();
@@ -28,7 +29,13 @@ class Header extends Component {
                 underlineWidth: activeTab.offsetWidth,
                 underlinePosX: activeTab.offsetLeft
             });
-        }, 10);
+        }, 100);
+        
+        setTimeout(() => {
+            this.setState({
+                showLine: true
+            });
+        }, 500);
     }
 
     componentDidUpdate(prevProps) {
@@ -85,7 +92,7 @@ class Header extends Component {
 
     render() {
         const { pathname } = this.props;
-        const { underlineColor, underlineWidth, underlinePosX } = this.state;
+        const { underlineColor, underlineWidth, underlinePosX, showLine } = this.state;
 
         const underlineStyles = {
             backgroundColor: underlineColor,
@@ -99,7 +106,9 @@ class Header extends Component {
                     <div className="Header-logo">Alphasetize</div>
                     <div className="Header-tabs">
                         <div
-                            className="Header-underline"
+                            className={cx('Header-underline', {
+                                'Header-underline-show': showLine
+                            })}
                             style={underlineStyles}
                         />
                         <div

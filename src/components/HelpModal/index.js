@@ -8,7 +8,7 @@ const HelpModal = ({ onHideModal }) => {
         <div className="HelpModal">
             <h1 className="HelpModal-header">HOW THIS WORKS</h1>
             <div className="HelpModal-subheader">
-                This <span className="HelpModal-tab">Create</span> window is for
+                This <span className="HelpModal-tab">Create</span> page is for
                 organizing your set.
             </div>
             <ul className="HelpModal-details">
