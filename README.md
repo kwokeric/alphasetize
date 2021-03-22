@@ -1,4 +1,4 @@
-# [Alphasetize](https://alphasetize.com/)
+# [Alphasetize](https://kwokeric.github.io/alphasetize/)
 
 **Alphastize** is a front end web application that uses the Spotify API and user's personal Spotify accounts to help users order songs in your sets/playlists based on key compatibility.
 
